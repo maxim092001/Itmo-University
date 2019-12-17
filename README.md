@@ -3,8 +3,9 @@
 
 #### Домашнее задание 2. Сумма чисел
 
-Реализация: *[sumDouble](https://github.com/maxim092001/Itmo-University/tree/master/prog-intro-homework/sumDouble)
+*Реализация*: [sumDouble](https://github.com/maxim092001/Itmo-University/tree/master/prog-intro-homework/sumDouble)
 
+Модификация:
 * *Double*
     * Входные данные являются 64-битными числами с формате с плавающей точкой
     * Класс должен иметь имя `SumDouble`
@@ -13,10 +14,13 @@
 
 #### Домашнее задание 3. Быстрый Scanner + Реверс.
 
-* [myScanner](https://github.com/maxim092001/Itmo-University/tree/master/prog-intro-homework/myScanner)
-Свой более быстрый сканнер
+*Реализация*: [myScanner](https://github.com/maxim092001/Itmo-University/tree/master/prog-intro-homework/myScanner)
 
-* [reverseMin](https://github.com/maxim092001/Itmo-University/tree/master/prog-intro-homework/reverseMin)
+Свой собственный Scanner.
+
+*Реализация*: [reverseMin](https://github.com/maxim092001/Itmo-University/tree/master/prog-intro-homework/reverseMin)
+
+Модификация:
 * *Min*
     * Рассмотрим входные данные как (не полностью определенную) матрицу,
       вместо каждого числа выведите минимум из чисел в его столбце и строке
@@ -26,7 +30,9 @@
 
 #### Домашнее задание 4. Подсчет слов++
 
-* [wordStatLastIndex](https://github.com/maxim092001/Itmo-University/tree/master/prog-intro-homework/wordStatLastIndex)
+*Реализация*: [wordStatLastIndex](https://github.com/maxim092001/Itmo-University/tree/master/prog-intro-homework/wordStatLastIndex)
+
+Модификация:
 * *LastIndex*
     * Вместо номеров вхождений во всем файле надо указывать
       только последнее вхождение в каждой строке
@@ -36,8 +42,11 @@
     
 #### Домашнее задание 5. Разметка
 
-* [markup](https://github.com/maxim092001/Itmo-University/tree/master/prog-intro-homework/markup)
- * *Tex списки*
+*Реализация*: [markup](https://github.com/maxim092001/Itmo-University/tree/master/prog-intro-homework/markup)
+
+Модификация:
+
+* *Tex списки*
     * Добавьте поддержку:
       * Нумерованных списков (класс `OrderedList`, окружение `enumerate`): последовательность элементов
       * Ненумерованных списков (класс `UnorderedList`, окружение `itemize`): последовательность элементов
@@ -47,8 +56,10 @@
 
 #### Домашнее задание 6. Markdown to HTML
 
-* [md2html](https://github.com/maxim092001/Itmo-University/tree/master/prog-intro-homework/md2html)
-Модификации (реализованы все)
+*Реализация*:  [md2html](https://github.com/maxim092001/Itmo-University/tree/master/prog-intro-homework/md2html)
+
+Модификации (реализованы все):
+
  * *Underline*
     * Добавьте поддержку `++подчеркивания++`: `<u>подчеркивания</u>`
     * [Исходный код тестов](java/md2html/Md2HtmlUnderlineTest.java)
@@ -71,16 +82,19 @@
 
 #### Домашнее задание 10. Игра n,m,k
 
-* [mnkGame](https://github.com/maxim092001/Itmo-University/tree/master/prog-intro-homework/markup)
-Модификация
+*Реализация*: [mnkGame](https://github.com/maxim092001/Itmo-University/tree/master/prog-intro-homework/markup)
+
+Модификация:
  * *Матчи*
     * Добавьте поддержку матчей: последовательность игр указанного числа побед
     * Стороны в матче должны меняться каждую игру
 
 #### Домашнее задание 11. Выражения
 
-* [expression](https://github.com/maxim092001/Itmo-University/tree/master/prog-intro-homework/expression)
-Модификация
+*Реализация*: [expression](https://github.com/maxim092001/Itmo-University/tree/master/prog-intro-homework/expression)
+
+Модификация:
+
  * *Triple*
     * Дополнительно реализуйте интерфейс [TripleExpression](java/expression/TripleExpression.java)
     * [Исходный код тестов](java/expression/TripleExpressionTest.java)
