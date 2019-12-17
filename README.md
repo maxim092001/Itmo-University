@@ -12,11 +12,11 @@
     * [Исходный код тестов](https://github.com/maxim092001/Itmo-University/blob/master/prog-intro-homework/sumDouble/SumDoubleTest.java)
     * [Откомпилированные тесты](https://github.com/maxim092001/Itmo-University/blob/master/prog-intro-homework/sumDouble/SumDoubleTest.jar?raw=true)
 
-### Домашнее задание 3. Быстрый Scanner + Реверс.
+### Домашнее задание 3. Быстрый Scanner + Реверс
 
 #### Реализация: [myScanner](https://github.com/maxim092001/Itmo-University/tree/master/prog-intro-homework/myScanner)
 
-Свой собственный Scanner.
+*Свой собственный Scanner.*
 
 #### Реализация: [reverseMin](https://github.com/maxim092001/Itmo-University/tree/master/prog-intro-homework/reverseMin)
 
@@ -94,6 +94,11 @@
 #### Реализация: [expression](https://github.com/maxim092001/Itmo-University/tree/master/prog-intro-homework/expression)
 
 Модификация:
+
+* *Базовая*
+    * Реализуйте интерфейс [Expression](https://github.com/maxim092001/Itmo-University/blob/master/prog-intro-homework/expression/Expression.java)
+    * [Исходный код тестов](https://github.com/maxim092001/Itmo-University/blob/master/prog-intro-homework/expression/ExpressionTest.java)
+        * Запускать c аргументом `easy` или `hard`
 
  * *Triple*
     * Дополнительно реализуйте интерфейс [TripleExpression](https://github.com/maxim092001/Itmo-University/blob/master/prog-intro-homework/expression/TripleExpression.java)
