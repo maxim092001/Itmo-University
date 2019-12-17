@@ -9,8 +9,8 @@
 * *Double*
     * Входные данные являются 64-битными числами с формате с плавающей точкой
     * Класс должен иметь имя `SumDouble`
-    * [Исходный код тестов](java/sum/SumDoubleTest.java)
-    * [Откомпилированные тесты](https://github.com/maxim092001/Itmo-University/blob/master/prog-intro-homework/sumDouble/SumDoubleTest.jar)
+    * [Исходный код тестов](https://github.com/maxim092001/Itmo-University/blob/master/prog-intro-homework/sumDouble/SumDoubleTest.java)
+    * [Откомпилированные тесты](https://github.com/maxim092001/Itmo-University/blob/master/prog-intro-homework/sumDouble/SumDoubleTest.jar?raw=true)
 
 #### Домашнее задание 3. Быстрый Scanner + Реверс.
 
@@ -25,8 +25,8 @@
     * Рассмотрим входные данные как (не полностью определенную) матрицу,
       вместо каждого числа выведите минимум из чисел в его столбце и строке
     * Класс должен иметь имя `ReverseMin`
-    * [Исходный код тестов](java/reverse/FastReverseMinTest.java)
-    * [Откомпилированные тесты](artifacts/reverse/FastReverseMinTest.jar)
+    * [Исходный код тестов](https://github.com/maxim092001/Itmo-University/blob/master/prog-intro-homework/reverseMin/FastReverseMinTest.java)
+    * [Откомпилированные тесты](https://github.com/maxim092001/Itmo-University/blob/master/prog-intro-homework/reverseMin/FastReverseMinTest.jar?raw=true)
 
 #### Домашнее задание 4. Подсчет слов++
 
@@ -37,8 +37,8 @@
     * Вместо номеров вхождений во всем файле надо указывать
       только последнее вхождение в каждой строке
     * Класс должен иметь имя `WordStatLastIndex`
-    * [Исходный код тестов](java/wordStat/WordStatLastIndexTest.java)
-    * [Откомпилированные тесты](artifacts/wordStat/WordStatLastIndexTest.jar)
+    * [Исходный код тестов](https://github.com/maxim092001/Itmo-University/blob/master/prog-intro-homework/wordStatLastIndex/WordStatLastIndexTest.java)
+    * [Откомпилированные тесты](https://github.com/maxim092001/Itmo-University/blob/master/prog-intro-homework/wordStatLastIndex/WordStatLastIndexTest.jar?raw=true)
     
 #### Домашнее задание 5. Разметка
 
@@ -52,7 +52,7 @@
       * Ненумерованных списков (класс `UnorderedList`, окружение `itemize`): последовательность элементов
       * Элементов списка (класс `ListItem`, тег `\item`: последовательность абзацев и списков
     * Для новых классов поддержка Markdown не требуется
-    * [Исходный код тестов](java/markup/TexListTest.java)
+    * [Исходный код тестов](https://github.com/maxim092001/Itmo-University/blob/master/prog-intro-homework/markup/TexListTest.java)
 
 #### Домашнее задание 6. Markdown to HTML
 
@@ -62,23 +62,23 @@
 
  * *Underline*
     * Добавьте поддержку `++подчеркивания++`: `<u>подчеркивания</u>`
-    * [Исходный код тестов](java/md2html/Md2HtmlUnderlineTest.java)
-    * [Откомпилированные тесты](artifacts/md2html/Md2HtmlUnderlineTest.jar)
+    * [Исходный код тестов](https://github.com/maxim092001/Itmo-University/blob/master/prog-intro-homework/md2html/tests/Md2HtmlUnderlineTest.java)
+    * [Откомпилированные тесты](https://github.com/maxim092001/Itmo-University/blob/master/prog-intro-homework/md2html/tests/Md2HtmlUnderlineTest.jar?raw=true)
 
  * *Link*
     * Добавьте поддержку ```[ссылок с _выделением_](https://kgeorgiy.info)```:
         ```&lt;a href='https://kgeorgiy.info'>ссылок с &lt;em>выделением&lt;/em>&lt;/a>```
-    * [Исходный код тестов](java/md2html/Md2HtmlLinkTest.java)
-    * [Откомпилированные тесты](artifacts/md2html/Md2HtmlLinkTest.jar)
+    * [Исходный код тестов](https://github.com/maxim092001/Itmo-University/blob/master/prog-intro-homework/md2html/tests/Md2HtmlLinkTest.java)
+    * [Откомпилированные тесты](https://github.com/maxim092001/Itmo-University/blob/master/prog-intro-homework/md2html/tests/Md2HtmlLinkTest.jar?raw=true)
  * *Mark*
     * Добавьте поддержку `~выделения цветом~`: `<mark>выделения цветом</mark>`
-    * [Исходный код тестов](java/md2html/Md2HtmlMarkTest.java)
-    * [Откомпилированные тесты](artifacts/md2html/Md2HtmlMarkTest.jar)
+    * [Исходный код тестов](https://github.com/maxim092001/Itmo-University/blob/master/prog-intro-homework/md2html/tests/Md2HtmlMarkTest.java)
+    * [Откомпилированные тесты](https://github.com/maxim092001/Itmo-University/blob/master/prog-intro-homework/md2html/tests/Md2HtmlMarkTest.jar?raw=true)
  * *Image*
     * Добавьте поддержку ```![картинок](http://www.ifmo.ru/images/menu/small/p10.jpg)```:
         ```&lt;img alt='картинок' src='http://www.ifmo.ru/images/menu/small/p10.jpg'&gt;```
-    * [Исходный код тестов](java/md2html/Md2HtmlImageTest.java)
-    * [Откомпилированные тесты](artifacts/md2html/Md2HtmlImageTest.jar)
+    * [Исходный код тестов](https://github.com/maxim092001/Itmo-University/blob/master/prog-intro-homework/md2html/tests/Md2HtmlImageTest.java)
+    * [Откомпилированные тесты](https://github.com/maxim092001/Itmo-University/blob/master/prog-intro-homework/md2html/tests/Md2HtmlImageTest.jar?raw=true)
 
 #### Домашнее задание 10. Игра n,m,k
 
@@ -96,5 +96,5 @@
 Модификация:
 
  * *Triple*
-    * Дополнительно реализуйте интерфейс [TripleExpression](java/expression/TripleExpression.java)
-    * [Исходный код тестов](java/expression/TripleExpressionTest.java)
+    * Дополнительно реализуйте интерфейс [TripleExpression](https://github.com/maxim092001/Itmo-University/blob/master/prog-intro-homework/expression/TripleExpression.java)
+    * [Исходный код тестов](https://github.com/maxim092001/Itmo-University/blob/master/prog-intro-homework/expression/TripleExpressionTest.java)
