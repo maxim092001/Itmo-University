@@ -1,7 +1,8 @@
 ## [Введение в программирование](https://github.com/maxim092001/Itmo-University/tree/master/prog-intro-homework)
 [**Условия домашних заданий**](http://www.kgeorgiy.info/courses/prog-intro/homeworks.html)
 
-### Домашнее задание 2. Сумма чисел
+Домашнее задание 2. Сумма чисел
+----
 
 #### Реализация: [sumDouble](https://github.com/maxim092001/Itmo-University/tree/master/prog-intro-homework/sumDouble)
 
@@ -12,7 +13,8 @@
     * [Исходный код тестов](https://github.com/maxim092001/Itmo-University/blob/master/prog-intro-homework/sumDouble/SumDoubleTest.java)
     * [Откомпилированные тесты](https://github.com/maxim092001/Itmo-University/blob/master/prog-intro-homework/sumDouble/SumDoubleTest.jar?raw=true)
 
-### Домашнее задание 3. Быстрый Scanner + Реверс
+Домашнее задание 3. Быстрый Scanner + Реверс
+----
 
 #### Реализация: [myScanner](https://github.com/maxim092001/Itmo-University/tree/master/prog-intro-homework/myScanner)
 
@@ -28,7 +30,8 @@
     * [Исходный код тестов](https://github.com/maxim092001/Itmo-University/blob/master/prog-intro-homework/reverseMin/FastReverseMinTest.java)
     * [Откомпилированные тесты](https://github.com/maxim092001/Itmo-University/blob/master/prog-intro-homework/reverseMin/FastReverseMinTest.jar?raw=true)
 
-### Домашнее задание 4. Подсчет слов++
+Домашнее задание 4. Подсчет слов++
+----
 
 #### Реализация: [wordStatLastIndex](https://github.com/maxim092001/Itmo-University/tree/master/prog-intro-homework/wordStatLastIndex)
 
@@ -40,7 +43,8 @@
     * [Исходный код тестов](https://github.com/maxim092001/Itmo-University/blob/master/prog-intro-homework/wordStatLastIndex/WordStatLastIndexTest.java)
     * [Откомпилированные тесты](https://github.com/maxim092001/Itmo-University/blob/master/prog-intro-homework/wordStatLastIndex/WordStatLastIndexTest.jar?raw=true)
     
-### Домашнее задание 5. Разметка
+Домашнее задание 5. Разметка
+----
 
 #### Реализация: [markup](https://github.com/maxim092001/Itmo-University/tree/master/prog-intro-homework/markup)
 
@@ -54,7 +58,8 @@
     * Для новых классов поддержка Markdown не требуется
     * [Исходный код тестов](https://github.com/maxim092001/Itmo-University/blob/master/prog-intro-homework/markup/TexListTest.java)
 
-### Домашнее задание 6. Markdown to HTML
+Домашнее задание 6. Markdown to HTML
+----
 
 #### Реализация: [md2html](https://github.com/maxim092001/Itmo-University/tree/master/prog-intro-homework/md2html)
 
@@ -80,7 +85,8 @@
     * [Исходный код тестов](https://github.com/maxim092001/Itmo-University/blob/master/prog-intro-homework/md2html/tests/Md2HtmlImageTest.java)
     * [Откомпилированные тесты](https://github.com/maxim092001/Itmo-University/blob/master/prog-intro-homework/md2html/tests/Md2HtmlImageTest.jar?raw=true)
 
-### Домашнее задание 10. Игра n,m,k
+Домашнее задание 10. Игра n,m,k
+----
 
 #### Реализация: [mnkGame](https://github.com/maxim092001/Itmo-University/tree/master/prog-intro-homework/markup)
 
@@ -89,7 +95,8 @@
     * Добавьте поддержку матчей: последовательность игр указанного числа побед
     * Стороны в матче должны меняться каждую игру
 
-### Домашнее задание 11. Выражения
+Домашнее задание 11. Выражения
+----
 
 #### Реализация: [expression](https://github.com/maxim092001/Itmo-University/tree/master/prog-intro-homework/expression)
 
