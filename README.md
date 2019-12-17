@@ -14,7 +14,7 @@
 
 ### Домашнее задание 3. Быстрый Scanner + Реверс.
 
-####Реализация: [myScanner](https://github.com/maxim092001/Itmo-University/tree/master/prog-intro-homework/myScanner)
+#### Реализация: [myScanner](https://github.com/maxim092001/Itmo-University/tree/master/prog-intro-homework/myScanner)
 
 Свой собственный Scanner.
 
