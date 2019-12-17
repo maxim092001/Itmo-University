@@ -1,7 +1,5 @@
 ## [Введение в программирование](https://github.com/maxim092001/Itmo-University/tree/master/prog-intro-homework)
-
-Домашки:
-
+## [Условия домашних заданий](http://www.kgeorgiy.info/courses/prog-intro/homeworks.html)
 
 ## Домашнее задание 2. Сумма чисел
 ----
