@@ -10,7 +10,7 @@
     * Входные данные являются 64-битными числами с формате с плавающей точкой
     * Класс должен иметь имя `SumDouble`
     * [Исходный код тестов](java/sum/SumDoubleTest.java)
-    * [Откомпилированные тесты](blob/master/prog-intro-homework/sumDouble/SumDoubleTest.jar)
+    * [Откомпилированные тесты](https://github.com/maxim092001/Itmo-University/blob/master/prog-intro-homework/sumDouble/SumDoubleTest.jar)
 
 #### Домашнее задание 3. Быстрый Scanner + Реверс.
 
