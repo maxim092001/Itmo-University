@@ -85,7 +85,7 @@
     * [Исходный код тестов](https://github.com/maxim092001/Itmo-University/blob/master/prog-intro-homework/md2html/tests/Md2HtmlImageTest.java)
     * [Откомпилированные тесты](https://github.com/maxim092001/Itmo-University/blob/master/prog-intro-homework/md2html/tests/Md2HtmlImageTest.jar?raw=true)
 
-Домашнее задание 10. Игра n,m,k
+Домашнее задание 7. Игра n,m,k
 ----
 
 #### Реализация: [MnkGame](https://github.com/maxim092001/Itmo-University/tree/master/prog-intro-homework/markup)
@@ -95,7 +95,7 @@
     * Добавьте поддержку матчей: последовательность игр указанного числа побед
     * Стороны в матче должны меняться каждую игру
 
-Домашнее задание 11. Выражения
+Домашнее задание 8. Выражения
 ----
 
 #### Реализация: [Expression](https://github.com/maxim092001/Itmo-University/tree/master/prog-intro-homework/expression)
