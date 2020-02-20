@@ -110,3 +110,22 @@
  * *Triple*
     * Дополнительно реализуйте интерфейс [TripleExpression](https://github.com/maxim092001/Itmo-University/blob/master/prog-intro-homework/expression/TripleExpression.java)
     * [Исходный код тестов](https://github.com/maxim092001/Itmo-University/blob/master/prog-intro-homework/expression/TripleExpressionTest.java)
+
+Домашнее задание 9. Обработка ошибок
+----
+
+Модификации
+ * *Базовая*
+    * Класс `ExpressionParser` должен реализовывать интерфейс
+        [Parser](https://github.com/maxim092001/Itmo-University/blob/master/prog-intro-homework/parsing_expression/src/expression/parser/Parser.java)
+    * Классы `CheckedAdd`, `CheckedSubtract`, `CheckedMultiply`,
+        `CheckedDivide` и `CheckedNegate` должны реализовывать интерфейс
+        [TripleExpression](https://github.com/maxim092001/Itmo-University/blob/master/prog-intro-homework/parsing_expression/src/expression/Parser.java)
+    * Нельзя использовать типы `long` и `double`
+    * Нельзя использовать методы классов `Math` и `StrictMath`
+    * [Исходный код тестов](https://github.com/maxim092001/Itmo-University/blob/master/prog-intro-homework/parsing_expression/src/test/ExceptionsTest.java)
+ * *PowLog*
+    * Дополнительно реализуйте бинарные операции (максимальный приоритет):
+        * `**` – возведение в степень, `2 ** 3` равно 8;
+        * `//` – логарифм, `10 // 2` равно 3.
+    * [Исходный код тестов](https://github.com/maxim092001/Itmo-University/blob/master/prog-intro-homework/parsing_expression/src/test/ExceptionsPowLogTest.java)
