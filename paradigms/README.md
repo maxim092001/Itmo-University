@@ -22,7 +22,10 @@
         * `//` – логарифм, `10 // 2` равно 3.
     * [Исходный код тестов](https://github.com/maxim092001/Itmo-University/blob/master/paradigms/parsing_expression/test/ExceptionsPowLogTest.java)
 
-## Домашнее задание 2. Бинарный поиск
+Домашнее задание 2. Бинарный поиск
+----
+
+#### Реализация: [BinarySearchWithContracts](https://github.com/maxim092001/Itmo-University/tree/master/paradigms/binary-search-contract)
 
 Модификации
  * *Базовая*
