@@ -1,1 +1,7 @@
-<img src="problem.pdf" alt="some text"  width="4200" height="4200">
+\documentclass{article}
+\usepackage{pdfpages}
+\begin{document}
+
+\includepdf[pages={1-},scale=0.75]{problem.pdf}
+
+\end{document}
