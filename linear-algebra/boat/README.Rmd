@@ -2,5 +2,5 @@
 output: rmarkdown::github_document
 ---
 
-{r label, out.width = "85%", fig.cap = "caption"}
-include_graphics("problem.pdf")
+<img src="problem.pdf" alt="some text"  width="4200" height="4200">
+
