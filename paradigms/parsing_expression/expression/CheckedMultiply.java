@@ -9,19 +9,19 @@ public class CheckedMultiply extends AbstractBinaryOperation {
     }
 
 
-    public static boolean isOverflow(int x, int y) {
+    public static int checkOverflow(int x, int y) {
         int maximum = Integer.signum(x) == Integer.signum(y) ? Integer.MAX_VALUE : Integer.MIN_VALUE;
 
-        return (x == -1 && y == Integer.MIN_VALUE)
+        if ((x == -1 && y == Integer.MIN_VALUE)
                 || (x != -1 && x != 0 && ((y > 0 && y > maximum / x)
-                || (y < 0 && y < maximum / x )));
+                || (y < 0 && y < maximum / x )))) {
+            throw new OverflowException("Multiplication overflow: " + x + "*" + y);
+        }
+        return x * y;
     }
 
     @Override
     protected int operation(int x, int y) {
-        if (isOverflow(x, y)) {
-            throw new OverflowException("Multiplication overflow: " + x + "*" + y);
-        }
-        return x * y;
+        return checkOverflow(x, y);
     }
 }

@@ -1,6 +1,7 @@
 package expression.parser;
 
 import exception.ArgumentException;
+import exception.ConstFormatException;
 import exception.FormatException;
 import exception.IllegalOperation;
 import exception.ParenthesisException;
@@ -18,48 +19,39 @@ import expression.Const;
 import expression.TripleExpression;
 import expression.Variable;
 
-import java.util.HashSet;
 import java.util.Set;
 
 public class ExpressionParser implements Parser {
 
     private ExpressionSource source;
     private char currentChar;
-    private int balance;
-    private Set<Character> allowedChars = new HashSet<>();
-    private Set<String> allowVariables = new HashSet<>();
+    private Set<Character> allowedChars = Set.of(
+            '+',
+            '-',
+            '*',
+            '/',
+            ')',
+            '(',
+            '\0'
+    );
 
-    {
-        allowedChars.add('+');
-        allowedChars.add('-');
-        allowedChars.add('*');
-        allowedChars.add('/');
-        allowedChars.add(')');
-        allowedChars.add('(');
-        allowVariables.add("x");
-        allowVariables.add("y");
-        allowVariables.add("z");
-    }
+    private Set<String> allowVariables = Set.of(
+            "x",
+            "y",
+            "z"
+    );
 
-    private void nextChar() throws ParenthesisException {
+    private void nextChar() {
         if (source.hasNext()) {
             currentChar = source.next();
-            if (currentChar == '(') {
-                balance++;
-            } else if (currentChar == ')') {
-                balance--;
-                if (balance < 0) {
-                    throw new ParenthesisException("Mismatched parenthesis", source.getCurrentPosition());
-                }
-            }
         } else {
             currentChar = '\0';
         }
     }
 
-    private boolean isEquals(char first, char second) throws ParenthesisException {
+    private boolean isEquals(char x) throws ParenthesisException {
         skipWhiteSpace();
-        if (first == second) {
+        if (currentChar == x) {
             nextChar();
             return true;
         }
@@ -76,13 +68,18 @@ public class ExpressionParser implements Parser {
         }
     }
 
-    private Const parseConst(String sourcePrefix) throws ParenthesisException {
+    private Const parseConst(String sourcePrefix) throws ParsingException {
         StringBuilder number = new StringBuilder(sourcePrefix);
         while (Character.isDigit(currentChar)) {
             number.append(currentChar);
             nextChar();
         }
-        return new Const(Integer.parseInt(number.toString()));
+        skipWhiteSpace();
+        try {
+            return new Const(Integer.parseInt(number.toString()));
+        } catch (NumberFormatException e) {
+            throw new ConstFormatException("Illegal const format at ", source.getCurrentPosition());
+        }
     }
 
     private String parseStringVal() throws ParsingException {
@@ -98,16 +95,12 @@ public class ExpressionParser implements Parser {
     @Override
     public TripleExpression parse(String expression) throws ParsingException {
         source = new StringSource(expression);
-        balance = 0;
         nextChar();
         skipWhiteSpace();
         CommonExpression result = addSub();
         skipWhiteSpace();
         if (source.hasNext()) {
             throw new FormatException("Space after: " + result.toString(), source.getCurrentPosition());
-        }
-        if (balance > 0) {
-            throw new ParenthesisException("Mismatched parenthesis", source.getCurrentPosition());
         }
         return result;
     }
@@ -117,15 +110,12 @@ public class ExpressionParser implements Parser {
         CommonExpression result = mulDiv();
         skipWhiteSpace();
         while (true) {
-            if (isEquals(currentChar, '+')) {
+            if (isEquals('+')) {
                 result = new CheckedAdd(result, mulDiv());
-            } else if (isEquals(currentChar, '-')) {
+            } else if (isEquals('-')) {
                 result = new CheckedSubtract(result, mulDiv());
-            } else if (!source.hasNext() || currentChar == ')') {
-                return result;
             } else {
-                throw new IllegalOperation("Illegal Operation", source.getCurrentPosition());
-
+                return result;
             }
         }
     }
@@ -134,10 +124,10 @@ public class ExpressionParser implements Parser {
         CommonExpression result = number();
         skipWhiteSpace();
         while (true) {
-            if (source.peekNext() == '*' && isEquals(currentChar, source.peekNext())) {
+            if (source.peekNext() == '*' && isEquals(source.peekNext())) {
                 nextChar();
                 result = new CheckedPow(result, number());
-            } else if (source.peekNext() == '/' && isEquals(currentChar, source.peekNext())) {
+            } else if (source.peekNext() == '/' && isEquals(source.peekNext())) {
                 nextChar();
                 result = new CheckedLog(result, number());
             } else {
@@ -150,9 +140,9 @@ public class ExpressionParser implements Parser {
         CommonExpression result = powLog();
         skipWhiteSpace();
         while (true) {
-            if (isEquals(currentChar, '*')) {
+            if (isEquals('*')) {
                 result = new CheckedMultiply(result, powLog());
-            } else if (isEquals(currentChar, '/')) {
+            } else if (isEquals('/')) {
                 result = new CheckedDivide(result, powLog());
             } else {
                 return result;
@@ -164,10 +154,12 @@ public class ExpressionParser implements Parser {
     private CommonExpression number() throws ParsingException {
         CommonExpression result;
         skipWhiteSpace();
-        if (isEquals(currentChar, '(')) {
+        if (isEquals('(')) {
             result = addSub();
-            nextChar();
-        } else if (isEquals(currentChar, '-')) {
+            if (!isEquals(')')) {
+                throw new IllegalOperation("Illegal Operation", source.getCurrentPosition());
+            }
+        } else if (isEquals('-')) {
             if (Character.isDigit(currentChar)) {
                 result = parseConst("-");
             } else {
@@ -178,7 +170,7 @@ public class ExpressionParser implements Parser {
         } else if (Character.isLetter(currentChar)) {
             String var = parseStringVal();
             if (!isLegalVariableName(var) ||
-                    (currentChar != '\0' && !Character.isWhitespace(currentChar)
+                    (!Character.isWhitespace(currentChar)
                             && !allowedChars.contains(currentChar))) {
                 throw new VariableNameException("Illegal variable name", source.getCurrentPosition());
             }
@@ -186,9 +178,9 @@ public class ExpressionParser implements Parser {
         } else {
             throw new ArgumentException("No argument", source.getCurrentPosition());
         }
+
         skipWhiteSpace();
         return result;
     }
 
 }
-

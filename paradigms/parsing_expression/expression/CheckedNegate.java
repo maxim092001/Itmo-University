@@ -8,15 +8,15 @@ public class CheckedNegate extends AbstractUnaryOperation {
         super(expression);
     }
 
-    private boolean isOverflow(int x) {
-        return x == Integer.MIN_VALUE;
+    private void checkOverflow(int x) {
+        if (x == Integer.MIN_VALUE) {
+            throw new OverflowException("Negation overflow: " + x);
+        }
     }
 
     @Override
     public int operation(int x) {
-        if (isOverflow(x)) {
-            throw new OverflowException("Negation overflow: " + x);
-        }
+        checkOverflow(x);
         return -1 * x;
     }
 }

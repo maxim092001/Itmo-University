@@ -6,12 +6,15 @@ public class CheckedLog extends AbstractBinaryOperation {
         super(firstExpression, secondExpression);
     }
 
-    @Override
-    protected int operation(int x, int y) {
+    private void checkLogarithmParameters(int x, int y) {
         if (y <= 1 || x <= 0) {
             throw new ArithmeticException("Unacceptable parameters for the logarithm");
         }
+    }
+    @Override
+    protected int operation(int x, int y) {
 
+        checkLogarithmParameters(x, y);
         int pow = 0;
 
         while (x / y >= 1) {

@@ -9,15 +9,15 @@ public class CheckedSubtract extends AbstractBinaryOperation {
         super(firstExpression, secondExpression);
     }
 
-    private boolean isOverflow(int x, int y) {
-        return (y > 0 && x < Integer.MIN_VALUE + y) || (y < 0 && x > Integer.MAX_VALUE + y);
+    private void checkOverflow(int x, int y) {
+        if ((y > 0 && x < Integer.MIN_VALUE + y) || (y < 0 && x > Integer.MAX_VALUE + y)) {
+            throw new OverflowException("Subtraction overflow: " + x + "-" + y);
+        }
     }
 
     @Override
     protected int operation(int x, int y) {
-        if (isOverflow(x, y)) {
-            throw new OverflowException("Subtraction overflow: " + x + "-" + y);
-        }
+        checkOverflow(x, y);
         return x - y;
     }
 }
