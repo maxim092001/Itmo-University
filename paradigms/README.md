@@ -5,7 +5,7 @@
 Домашнее задание 1. Обработка ошибок
 ----
 
-#### Реализация: [ExpressionWithExceptions](https://github.com/maxim092001/Itmo-University/tree/master/paradigms/parsing-expression)
+#### Реализация: [ExpressionWithExceptions](https://github.com/maxim092001/Itmo-University/tree/master/paradigms/parsing_expression)
 Модификации
  * *Базовая*
     * Класс `ExpressionParser` должен реализовывать интерфейс
@@ -27,8 +27,7 @@
 Модификации
  * *Базовая*
     * Класс `BinarySearch` должен находиться в пакете `search`
-    * [Исходный код тестов](java/search/BinarySearchTest.java)
-    * [Откомпилированные тесты](artifacts/search/BinarySearchTest.jar)
+    * [Исходный код тестов](https://github.com/maxim092001/Itmo-University/blob/master/paradigms/binary-search-contract/search/BinarySearchTest.java)
  * *Span*
     * Требуется вывести два числа: начало и длину диапазона элементов,
       равных `x`. Если таких элементов нет, то следует вывести
@@ -36,5 +35,4 @@
       вставки элемента `x`.
     * Не допускается использование типов `long` и `BigInteger`.
     * Класс должен иметь имя `BinarySearchSpan`
-    * [Исходный код тестов](java/search/BinarySearchSpanTest.java)
-    * [Откомпилированные тесты](artifacts/search/BinarySearchSpanTest.jar)
+    * [Исходный код тестов](https://github.com/maxim092001/Itmo-University/blob/master/paradigms/binary-search-contract/search/BinarySearchSpanTest.java)
