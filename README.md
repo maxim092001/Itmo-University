@@ -27,4 +27,4 @@
       
 [Парадигмы программирования](https://github.com/maxim092001/Itmo-University/tree/master/paradigms)
 ----
-  * [Условия и реализация всех заданий](https://github.com/maxim092001/Itmo-University/tree/master/paradigmsм) 
+  * [Условия и реализация всех заданий](https://github.com/maxim092001/Itmo-University/tree/master/paradigms) 
