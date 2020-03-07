@@ -20,7 +20,7 @@
     * Дополнительно реализуйте бинарные операции (максимальный приоритет):
         * `**` – возведение в степень, `2 ** 3` равно 8;
         * `//` – логарифм, `10 // 2` равно 3.
-    * [Исходный код тестов](https://github.com/maxim092001/Itmo-University/blob/master/paradigmsparadigms/parsing_expression/test/ExceptionsPowLogTest.java)
+    * [Исходный код тестов](https://github.com/maxim092001/Itmo-University/blob/master/paradigms/parsing_expression/test/ExceptionsPowLogTest.java)
 
 ## Домашнее задание 2. Бинарный поиск
 
