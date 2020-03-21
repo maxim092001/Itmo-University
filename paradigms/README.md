@@ -78,12 +78,12 @@
 Домашнее задание 5. Вычисление в различных типах
 ----
 
-#### Реализация: [GenericExpressions](https://github.com/maxim092001/Itmo-University/tree/master/paradigms/parse-generic)
+#### Реализация: [GenericExpressions](https://github.com/maxim092001/Itmo-University/tree/master/paradigms/parser-generic)
 
 Модификации
  * *Базовая*
     * Класс `GenericTabulator` должен реализовывать интерфейс
-      [Tabulator](https://github.com/maxim092001/Itmo-University/tree/master/paradigms/parse-generic/expression/generic/Tabulator.java) и
+      [Tabulator](https://github.com/maxim092001/Itmo-University/tree/master/paradigms/parser-generic/expression/generic/Tabulator.java) и
       сроить трехмерную таблицу значений заданного выражения.
         * `mode` – режим вычислений:
            * `i` – вычисления в `int` с проверкой на переполнение;
@@ -96,23 +96,23 @@
           значение выражения для `x = x1 + i`, `y = y1 + j`, `z = z1 + k`.
           Если значение не определено (например, по причине переполнения),
           то соответствующий элемент должен быть равен `null`.
-    * [Исходный код тестов](https://github.com/maxim092001/Itmo-University/tree/master/paradigms/parse-generic/expression/generic/GenericTest.java)
+    * [Исходный код тестов](https://github.com/maxim092001/Itmo-University/tree/master/paradigms/parser-generic/expression/generic/GenericTest.java)
  * *Сmm*
     * Дополнительно реализовать унарные операции:
         * `count` – число установленных битов, `count 5` равно 2.
     * Дополнительно реализовать бинарную операцию (минимальный приоритет):
         * `min` – минимум, `2 min 3` равно 2;
         * `max` – максимум, `2 max 3` равно 3.
-    * [Исходный код тестов](https://github.com/maxim092001/Itmo-University/tree/master/paradigms/parse-generic/expression/generic/GenericCmmTest.java)
+    * [Исходный код тестов](https://github.com/maxim092001/Itmo-University/tree/master/paradigms/parser-genericexpression/generic/GenericCmmTest.java)
  * *Ls*
     * Дополнительно реализовать поддержку режимов:
         * `l` – вычисления в `long` без проверки на переполнение;
         * `s` – вычисления в `short` без проверки на переполнение.
-    * [Исходный код тестов](https://github.com/maxim092001/Itmo-University/tree/master/paradigms/parse-generic/expression/generic/GenericLsTest.java)
+    * [Исходный код тестов](https://github.com/maxim092001/Itmo-University/tree/master/paradigms/parser-generic/expression/generic/GenericLsTest.java)
  * *CmmUls*
     * Реализовать операции из модификации *Cmm*.
     * Дополнительно реализовать поддержку режимов:
         * `u` – вычисления в `int` без проверки на переполнение;
         * `l` – вычисления в `long` без проверки на переполнение;
         * `s` – вычисления в `s` без проверки на переполнение.
-    * [Исходный код тестов](https://github.com/maxim092001/Itmo-University/tree/master/paradigms/parse-generic/expression/generic/GenericCmmUlsTest.java)
+    * [Исходный код тестов](https://github.com/maxim092001/Itmo-University/tree/master/paradigms/parser-generic/expression/generic/GenericCmmUlsTest.java)
