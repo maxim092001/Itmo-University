@@ -115,7 +115,6 @@
         * `u` – вычисления в `int` без проверки на переполнение;
         * `l` – вычисления в `long` без проверки на переполнение;
         * `s` – вычисления в `s` без проверки на переполнение.
-<<<<<<< HEAD
     * [Исходный код тестов](https://github.com/maxim092001/Itmo-University/tree/master/paradigms/parse-generic/expression/generic/GenericCmmUlsTest.java)
 
 
@@ -162,6 +161,3 @@
         * `Power` (`pow`) – возведение в степень, `2 3 pow` равно 8;
         * `Log` (`log`) – логарифм абсолютного значения аргумента
             по абсолютному значению основания `-2 -8 log` равно 3;
-=======
-    * [Исходный код тестов](https://github.com/maxim092001/Itmo-University/tree/master/paradigms/parser-generic/expression/generic/GenericCmmUlsTest.java)
->>>>>>> 5da3ad8042c9e87859cbed4fc0a039f237464511
