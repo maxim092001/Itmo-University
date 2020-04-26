@@ -103,7 +103,7 @@
     * Дополнительно реализовать бинарную операцию (минимальный приоритет):
         * `min` – минимум, `2 min 3` равно 2;
         * `max` – максимум, `2 max 3` равно 3.
-    * [Исходный код тестов](https://github.com/maxim092001/Itmo-University/tree/master/paradigms/parser-genericexpression/generic/GenericCmmTest.java)
+    * [Исходный код тестов](https://github.com/maxim092001/Itmo-University/blob/master/paradigms/parser-generic/expression/generic/GenericCmmTest.java)
  * *Ls*
     * Дополнительно реализовать поддержку режимов:
         * `l` – вычисления в `long` без проверки на переполнение;
@@ -115,7 +115,7 @@
         * `u` – вычисления в `int` без проверки на переполнение;
         * `l` – вычисления в `long` без проверки на переполнение;
         * `s` – вычисления в `s` без проверки на переполнение.
-    * [Исходный код тестов](https://github.com/maxim092001/Itmo-University/tree/master/paradigms/parse-generic/expression/generic/GenericCmmUlsTest.java)
+    * [Исходный код тестов](https://github.com/maxim092001/Itmo-University/blob/master/paradigms/parser-generic/expression/generic/GenericCmmUlsTest.java)
 
 
 Домашнее задание 6. Функциональные выражения на JavaScript
