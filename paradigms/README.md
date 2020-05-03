@@ -161,3 +161,40 @@
         * `Power` (`pow`) – возведение в степень, `2 3 pow` равно 8;
         * `Log` (`log`) – логарифм абсолютного значения аргумента
             по абсолютному значению основания `-2 -8 log` равно 3;
+
+Домашнее задание 8. Обработка ошибок на JavaScript
+----
+#### Реализация: [ObjectExpression](https://github.com/maxim092001/Itmo-University/tree/master/paradigms/object-expression-exceptions/objectExpression.js)
+Модификации
+ * *Базовая*
+    * Код должен находиться в файле `objectExpression.js`.
+    * [Исходный код тестов](https://github.com/maxim092001/Itmo-University/tree/master/paradigms/object-expression-exceptions/prefix/PrefixParserTest.java)
+        * Запускать c аргументом `easy` или `hard`
+ * *PostfixSumexpSoftmax*. Дополнительно реализовать поддержку:
+    * выражений в постфиксной записи: `(2 3 +)` равно 5
+    * унарных операций:
+        * `Sumexp` (`sumexp`) – сумма экспонент, `(8 8 9 sumexp)` примерно равно 14065;
+        * `Softmax` (`softmax`) – [softmax](https://ru.wikipedia.org/wiki/Softmax) первого аргумента, `(1 2 3 softmax)` примерно 0.09;
+    * [Исходный код тестов](https://github.com/maxim092001/Itmo-University/tree/master/paradigms/object-expression-exceptions/prefix/PostfixSumexpSoftmaxTest.java)
+
+Домашнее задание 9. Линейная алгебра на Clojure
+----
+#### Реализация: [linear](https://github.com/maxim092001/Itmo-University/tree/master/paradigms/clojure-linear/linear.clj)
+Модификации
+ * *Базовая*
+    * Код должен находиться в файле `linear.clj`.
+    * Исходный код тестов
+        * [Простой вариант](https://github.com/maxim092001/Itmo-University/tree/master/paradigms/clojure-linear/linear/LinearBinaryTest.java)
+        * [Сложный вариант](https://github.com/maxim092001/Itmo-University/tree/master/paradigms/clojure-linear/linear/LinearNaryTest.java)
+ * *Shapeless*
+    * Добавьте операции поэлементного сложения (`s+`),
+        вычитания (`s-`) и умножения (`s*`) чисел и
+        векторов любой (в том числе, переменной) формы.
+        Например, `(s+ [[1 2] 3] [[4 5] 6])` должно быть равно `[[5 7] 9]`.
+    * [Исходный код тестов](https://github.com/maxim092001/Itmo-University/tree/master/paradigms/clojure-linear/linear/LinearShapelessTest.java)
+ * *Cuboid*
+    * Назовем _кубоидом_ трехмерную прямоугольную таблицу чисел.
+    * Добавьте операции поэлементного сложения (`c+`),
+        вычитания (`c-`), умножения (`c*`) и деления (`cd`) кубоидов.
+        Например, `(с+ [[[1] [2]] [[3] [4]]] [[[5] [6]] [[7] [8]]])` должно быть равно `[[[6] [8]] [[10] [12]]]`.
+    * [Исходный код тестов](https://github.com/maxim092001/Itmo-University/tree/master/paradigms/clojure-linear/linear/LinearCuboidTest.java)
