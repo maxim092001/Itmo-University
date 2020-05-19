@@ -198,3 +198,19 @@
         вычитания (`c-`), умножения (`c*`) и деления (`cd`) кубоидов.
         Например, `(с+ [[[1] [2]] [[3] [4]]] [[[5] [6]] [[7] [8]]])` должно быть равно `[[[6] [8]] [[10] [12]]]`.
     * [Исходный код тестов](https://github.com/maxim092001/Itmo-University/tree/master/paradigms/clojure-linear/linear/LinearCuboidTest.java)
+
+
+Домашнее задание 10. Функциональные выражения на Clojure
+----
+#### Реализация: [functional-expressions](https://github.com/maxim092001/Itmo-University/tree/master/paradigms/clojure-functional/expressions.clj)
+Модификации
+ * *Базовая*
+    * Код должен находиться в файле `expression.clj`.
+    * [Исходный код тестов](https://github.com/maxim092001/Itmo-University/tree/master/paradigms/clojure-functional/test/ClojureFunctionalExpressionTest.java)
+        * Запускать c аргументом `easy` или `hard`
+ * *MedAvg*. Дополнительно реализовать поддержку:
+    * операций произвольного числа аргументов:
+        * `med` – медиана, `(med 1 2 6)` равно 2;
+        * `avg` – среднее, `(avg 1 2 6)` равно 3;
+    * [Исходный код тестов](https://github.com/maxim092001/Itmo-University/tree/master/paradigms/clojure-functional/test/ClojureFunctionalMedAvgTest.java)
+
