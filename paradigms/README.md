@@ -202,7 +202,7 @@
 
 Домашнее задание 10. Функциональные выражения на Clojure
 ----
-#### Реализация: [functional-expressions](https://github.com/maxim092001/Itmo-University/tree/master/paradigms/clojure-functional/expressions.clj)
+#### Реализация: [functional-expressions](https://github.com/maxim092001/Itmo-University/tree/master/paradigms/clojure-functional/expression.clj)
 Модификации
  * *Базовая*
     * Код должен находиться в файле `expression.clj`.
