@@ -214,3 +214,54 @@
         * `avg` – среднее, `(avg 1 2 6)` равно 3;
     * [Исходный код тестов](https://github.com/maxim092001/Itmo-University/tree/master/paradigms/clojure-functional/test/ClojureFunctionalMedAvgTest.java)
 
+
+Домашнее задание 11. Объектные выражения на Clojure
+----
+#### Реализация: [functional-expressions](https://github.com/maxim092001/Itmo-University/tree/master/paradigms/clojure-object/expression.clj)
+
+Модификации
+ * *Базовая*
+    * Код должен находиться в файле `expression.clj`.
+        * Запускать c аргументом `easy` или `hard`
+ * *SquareSqrt*. Дополнительно реализовать поддержку:
+    * унарных операций:
+        * `Square` (`square`) – возведение в квадрат, `(square 3)` равно 9;
+        * `Sqrt` (`sqrt`) – извлечение квадратного корня из абсолютной величины аргумента, `(sqrt -9)` равно 3.
+ * *PwLg*. Дополнительно реализовать поддержку:
+    * бинарных операций:
+        * `Pw` (`pw`) – возведение в степень, `(pow 2 3)` равно 8;
+        * `Lg` (`lg`) – логарифм абсолютной величины по основанию абсолютной величины, `(lg -8 -2)` равно 3.
+ * *ExpLn*. Дополнительно реализовать поддержку:
+    * унарных операций:
+        * `Exp` (`exp`) – экспонента, `(exp 8)` примерно равно 2981;
+        * `Ln`  (`Ln`)  – натуральный логарифм абсолютной величины, `(lg 2981)` примерно равно 8.
+ * *SumAvg*. Дополнительно реализовать поддержку:
+    * операций произвольного числа аргументов:
+        * `Sum` (`sum`) – сумма, `(sum 1 2 3)` равно 6;
+        * `Avg` (`avg`) – арифметическое среднее, `(avg 1 2 3)` равно 2;
+ * *SumexpSoftmax*. Дополнительно реализовать поддержку:
+    * операций произвольного числа аргументов:
+        * `Sumexp` (`sumexp`) – сумма экспонент, `(sumexp 8 8 9)` примерно равно 14065;
+        * `Softmax` (`Softmax`) – [softmax](https://ru.wikipedia.org/wiki/Softmax) первого аргумента, `(softmax 1 2 3)` примерно равно 0.09;
+
+
+Домашнее задание 12. Простые числа на Prolog
+----
+#### Реализация: [prolog-prime](https://github.com/maxim092001/Itmo-University/tree/master/paradigms/prolog-prime/primes.pl)
+Модификации
+ * *Базовая*
+    * Код должен находиться в файле `primes.pl`.
+ * *Palindrome*
+    * Добавьте правило `prime_palindrome(N, K)`,
+      определяющее, является ли `N` простым палиндромом в `K`-ичной системе счисления
+
+
+Домашнее задание 13. Дерево поиска на Prolog
+----
+#### Реализация: [prolog-tree](https://github.com/maxim092001/Itmo-University/tree/master/paradigms/prolog-binary-search-tree/tree-map.pl)
+Модификации
+ * *Базовая*
+    * Код должен находиться в файле `tree-map.pl`.
+ * *FloorKey*
+    * Добавьте правило `map_floorKey(Map, Key, FloorKey)`,
+      возвращающее максимальный ключ, меньший либо равный заданному.
