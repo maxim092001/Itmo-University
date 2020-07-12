@@ -217,7 +217,7 @@
 
 Домашнее задание 11. Объектные выражения на Clojure
 ----
-#### Реализация: [functional-expressions](https://github.com/maxim092001/Itmo-University/tree/master/paradigms/clojure-object/expression.clj)
+#### Реализация: [object-expressions](https://github.com/maxim092001/Itmo-University/tree/master/paradigms/clojure-object/expression.clj)
 
 Модификации
  * *Базовая*
