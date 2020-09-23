@@ -28,3 +28,7 @@
 [Парадигмы программирования](https://github.com/maxim092001/Itmo-University/tree/master/paradigms)
 ----
   * [Условия и реализация всех заданий](https://github.com/maxim092001/Itmo-University/tree/master/paradigms) 
+
+[Операционные системы](https://github.com/maxim092001/Itmo-University/tree/master/os)
+----
+ * [Первая лаба](https://github.com/maxim092001/Itmo-University/tree/master/os/lab1)
