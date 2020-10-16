@@ -34,3 +34,7 @@
   * *Первая лаба*
       * [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/os/lab1)
       * [Условия](https://github.com/maxim092001/Itmo-University/tree/master/os/lab1/OS_Lab1.pdf)
+      
+ * *Вторая лаба*
+      * [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/os/lab2)
+      * [Условия](https://github.com/maxim092001/Itmo-University/tree/master/os/lab2/OS_Lab2.pdf)
