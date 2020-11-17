@@ -44,7 +44,7 @@
 
  * *Третья лаба*
       * [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/os/lab3)
-      * [Условия](https://github.com/maxim092001/Itmo-University/tree/master/os/lab2/OS_Lab3.pdf)
+      * [Условия](https://github.com/maxim092001/Itmo-University/tree/master/os/lab3/OS_Lab3.pdf)
 
  * *Четвертая лаба*
       * [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/os/lab4)
