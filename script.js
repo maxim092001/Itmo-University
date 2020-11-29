@@ -1,4 +1,5 @@
-window.onload = function () {
+
+function drawChart (n, a) {
     const ctx = document.getElementById("myChart");
     const data = {
         labels: [1, 2, 3, 4, 5],
@@ -56,4 +57,19 @@ window.onload = function () {
             }
         }
     });
+}
+
+function updateChart() {
+    var n = Number(document.getElementById("num").innerText);
+    var a = Number(document.getElementById("ill").innerText);
+    console.log(n)
+    console.log(a)
+    if (n && a && n > 0 && a > 0) {
+        console.log("ddd")
+        drawChart(n, a);
+    }
+}
+
+window.onload = function() {
+    drawChart(1, 1);
 }
