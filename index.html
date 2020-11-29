@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <title>Модель Бейли</title>
 </head>
 <script src="script.js"></script>
@@ -15,10 +17,11 @@
         <div class="controller">
             <form>
                 <label for="num">Количество особей в популяции</label>
-                <input type="number" id="num">
+                <!-- <input type="number" id="num"> -->
+                <input ENGINE="range">
                 <br>
                 <label for="ill">Количество зараженных особей</label>
-                <input type="number" id="ill">
+                <!-- <input type="number" id="ill"> -->
             </form>
             <button onclick="updateChart()">Показать график</button>
             <p id="error"></p>
