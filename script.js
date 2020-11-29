@@ -1,5 +1,4 @@
-
-function drawChart (individuals, infected) {
+function drawChart(individuals, infected) {
     const ctx = document.getElementById("myChart");
     const data = {
         labels: [1, 2, 3, 4, 5],
@@ -15,7 +14,7 @@ function drawChart (individuals, infected) {
             {
                 label: "f(x) = x?",
                 function: function (x) {
-                    return x * x
+                    return x * x * infected
                 },
                 borderColor: "rgba(153, 102, 255, 1)",
                 data: [],
@@ -59,27 +58,30 @@ function drawChart (individuals, infected) {
     });
 }
 
-function updateChart() {
-    const individuals = getSliderValue("number-of-individuals");
-    const infected = getSliderValue("number-of-infected");
-    drawChart(individuals, infected);
-}
+let sliderIndividuals
+let outputIndividuals
+let sliderInfected
+let outputInfected
 
 window.onload = function() {
-    drawChart(1, 1);
-    slider("number-of-individuals", "number-of-individuals-text");
-    slider("number-of-infected", "number-of-infected-text");
+    sliderIndividuals = document.getElementById("number-of-individuals");
+    outputIndividuals = document.getElementById("number-of-individuals-text");
+    sliderInfected = document.getElementById("number-of-infected");
+    outputInfected = document.getElementById("number-of-infected-text");
+    drawChart(sliderIndividuals.value, sliderInfected.value)
+    sliders()
 }
 
-function slider(sliderId, outputId) {
-    let slider = document.getElementById(sliderId);
-    let output = document.getElementById(outputId);
-    output.innerHTML = slider.value;
-    slider.oninput = function() {
-        output.innerHTML = this.value;
+function sliders() {
+    outputIndividuals.innerHTML = sliderIndividuals.value;
+    outputInfected.innerHTML = sliderInfected.value
+    sliderIndividuals.oninput = function() {
+        outputIndividuals.innerHTML = this.value;
+        drawChart(this.value, sliderInfected.value);
     }
-}
 
-function getSliderValue(sliderId) {
-    return Number(document.getElementById(sliderId).value);
+    sliderInfected.oninput = function() {
+        outputInfected.innerHTML = this.value;
+        drawChart(sliderIndividuals.value, this.value)
+    }
 }
