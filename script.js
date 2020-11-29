@@ -62,12 +62,7 @@ function drawChart (n, a) {
 function updateChart() {
     var n = Number(document.getElementById("num").innerText);
     var a = Number(document.getElementById("ill").innerText);
-    console.log(n)
-    console.log(a)
-    if (n && a && n > 0 && a > 0) {
-        console.log("ddd")
-        drawChart(n, a);
-    }
+    drawChart(n, a)
 }
 
 window.onload = function() {
