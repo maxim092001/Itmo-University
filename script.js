@@ -24,7 +24,7 @@ function drawChart (n, a) {
             {
                 label: "f(x) = x * log(x)",
                 function: function (x) {
-                    return x * Math.log(x)
+                    return a * Math.log(a)
                 },
                 borderColor: "rgba(255, 206, 86, 1)",
                 data: [],
@@ -60,8 +60,9 @@ function drawChart (n, a) {
 }
 
 function updateChart() {
-    var n = Number(document.getElementById("num").innerText);
-    var a = Number(document.getElementById("ill").innerText);
+    var n = Number(document.getElementById("num").value);
+    var a = Number(document.getElementById("ill").value);
+    console.log(n)
     drawChart(n, a)
 }
 
