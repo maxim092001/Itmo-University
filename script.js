@@ -1,5 +1,5 @@
 
-function drawChart (n, a) {
+function drawChart (individuals, infected) {
     const ctx = document.getElementById("myChart");
     const data = {
         labels: [1, 2, 3, 4, 5],
@@ -24,7 +24,7 @@ function drawChart (n, a) {
             {
                 label: "f(x) = x * log(x)",
                 function: function (x) {
-                    return a * Math.log(a)
+                    return individuals * Math.log(x)
                 },
                 borderColor: "rgba(255, 206, 86, 1)",
                 data: [],
@@ -60,12 +60,26 @@ function drawChart (n, a) {
 }
 
 function updateChart() {
-    var n = Number(document.getElementById("num").value);
-    var a = Number(document.getElementById("ill").value);
-    console.log(n)
-    drawChart(n, a)
+    const individuals = getSliderValue("number-of-individuals");
+    const infected = getSliderValue("number-of-infected");
+    drawChart(individuals, infected);
 }
 
 window.onload = function() {
     drawChart(1, 1);
+    slider("number-of-individuals", "number-of-individuals-text");
+    slider("number-of-infected", "number-of-infected-text");
+}
+
+function slider(sliderId, outputId) {
+    let slider = document.getElementById(sliderId);
+    let output = document.getElementById(outputId);
+    output.innerHTML = slider.value;
+    slider.oninput = function() {
+        output.innerHTML = this.value;
+    }
+}
+
+function getSliderValue(sliderId) {
+    return Number(document.getElementById(sliderId).value);
 }
