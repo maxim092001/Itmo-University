@@ -50,3 +50,7 @@
       * [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/os/lab4)
       * [Условия](https://github.com/maxim092001/Itmo-University/tree/master/os/lab4/OS_Lab4.pdf)
 
+ * *Пятая лаба*
+      * [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/os/lab5)
+      * [Условия](https://github.com/maxim092001/Itmo-University/tree/master/os/lab5/OS_Lab5.pdf)
+      * [Графики](https://github.com/maxim092001/Itmo-University/tree/master/os/lab5/ReportGraphics.pdf)
