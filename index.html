@@ -5,12 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Модель изменения численности популяций</title>
 </head>
+<script>
+// Initialize tooltip component
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+
+// Initialize popover component
+$(function () {
+  $('[data-toggle="popover"]').popover()
+})
+
+
+
+
+
+</script>
 <script src="script.js"></script>
 <body>
 <div>
@@ -24,21 +51,37 @@
             </div>
             <div class="container-fluid">
                 <input type="range" min="0" max="1" value="0.5" step="0.01" class="slider" id="death-coefficient">
+                <div
+                        data-toggle="popover" data-trigger="hover"
+                        data-content="Вероятность смерти одной особи">
                 <p>Коэффициент смертности: <span id="death-coefficient-text"/>
                 </p>
+                </div>
             </div>
             <div class="container-fluid">
-                <input type="range" min="0" max="0.08" value="0.003" step="0.001" class="slider" id="intraspecific-competition">
+                <input type="range" min="0" max="0.08" value="0.003" step="0.001" class="slider"
+                       id="intraspecific-competition">
+                <div
+                        data-toggle="popover" data-trigger="hover"
+                        data-content="Вероятность смерти при встречи двух особей">
                 <p>Внутривидовая конкуренция: <span id="intraspecific-competition-text"/>
                 </p>
+                </div>
             </div>
             <div class="container-fluid">
                 <input type="range" min="1" max="10" value="1" step="1" class="slider" id="number-of-children">
-                <p>Количество детей: <span id="number-of-children-text"/>
+                <div
+                        data-toggle="popover" data-trigger="hover"
+                        data-content="Количество детей после одной беремености">
+                <p>
+                    Количество детей: <span id="number-of-children-text"/>
                 </p>
+                </div>
+
             </div>
             <div class="container-fluid">
-                <input type="range" min="0.01" max="20" value="1" step="0.01" class="slider" id="time-between-pregnancy">
+                <input type="range" min="0.01" max="20" value="1" step="0.01" class="slider"
+                       id="time-between-pregnancy">
                 <p>Время между беременностью в у.е.: <span id="time-between-pregnancy-text"/>
                 </p>
             </div>
@@ -57,6 +100,7 @@
     <div class="container">
         <canvas id="сhart"></canvas>
     </div>
+
 </div>
 </body>
 </html>
