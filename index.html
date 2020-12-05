@@ -9,29 +9,53 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <title>Модель Бейли</title>
+    <title>Модель изменения численности популяций</title>
 </head>
 <script src="script.js"></script>
 <body>
 <div>
-    <h1>Модель Бейли</h1>
+    <h1>Модель изменения численности популяций</h1>
     <div class="controller">
         <form>
-            <div class="slide-container">
-                <input type="range" min="1" max="100" value="50" class="slider" id="number-of-individuals">
+            <div class="container-fluid">
+                <input type="range" min="2" max="100000" value="50" class="slider" id="number-of-individuals">
                 <p>Количество особей в популяции: <span id="number-of-individuals-text"/>
                 </p>
             </div>
-            <br>
-            <div class="slide-container">
-                <input type="range" min="1" max="100" value="50" class="slider" id="number-of-infected">
-                <p>Количество зараженных: <span id="number-of-infected-text"/>
+            <div class="container-fluid">
+                <input type="range" min="0" max="1" value="0.5" step="0.01" class="slider" id="death-coefficient">
+                <p>Коэффициент смертности: <span id="death-coefficient-text"/>
+                </p>
+            </div>
+            <div class="container-fluid">
+                <input type="range" min="0" max="0.08" value="0.003" step="0.001" class="slider" id="intraspecific-competition">
+                <p>Внутривидовая конкуренция: <span id="intraspecific-competition-text"/>
+                </p>
+            </div>
+            <div class="container-fluid">
+                <input type="range" min="1" max="10" value="1" step="1" class="slider" id="number-of-children">
+                <p>Количество детей: <span id="number-of-children-text"/>
+                </p>
+            </div>
+            <div class="container-fluid">
+                <input type="range" min="0.01" max="20" value="1" step="0.01" class="slider" id="time-between-pregnancy">
+                <p>Время между беременностью в у.е.: <span id="time-between-pregnancy-text"/>
+                </p>
+            </div>
+            <div class="container-fluid">
+                <input type="range" min="1" max="20" value="4.5" step="0.01" class="slider" id="average-pregnancy-time">
+                <p>Среднее время беременности: <span id="average-pregnancy-time-text"/>
+                </p>
+            </div>
+            <div class="container-fluid">
+                <input type="range" min="10" max="200" value="10" step="1" class="slider" id="max-time">
+                <p>Максимальное время: <span id="max-time-text"/>
                 </p>
             </div>
         </form>
     </div>
     <div class="container">
-        <canvas id="myChart"></canvas>
+        <canvas id="сhart"></canvas>
     </div>
 </div>
 </body>
