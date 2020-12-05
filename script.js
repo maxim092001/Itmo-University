@@ -129,7 +129,7 @@ function generate(num = Number(sliderIndividuals.value),
 
     for (let i = 1; i < maxTime + 1; ++i) {
         coords[i] = Math.max(coords[i - 1] +
-            (coords[i - 1] * numChildren * avePregTime) /
+            (coords[i - 1] * coords[i - 1] * numChildren * avePregTime) /
             (timeBetweenPreg + avePregTime * coords[i - 1]) -
             deathCoeff * coords[i - 1] -
             competitionCoeff * coords[i - 1] * coords[i - 1], 0);
