@@ -140,5 +140,6 @@ function generate(num = Number(sliderIndividuals.value),
         indexes[i] = i;
     }
     console.log(coords);
+    document.getElementById("canvas-container").innerHTML = "<canvas id=\"сhart\"></canvas>";
     drawChart(coords, indexes)
 }
