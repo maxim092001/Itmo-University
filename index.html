@@ -40,8 +40,17 @@ $(function () {
 
 <script src="script.js"></script>
 <body>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+
+
+<span class="navbar-text d-flex justify-content-center">
+    Моделирование численности популяции животных с помощью дифференциальных уравнений
+</span>
+
+</nav>
+
 <div>
-    <h1>Модель изменения численности популяций</h1>
+    <br>
     <div class="controller">
         <form>
             <div class="container-fluid">
@@ -100,11 +109,17 @@ $(function () {
     <div class="container" id="canvas-container">
         <canvas id="сhart"></canvas>
     </div>
-    <iframe width="100%" height="500"
+
+</div>
+<div class="media border p-5">
+<div class="embed-responsive embed-responsive-16by9">
+    <iframe
+            class="embed-responsive-item"
             src="https://www.youtube.com/embed/7CXj0AGuh4c"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen></iframe>
+</div>
 </div>
 </body>
 </html>
