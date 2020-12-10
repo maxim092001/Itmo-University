@@ -5,7 +5,7 @@ function drawChart(arr, indexes) {
         datasets: [{
             label: "Численность популяций",
             borderColor: "rgba(75, 192, 192, 1)",
-            data: arr, // сюда
+            data: arr,
             fill: false
         }]
     };
@@ -55,7 +55,6 @@ window.onload = function() {
     sliderMaxTime = document.getElementById("max-time");
     outputMaxTime = document.getElementById("max-time-text");
     generate();
-    // здесь вызвать
     sliders();
 }
 
@@ -85,60 +84,32 @@ function sliders() {
     slider(sliderTimeBetweenPregnancy, outputTimeBetweenPregnancy);
     slider(sliderAveragePregnancyTime, outputAveragePregnancyTime);
     slider(sliderMaxTime, outputMaxTime);
-
-    // sliderIndividuals.oninput = function() {
-    //     outputIndividuals.innerHTML = this.value;
-    //     generate()
-    // }
-    //
-    // sliderDeath.oninput = function() {
-    //     outputDeath.innerHTML = this.value;
-    //     generate()
-    // }
-    //
-    // sliderIntraspecific.oninput = function() {
-    //     outputIntraspecific.innerHTML = this.value;
-    //     generate()
-    // }
-    //
-    // sliderNumberOfChildren.oninput = function() {
-    //     outputNumberOfChildren.innerHTML = this.value;
-    //     generate()
-    // }
-    //
-    // sliderTimeBetweenPregnancy.oninput = function() {
-    //     outputTimeBetweenPregnancy.innerHTML = this.value;
-    //     generate()
-    // }
-    //
-    // sliderAveragePregnancyTime.oninput = function() {
-    //     outputAveragePregnancyTime.innerHTML = this.value;
-    //     generate()
-    // }
 }
 
-function generate(num = Number(sliderIndividuals.value),
-                  deathCoeff = Number(sliderDeath.value),
-                  numChildren = Number(sliderNumberOfChildren.value),
-                  timeBetweenPreg = Number(sliderTimeBetweenPregnancy.value),
-                  competitionCoeff = Number(sliderIntraspecific.value),
-                  avePregTime = Number(sliderAveragePregnancyTime.value),
+function generate(numberOfIndividuals = Number(sliderIndividuals.value),
+                  deathCoefficient = Number(sliderDeath.value),
+                  numberOfChildren = Number(sliderNumberOfChildren.value),
+                  timeBetweenPregnancy = Number(sliderTimeBetweenPregnancy.value),
+                  intraspecificCoefficient = Number(sliderIntraspecific.value),
+                  averagePregnancyTime = Number(sliderAveragePregnancyTime.value),
                   maxTime = Number(sliderMaxTime.value)) {
-    var coords = new Array(maxTime + 1);
-    coords[0] = num;
 
-    for (let i = 1; i < maxTime + 1; ++i) {
+    let coords = new Array(maxTime + 1);
+    coords[0] = numberOfIndividuals;
+
+    for (let i = 1; i < maxTime + 1; i++) {
         coords[i] = Math.max(coords[i - 1] +
-            (coords[i - 1] * coords[i - 1] * numChildren * avePregTime) /
-            (timeBetweenPreg + avePregTime * coords[i - 1]) -
-            deathCoeff * coords[i - 1] -
-            competitionCoeff * coords[i - 1] * coords[i - 1], 0);
+            (coords[i - 1] * coords[i - 1] * numberOfChildren * averagePregnancyTime) /
+            (timeBetweenPregnancy + averagePregnancyTime * coords[i - 1]) -
+            deathCoefficient * coords[i - 1] -
+            intraspecificCoefficient * coords[i - 1] * coords[i - 1], 0);
     }
 
-    var indexes = new Array(maxTime + 1)
+    let indexes = new Array(maxTime + 1);
     for (let i = 1; i <= maxTime; i++) {
         indexes[i] = i;
     }
+
     console.log(coords);
     document.getElementById("canvas-container").innerHTML = "<canvas id=\"сhart\"></canvas>";
     drawChart(coords, indexes)
