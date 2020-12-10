@@ -1,5 +1,24 @@
+function generateMouseData() {
+    const numberOfChildren = 7;
+    const averagePregnancyTime = 0.06;
+    const timeBetweenPregnancy = 0.003;
+    const deathCoefficient = 0.2;
+    const intraspecificCoefficient = 0.00189;
+    const maxTime = Number(sliderMaxTime.value);
+    coords = new Array(maxTime + 1);
+    for (let i = 1; i < maxTime + 1; i++) {
+        coords[i] = Math.max(coords[i - 1] +
+            (coords[i - 1] * coords[i - 1] * numberOfChildren * averagePregnancyTime) /
+            (timeBetweenPregnancy + averagePregnancyTime * coords[i - 1]) -
+            deathCoefficient * coords[i - 1] -
+            intraspecificCoefficient * coords[i - 1] * coords[i - 1], 0);
+    }
+    return coords;
+}
+
 function drawChart(arr, indexes) {
     const ctx = document.getElementById("сhart");
+    const mouseData = generateMouseData();
     const data = {
         labels: indexes,
         datasets: [{
@@ -7,7 +26,14 @@ function drawChart(arr, indexes) {
             borderColor: "rgba(75, 192, 192, 1)",
             data: arr,
             fill: false
-        }]
+        },
+         {
+            label: "Размер популяции мышей", 
+            borderColor: "rgba(60, 60, 60, 1)", 
+            data: mouseData, 
+            fill: false
+        }
+    ]
     };
     const myBarChart = new Chart(ctx, {
         type: 'line',
