@@ -63,7 +63,7 @@ window.onload = function() {
     sliderMaxTime = document.getElementById("max-time");
     outputMaxTime = document.getElementById("max-time-text");
     parametersText = document.getElementById("parameters-text");
-    parametersText.innerHTML = "<b>Размер популяции мышей.</b> <br> Количество особей в популяции: 50 <br> Коэффициент сметрности: 0.2 <br> Внутривидовая конкуренция: 0.00189 <br> Количество детей: 3 <br> Время между беременостью: 1 <br> Среднее время беремености: 0.003"
+    parametersText.innerHTML = "<b>Размер популяции мышей.</b> <br> Количество особей в популяции: 4 <br> Коэффициент смертности: 0.5 <br> Внутривидовая конкуренция: 0.0089 <br> Количество детей: 3 <br> Время между беременностью: 4 <br> Среднее время беременности: 21"
     generate();
     sliders();
 }
@@ -72,8 +72,8 @@ let mouseData = () => generateCoordinates(
         4,
         0.5,
         3,
-        21,
-        0.00289,
+        4,
+    0.0089,
         21,
         sliderMaxTime === undefined ? 50 : Number(sliderMaxTime.value))
 
