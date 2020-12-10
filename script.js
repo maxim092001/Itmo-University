@@ -2,9 +2,9 @@ function generateMouseData() {
     const numberOfIndividuals = 4;
     const numberOfChildren = 3;
     const averagePregnancyTime = 21;
-    const timeBetweenPregnancy = 21;
+    const timeBetweenPregnancy = 4;
     const deathCoefficient = 0.5;
-    const intraspecificCoefficient = 0.00289;
+    const intraspecificCoefficient = 0.0089;
     const maxTime = Number(sliderMaxTime.value);
     const coords = generateCoordinates(
         numberOfIndividuals,
