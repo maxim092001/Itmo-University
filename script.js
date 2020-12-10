@@ -1,29 +1,5 @@
-function generateMouseData() {
-    const numberOfIndividuals = 4;
-    const numberOfChildren = 3;
-    const averagePregnancyTime = 21;
-    const timeBetweenPregnancy = 21;
-    const deathCoefficient = 0.5;
-    const intraspecificCoefficient = 0.00289;
-    const maxTime = Number(sliderMaxTime.value);
-    const coords = generateCoordinates(
-        numberOfIndividuals,
-        deathCoefficient,
-        numberOfChildren,
-        timeBetweenPregnancy,
-        intraspecificCoefficient,
-        averagePregnancyTime,
-        maxTime)
-
-    for (let i = 0; i <= maxTime; i++) {
-        console.log(coords[i])
-    }
-    return coords;
-}
-
 function drawChart(arr, indexes) {
     const ctx = document.getElementById("сhart");
-    const mouseData = generateMouseData();
     const data = {
         labels: indexes,
         datasets: [{
@@ -35,7 +11,7 @@ function drawChart(arr, indexes) {
          {
             label: "Размер популяции мышей", 
             borderColor: "rgb(229,11,11)",
-            data: mouseData, 
+            data: mouseData,
             fill: false
         }
     ]
@@ -91,6 +67,15 @@ window.onload = function() {
     generate();
     sliders();
 }
+
+const mouseData = generateCoordinates(
+    4,
+    0.5,
+    3,
+    21,
+    0.00289,
+    21,
+    sliderMaxTime === undefined ? 50 : Number(sliderMaxTime.value))
 
 function parametersInnerHTML() {
     outputIndividuals.innerHTML = sliderIndividuals.value;
