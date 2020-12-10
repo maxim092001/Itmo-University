@@ -64,6 +64,7 @@ let sliderAveragePregnancyTime
 let outputAveragePregnancyTime
 let sliderMaxTime
 let outputMaxTime
+let parametersText
 
 window.onload = function() {
     sliderIndividuals = document.getElementById("number-of-individuals");
@@ -80,6 +81,8 @@ window.onload = function() {
     outputAveragePregnancyTime = document.getElementById("average-pregnancy-time-text");
     sliderMaxTime = document.getElementById("max-time");
     outputMaxTime = document.getElementById("max-time-text");
+    parametersText = document.getElementById("parameters-text");
+    parametersText.innerHTML = "Количество особей в популяции: 50 <br> Коэффициент сметрности: 0.2 <br> Внутривидовая конкуренция: 0.00189 <br> Количество детей: 3 <br> Время между беременостью: 1 <br> Среднее время беремености: 0.003"
     generate();
     sliders();
 }
