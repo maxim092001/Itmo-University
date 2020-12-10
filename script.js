@@ -5,13 +5,16 @@ function generateMouseData() {
     const deathCoefficient = 0.2;
     const intraspecificCoefficient = 0.00189;
     const maxTime = Number(sliderMaxTime.value);
-    coords = new Array(maxTime + 1);
-    for (let i = 1; i < maxTime + 1; i++) {
-        coords[i] = Math.max(coords[i - 1] +
-            (coords[i - 1] * coords[i - 1] * numberOfChildren * averagePregnancyTime) /
-            (timeBetweenPregnancy + averagePregnancyTime * coords[i - 1]) -
-            deathCoefficient * coords[i - 1] -
-            intraspecificCoefficient * coords[i - 1] * coords[i - 1], 0);
+    const coords = generateCoordinates(50,
+        deathCoefficient,
+        numberOfChildren,
+        timeBetweenPregnancy,
+        intraspecificCoefficient,
+        averagePregnancyTime,
+        maxTime)
+
+    for (let i = 0; i <= maxTime; i++) {
+        console.log(coords[i])
     }
     return coords;
 }
@@ -29,7 +32,7 @@ function drawChart(arr, indexes) {
         },
          {
             label: "Размер популяции мышей", 
-            borderColor: "rgba(60, 60, 60, 1)", 
+            borderColor: "rgb(229,11,11)",
             data: mouseData, 
             fill: false
         }
@@ -123,6 +126,30 @@ function generate(numberOfIndividuals = Number(sliderIndividuals.value),
                   averagePregnancyTime = Number(sliderAveragePregnancyTime.value),
                   maxTime = Number(sliderMaxTime.value)) {
 
+    let coords = generateCoordinates(numberOfIndividuals,
+        deathCoefficient,
+        numberOfChildren,
+        timeBetweenPregnancy,
+        intraspecificCoefficient,
+        averagePregnancyTime,
+        maxTime)
+
+    let indexes = new Array(maxTime + 1);
+    for (let i = 1; i <= maxTime; i++) {
+        indexes[i] = i;
+    }
+
+    document.getElementById("canvas-container").innerHTML = "<canvas id=\"сhart\"></canvas>";
+    drawChart(coords, indexes)
+}
+
+function generateCoordinates(numberOfIndividuals,
+                             deathCoefficient,
+                             numberOfChildren,
+                             timeBetweenPregnancy,
+                             intraspecificCoefficient,
+                             averagePregnancyTime,
+                             maxTime) {
     let coords = new Array(maxTime + 1);
     coords[0] = numberOfIndividuals;
 
@@ -133,13 +160,5 @@ function generate(numberOfIndividuals = Number(sliderIndividuals.value),
             deathCoefficient * coords[i - 1] -
             intraspecificCoefficient * coords[i - 1] * coords[i - 1], 0);
     }
-
-    let indexes = new Array(maxTime + 1);
-    for (let i = 1; i <= maxTime; i++) {
-        indexes[i] = i;
-    }
-
-    console.log(coords);
-    document.getElementById("canvas-container").innerHTML = "<canvas id=\"сhart\"></canvas>";
-    drawChart(coords, indexes)
+    return coords;
 }
