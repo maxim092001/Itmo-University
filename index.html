@@ -27,15 +27,15 @@
 </head>
 
 <script>
-// Initialize tooltip component
-$(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-})
+    // Initialize tooltip component
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
 
-// Initialize popover component
-$(function () {
-  $('[data-toggle="popover"]').popover()
-})
+    // Initialize popover component
+    $(function () {
+        $('[data-toggle="popover"]').popover()
+    })
 </script>
 
 <script src="script.js"></script>
@@ -63,9 +63,11 @@ $(function () {
                 <div class="d-flex flex-row">
                     <p>Коэффициент смертности: <span id="death-coefficient-text"/>
                     </p>
-                        <button type="button" class="btn btn-secondary rounded-circle ml-2 md-2" data-container="body" data-toggle="popover" data-placement="top" data-content="Вероятность смерти одной особи безразмерная величина">
-                            ?
-                        </button>
+                    <button type="button" class="btn btn-secondary rounded-circle ml-2 md-2" data-container="body"
+                            data-toggle="popover" data-placement="top"
+                            data-content="Вероятность смерти одной особи безразмерная величина">
+                        ?
+                    </button>
 
                 </div>
 
@@ -76,7 +78,9 @@ $(function () {
                 <div class="d-flex flex-row">
                     <p>Внутривидовая конкуренция: <span id="intraspecific-competition-text"/>
                     </p>
-                    <button type="button" class="btn btn-secondary rounded-circle ml-2 md-2" data-container="body" data-toggle="popover" data-placement="top" data-content="Вероятность смерти при встречи двух особей безразмерная величина">
+                    <button type="button" class="btn btn-secondary rounded-circle ml-2 md-2" data-container="body"
+                            data-toggle="popover" data-placement="top"
+                            data-content="Вероятность смерти при встречи двух особей безразмерная величина">
                         ?
                     </button>
 
@@ -88,7 +92,9 @@ $(function () {
                     <p>
                         Количество детей: <span id="number-of-children-text"/>
                     </p>
-                    <button type="button" class="btn btn-secondary rounded-circle ml-2 md-2" data-container="body" data-toggle="popover" data-placement="top" data-content="Количество детей после одной беремености">
+                    <button type="button" class="btn btn-secondary rounded-circle ml-2 md-2" data-container="body"
+                            data-toggle="popover" data-placement="top"
+                            data-content="Количество детей после одной беремености">
                         ?
                     </button>
                 </div>
@@ -100,7 +106,8 @@ $(function () {
                 </p>
             </div>
             <div class="container-fluid">
-                <input type="range" min="0.001" max="5" value="1" step="0.01" class="slider" id="average-pregnancy-time">
+                <input type="range" min="0.001" max="5" value="1" step="0.01" class="slider"
+                       id="average-pregnancy-time">
                 <p>Среднее время беременности в днях: <span id="average-pregnancy-time-text"/>
                 </p>
             </div>
@@ -112,33 +119,40 @@ $(function () {
         </form>
     </div>
     <div class="d-flex">
-    <div class="container" id="canvas-container">
+        <div class="container" id="canvas-container">
             <canvas id="сhart"></canvas>
         </div>
-        <div class="card p-2 mr-5" id="parameters-text" >
-            </div>
+        <div class="card p-2 mr-5" id="parameters-text">
+        </div>
     </div>
 
 </div>
 <div class="caption">
     <h5>Сравнение полученных нами результатов с данными эксперимента</h5>
     <p>
-        В ходе <a href="https://en.wikipedia.org/wiki/Behavioral_sink">Эксперимента 25</a> были получены следующие результаты:
+        В ходе <a href="https://en.wikipedia.org/wiki/Behavioral_sink">Эксперимента 25</a> были получены следующие
+        результаты:
         численность популяции крыс сначала резко возрасла, что объясняется низкой внутривидовой конкуренцией
-        (ученым удалось искусственно снизить её, обеспечив избыток питания). Затем последовал резкий спад, и далее 
-        численность популяции колебалась. Эксперимент был остановлен после фиксации нескольких колебаний. На графике, построенном
-        нами, видно, что полученные результаты полностью соответсвуют результатам эксперимента (с учетом нормальной ошибки).
+        (ученым удалось искусственно снизить её, обеспечив избыток питания). Затем последовал резкий спад, и далее
+        численность популяции колебалась. Эксперимент был остановлен после фиксации нескольких колебаний. На графике,
+        построенном
+        нами, видно, что полученные результаты полностью соответсвуют результатам эксперимента (с учетом нормальной
+        ошибки).
     </p>
 </div>
 <div class="media border p-5">
-<div class="embed-responsive embed-responsive-16by9">
-    <iframe
-            class="embed-responsive-item"
-            src="https://www.youtube.com/embed/7CXj0AGuh4c"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
+    <div class="embed-responsive embed-responsive-16by9">
+        <iframe
+                class="embed-responsive-item"
+                src="https://www.youtube.com/embed/7CXj0AGuh4c"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+    </div>
 </div>
+<div class="pdf">
+    <iframe src="https://drive.google.com/file/d/1CDqX2tMYErtpA3QSHZk1ELJFktMoKXZC/preview" width="80%"
+            height="1000"></iframe>
 </div>
 </body>
 </html>
