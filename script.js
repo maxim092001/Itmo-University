@@ -71,9 +71,9 @@ window.onload = function() {
 let mouseData = () => generateCoordinates(
         4,
         0.5,
-        3,
+        2.8,
         1,
-    0.0015,
+    0.00151,
         20,
         sliderMaxTime === undefined ? 50 : Number(sliderMaxTime.value))
 
