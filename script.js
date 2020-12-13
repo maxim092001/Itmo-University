@@ -72,9 +72,9 @@ let mouseData = () => generateCoordinates(
         4,
         0.5,
         3,
-        4,
-    0.0089,
-        21,
+        1,
+    0.0015,
+        20,
         sliderMaxTime === undefined ? 50 : Number(sliderMaxTime.value))
 
 function parametersInnerHTML() {
