@@ -60,33 +60,38 @@ $(function () {
             </div>
             <div class="container-fluid">
                 <input type="range" min="0" max="1" value="0.5" step="0.01" class="slider" id="death-coefficient">
-                <div
-                        data-toggle="popover" data-trigger="hover"
-                        data-content="Вероятность смерти одной особи">
-                <p>Коэффициент смертности: <span id="death-coefficient-text"/>
-                </p>
+                <div class="d-flex flex-row">
+                    <p>Коэффициент смертности: <span id="death-coefficient-text"/>
+                    </p>
+                        <button type="button" class="btn btn-secondary rounded-circle ml-2 md-2" data-container="body" data-toggle="popover" data-placement="top" data-content="Вероятность смерти одной особи безразмерная величина">
+                            ?
+                        </button>
+
                 </div>
+
             </div>
             <div class="container-fluid">
                 <input type="range" min="0" max="0.008" value="0.00189" step="0.00001" class="slider"
                        id="intraspecific-competition">
-                <div
-                        data-toggle="popover" data-trigger="hover"
-                        data-content="Вероятность смерти при встречи двух особей">
-                <p>Внутривидовая конкуренция: <span id="intraspecific-competition-text"/>
-                </p>
+                <div class="d-flex flex-row">
+                    <p>Внутривидовая конкуренция: <span id="intraspecific-competition-text"/>
+                    </p>
+                    <button type="button" class="btn btn-secondary rounded-circle ml-2 md-2" data-container="body" data-toggle="popover" data-placement="top" data-content="Вероятность смерти при встречи двух особей безразмерная величина">
+                        ?
+                    </button>
+
                 </div>
             </div>
             <div class="container-fluid">
                 <input type="range" min="1" max="10" value="3" step="1" class="slider" id="number-of-children">
-                <div
-                        data-toggle="popover" data-trigger="hover"
-                        data-content="Количество детей после одной беремености">
-                <p>
-                    Количество детей: <span id="number-of-children-text"/>
-                </p>
+                <div class="d-flex flex-row">
+                    <p>
+                        Количество детей: <span id="number-of-children-text"/>
+                    </p>
+                    <button type="button" class="btn btn-secondary rounded-circle ml-2 md-2" data-container="body" data-toggle="popover" data-placement="top" data-content="Количество детей после одной беремености">
+                        ?
+                    </button>
                 </div>
-
             </div>
             <div class="container-fluid">
                 <input type="range" min="0.01" max="20" value="1" step="0.01" class="slider"
