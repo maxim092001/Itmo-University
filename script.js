@@ -70,15 +70,6 @@ window.onload = function () {
     sliders();
 }
 
-let mouseData = () => generateCoordinates(
-    4,
-    0.5,
-    2.8,
-    1,
-    0.00151,
-    20,
-    sliderMaxTime === undefined ? 50 : Number(sliderMaxTime.value))
-
 function parametersInnerHTML() {
     outputIndividuals.innerHTML = sliderIndividuals.value;
     outputDeath.innerHTML = sliderDeath.value;
