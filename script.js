@@ -150,7 +150,7 @@ function BP(arr) {
     arr.filter(i => i > 0).forEach(function (value, i) {
         str = str + "x" + i + ": " + (value | 0) + "\n";
     });
-    return str;
+    return "В данных точках производная равна 0: \n" + str;
 }
 
 function generateCoordinates(numberOfIndividuals,
