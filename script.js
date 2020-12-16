@@ -46,7 +46,6 @@ let outputAveragePregnancyTime
 let sliderMaxTime
 let outputMaxTime
 let parametersText
-let bifurcationPoints
 
 window.onload = function () {
     sliderIndividuals = document.getElementById("number-of-individuals");
@@ -64,8 +63,7 @@ window.onload = function () {
     sliderMaxTime = document.getElementById("max-time");
     outputMaxTime = document.getElementById("max-time-text");
     parametersText = document.getElementById("parameters-text");
-    bifurcationPoints = document.getElementById("bifurcation-points");
-    parametersText.innerHTML = "<b>Размер популяции мышей.</b> <br> Число особей в популяции: 4 <br> Коэффициент смертности: 0.5 <br> Внутривидовая конкуренция: 0.00151 <br> Частота числа детей: 2.8 <br> Частота между беременностью в днях: 1 <br> Частота беременности в днях: 20"
+    parametersText.innerHTML = "<b>Размер популяции мышей.</b> <br> Число особей в популяции в начальный момент: 8 <br> Коэффициент смертности: 0.3 <br> Внутривидовая конкуренция: 0.0014401 <br> Число детенышей: 2.6 <br> Среднее время между беременностями: 1 <br> Средняя длительность беременности на особь: 20"
     generate();
     sliders();
 }
@@ -78,13 +76,11 @@ function parametersInnerHTML() {
     outputTimeBetweenPregnancy.innerHTML = sliderTimeBetweenPregnancy.value;
     outputAveragePregnancyTime.innerHTML = sliderAveragePregnancyTime.value;
     outputMaxTime.innerHTML = sliderMaxTime.value;
-    bifurcationPoints.innerHTML = generateBP();
 }
 
 function slider(slider, output) {
     slider.oninput = function () {
         output.innerHTML = this.value;
-        bifurcationPoints.innerHTML = generateBP();
         generate();
     }
 }
@@ -123,25 +119,6 @@ function generate(numberOfIndividuals = Number(sliderIndividuals.value),
 
     document.getElementById("canvas-container").innerHTML = "<canvas id=\"сhart\"></canvas>";
     drawChart(coords, indexes)
-}
-
-function generateBP(numberOfIndividuals = Number(sliderIndividuals.value),
-                    deathCoefficient = Number(sliderDeath.value),
-                    numberOfChildren = Number(sliderNumberOfChildren.value),
-                    timeBetweenPregnancy = Number(sliderTimeBetweenPregnancy.value),
-                    intraspecificCoefficient = Number(sliderIntraspecific.value),
-                    averagePregnancyTime = Number(sliderAveragePregnancyTime.value)) {
-    let x0 = (Math.sqrt(Math.pow(deathCoefficient * averagePregnancyTime + intraspecificCoefficient * timeBetweenPregnancy - numberOfChildren * averagePregnancyTime, 2)) - deathCoefficient * timeBetweenPregnancy) / (2 * intraspecificCoefficient * timeBetweenPregnancy)
-    let x1 = (-Math.sqrt(Math.pow(deathCoefficient * averagePregnancyTime + intraspecificCoefficient * timeBetweenPregnancy - numberOfChildren * averagePregnancyTime, 2)) - deathCoefficient * timeBetweenPregnancy) / (2 * intraspecificCoefficient * timeBetweenPregnancy)
-    return BP([x0, x1]);
-}
-
-function BP(arr) {
-    let str = ""
-    arr.filter(i => i > 0).forEach(function (value, i) {
-        str = str + "x" + i + ": " + (value | 0) + "\n";
-    });
-    return "В данных точках производная равна 0: \n" + str;
 }
 
 function generateCoordinates(numberOfIndividuals,

@@ -64,7 +64,7 @@
                     </p>
                     <button type="button" class="btn btn-outline-info ml-2 md-3 btn-sm" data-container="body"
                             data-toggle="popover" data-placement="top"
-                            data-content="Вероятность смерти одной особи безразмерная величина">
+                            data-content="Частота смерти особей, размерность: обратная зависимость к времени">
                         Info
                     </button>
 
@@ -78,7 +78,7 @@
                     </p>
                     <button type="button" class="btn btn-outline-info ml-2 md-2 btn-sm" data-container="body"
                             data-toggle="popover" data-placement="top"
-                            data-content="Вероятность смерти при встречи двух особей. Размерность: обратная зависимость к (особь * время)">
+                            data-content="Внутривидовая конкуренция, размерность: обратная зависимость к (особь * время)">
                         Info
                     </button>
 
@@ -89,24 +89,24 @@
             <div class="container-fluid my-2">
                 <div class="d-flex flex-row">
                     <p>
-                        Частота число детей: <span id="number-of-children-text"/>
+                        Число детенышей: <span id="number-of-children-text"/>
                     </p>
                     <button type="button" class="btn btn-outline-info ml-2 md-2 btn-sm" data-container="body"
                             data-toggle="popover" data-placement="top"
-                            data-content="Среднее количество детей после одной беременности">
+                            data-content="Количество детенышей после встречи в момент времени, размерность: обратная зависимость от (время * особь)">
                         Info
                     </button>
                 </div>
                 <input type="range" min="0g" max="10" value="2.8" step="0.1" class="slider my-2" id="number-of-children">
             </div>
             <div class="container-fluid my-2">
-                <p>Частота между беременностью в днях.: <span id="time-between-pregnancy-text"/>
+                <p>Среднее время между беременностями, прямопропорционально времени: <span id="time-between-pregnancy-text"/>
                 </p>
                 <input type="range" min="1" max="20" value="1" step="1" class="slider my-2"
                        id="time-between-pregnancy">
             </div>
             <div class="container-fluid my-2">
-                <p>Частотап беременности в днях: <span id="average-pregnancy-time-text"/>
+                <p>Средняя длительность беременности на особь, прямопропорционально времени, обратнопропорциональна числу особей: <span id="average-pregnancy-time-text"/>
                 </p>
                 <input type="range" min="1" max="21" value="21" step="1" class="slider my-2"
                        id="average-pregnancy-time">
@@ -117,10 +117,6 @@
                 <input type="range" min="10" max="200" value="26" step="1" class="slider my-2" id="max-time">
             </div>
         </form>
-    </div>
-    <div>
-        <table readonly id="bifurcation-points">
-        </table>
     </div>
     <div class="d-flex">
         <div class="container" id="canvas-container">
