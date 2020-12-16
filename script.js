@@ -145,7 +145,7 @@ function generateCoordinates(numberOfIndividuals,
             (coords[i - 1] * coords[i - 1] * numberOfChildren * averagePregnancyTime) /
             (timeBetweenPregnancy + averagePregnancyTime * coords[i - 1]) -
             deathCoefficient * coords[i - 1] -
-            intraspecificCoefficient * coords[i - 1] * coords[i - 1], 0);
+            intraspecificCoefficient * coords[i - 1] * coords[i - 1], 0) | 0;
     }
     return coords;
 }
