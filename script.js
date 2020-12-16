@@ -130,7 +130,20 @@ function generate(numberOfIndividuals = Number(sliderIndividuals.value),
     drawChart(coords, indexes)
 }
 
-function generateCoordinates(numberOfIndividuals,
+function generateBP(numberOfIndividuals,
+                             deathCoefficient,
+                             numberOfChildren,
+                             timeBetweenPregnancy,
+                             intraspecificCoefficient,
+                             averagePregnancyTime) {
+    let x0 = (Math.sqrt(Math.pow(deathCoefficient*averagePregnancyTime + intraspecificCoefficient*timeBetweenPregnancy - numberOfChildren * averagePregnancyTime,2)) -deathCoefficient*timeBetweenPregnancy) / (2*intraspecificCoefficient*timeBetweenPregnancy)
+    let x1 = (-Math.sqrt(Math.pow(deathCoefficient*averagePregnancyTime + intraspecificCoefficient*timeBetweenPregnancy - numberOfChildren * averagePregnancyTime,2)) -deathCoefficient*timeBetweenPregnancy) / (2*intraspecificCoefficient*timeBetweenPregnancy)
+    return [x0,x1]
+
+}
+
+
+    function generateCoordinates(numberOfIndividuals,
                              deathCoefficient,
                              numberOfChildren,
                              timeBetweenPregnancy,
