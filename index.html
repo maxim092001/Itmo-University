@@ -56,7 +56,7 @@
             <div class="container-fluid my-2">
                 <p>Количество особей в популяции: <span id="number-of-individuals-text"/>
                 </p>
-                <input type="range" min="2" max="1000" value="50" class="slider my-2" id="number-of-individuals">
+                <input type="range" min="2" max="1000" value="4" class="slider my-2" id="number-of-individuals">
             </div>
             <div class="container-fluid my-2">
                 <div class="d-flex flex-row">
@@ -83,7 +83,7 @@
                     </button>
 
                 </div>
-                <input type="range" min="0" max="0.008" value="0.00189" step="0.00001" class="slider my-2"
+                <input type="range" min="0" max="0.008" value="0.00151" step="0.00001" class="slider my-2"
                        id="intraspecific-competition">
             </div>
             <div class="container-fluid my-2">
@@ -108,11 +108,11 @@
             <div class="container-fluid my-2">
                 <p>Среднее время беременности в днях: <span id="average-pregnancy-time-text"/>
                 </p>
-                <input type="range" min="1" max="21" value="1" step="1" class="slider my-2"
+                <input type="range" min="1" max="21" value="21" step="1" class="slider my-2"
                        id="average-pregnancy-time">
             </div>
             <div class="container-fluid my-2">
-                <p>Максимальное время в днях: <span id="max-time-text"/>
+                <p>Максимальное время в неделях: <span id="max-time-text"/>
                 </p>
                 <input type="range" min="10" max="200" value="26" step="1" class="slider my-2" id="max-time">
             </div>
@@ -129,17 +129,21 @@
 
 </div>
 <div class="caption">
-    <h5>Сравнение полученных нами результатов с данными эксперимента</h5>
-    <p>
+    <br>
+    <h4>Сравнение полученных нами результатов с данными эксперимента</h4>
+    <em>
         В ходе <a href="https://en.wikipedia.org/wiki/Behavioral_sink">Эксперимента 25</a> были получены следующие
         результаты:
         численность популяции крыс сначала резко возросла, что объясняется низкой внутривидовой конкуренцией
-        (ученым удалось искусственно снизить её, обеспечив избыток питания). Затем последовал резкий спад, и далее
-        численность популяции колебалась. Эксперимент был остановлен после фиксации нескольких колебаний. На графике,
-        построенном
-        нами, видно, что полученные результаты полностью соответствуют результатам эксперимента (с учетом нормальной
-        ошибки).
-    </p>
+        (ученым удалось искусственно снизить её, обеспечив избыток питания), некоторое время колебалась, а затем резко начала уменьшаться.
+    </em>
+    <br>
+    <h5>Что мы не учли?</h5>
+    <ul>
+        <li>Различия между самками и самцами</li>
+        <li>Возраст половой зрелости самок</li>
+        <li>Особенности поведения животных, которые были предметом <b>Эксперимента 25</b></li>
+    </ul>
 </div>
 <div class="media border p-5">
     <div class="embed-responsive embed-responsive-16by9">
