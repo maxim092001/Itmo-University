@@ -65,7 +65,7 @@ window.onload = function () {
     outputMaxTime = document.getElementById("max-time-text");
     parametersText = document.getElementById("parameters-text");
     bifurcationPoints = document.getElementById("bifurcation-points");
-    parametersText.innerHTML = "<b>Размер популяции мышей.</b> <br> Количество особей в популяции: 4 <br> Коэффициент смертности: 0.5 <br> Внутривидовая конкуренция: 0.00151 <br> Среднее количество детей: 2.8 <br> Время между беременностью в днях: 1 <br> Среднее время беременности в днях: 20"
+    parametersText.innerHTML = "<b>Размер популяции мышей.</b> <br> Число особей в популяции: 4 <br> Коэффициент смертности: 0.5 <br> Внутривидовая конкуренция: 0.00151 <br> Среднее число детей: 2.8 <br> Время между беременностью в днях: 1 <br> Среднее время беременности в днях: 20"
     generate();
     sliders();
 }
