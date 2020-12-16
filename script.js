@@ -8,13 +8,13 @@ function drawChart(arr, indexes) {
             data: arr,
             fill: false
         },
-         {
-            label: "Размер популяции мышей", 
-            borderColor: "rgb(229,11,11)",
-            data: [8, 26, 83, 262, 764, 1643, 1350, 1698, 1252, 1767, 1117, 1803, 1038, 1807, 1020, 1800, 1033, 1787, 1065, 1787, 1069, 1820, 1012, 1778, 1116, 1821, 982, 1797, 1067, 1785, 1056, 1803, 1071, 1819, 1038, 1821, 1037, 1784, 1093, 1788, 1044, 1775, 1064, 1802, 1030, 1837, 935, 1797, 1043, 1839, 960, 1823, 949, 1723, 1187, 1779, 1053, 1831, 1000, 1807, 1088, 1838, 1024, 1836, 962, 1817, 1010, 1765, 1087, 1823, 1064, 1869, 894, 1746, 1099, 1801, 977, 1810, 1047, 1867, 905, 1728, 1245, 1843, 899, 1722, 1286, 1748, 1127, 1824, 973, 1822, 1020, 1761, 1161, 1737, 1187, 1716, 1289, 1756],
-            fill: false
-        }
-    ]
+            {
+                label: "Размер популяции мышей",
+                borderColor: "rgb(229, 11, 11)",
+                data: [8, 26, 83, 262, 764, 1643, 1350, 1698, 1252, 1767, 1117, 1803, 1038, 1807, 1020, 1800, 1033, 1787, 1065, 1787, 1069, 1820, 1012, 1778, 1116, 1821, 982, 1797, 1067, 1785, 1056, 1803, 1071, 1819, 1038, 1821, 1037, 1784, 1093, 1788, 1044, 1775, 1064, 1802, 1030, 1837, 935, 1797, 1043, 1839, 960, 1823, 949, 1723, 1187, 1779, 1053, 1831, 1000, 1807, 1088, 1838, 1024, 1836, 962, 1817, 1010, 1765, 1087, 1823, 1064, 1869, 894, 1746, 1099, 1801, 977, 1810, 1047, 1867, 905, 1728, 1245, 1843, 899, 1722, 1286, 1748, 1127, 1824, 973, 1822, 1020, 1761, 1161, 1737, 1187, 1716, 1289, 1756],
+                fill: false
+            }
+        ]
     };
     const myBarChart = new Chart(ctx, {
         type: 'line',
@@ -46,8 +46,9 @@ let outputAveragePregnancyTime
 let sliderMaxTime
 let outputMaxTime
 let parametersText
+let bifurcationPoints
 
-window.onload = function() {
+window.onload = function () {
     sliderIndividuals = document.getElementById("number-of-individuals");
     outputIndividuals = document.getElementById("number-of-individuals-text");
     sliderDeath = document.getElementById("death-coefficient");
@@ -63,19 +64,20 @@ window.onload = function() {
     sliderMaxTime = document.getElementById("max-time");
     outputMaxTime = document.getElementById("max-time-text");
     parametersText = document.getElementById("parameters-text");
+    bifurcationPoints = document.getElementById("bifurcation-points");
     parametersText.innerHTML = "<b>Размер популяции мышей.</b> <br> Количество особей в популяции: 4 <br> Коэффициент смертности: 0.5 <br> Внутривидовая конкуренция: 0.00151 <br> Среднее количество детей: 2.8 <br> Время между беременностью в днях: 1 <br> Среднее время беременности в днях: 20"
     generate();
     sliders();
 }
 
 let mouseData = () => generateCoordinates(
-        4,
-        0.5,
-        2.8,
-        1,
+    4,
+    0.5,
+    2.8,
+    1,
     0.00151,
-        20,
-        sliderMaxTime === undefined ? 50 : Number(sliderMaxTime.value))
+    20,
+    sliderMaxTime === undefined ? 50 : Number(sliderMaxTime.value))
 
 function parametersInnerHTML() {
     outputIndividuals.innerHTML = sliderIndividuals.value;
@@ -85,11 +87,13 @@ function parametersInnerHTML() {
     outputTimeBetweenPregnancy.innerHTML = sliderTimeBetweenPregnancy.value;
     outputAveragePregnancyTime.innerHTML = sliderAveragePregnancyTime.value;
     outputMaxTime.innerHTML = sliderMaxTime.value;
+    bifurcationPoints.innerHTML = generateBP();
 }
 
 function slider(slider, output) {
-    slider.oninput = function() {
+    slider.oninput = function () {
         output.innerHTML = this.value;
+        bifurcationPoints.innerHTML = generateBP();
         generate();
     }
 }
@@ -130,20 +134,26 @@ function generate(numberOfIndividuals = Number(sliderIndividuals.value),
     drawChart(coords, indexes)
 }
 
-function generateBP(numberOfIndividuals,
-                             deathCoefficient,
-                             numberOfChildren,
-                             timeBetweenPregnancy,
-                             intraspecificCoefficient,
-                             averagePregnancyTime) {
-    let x0 = (Math.sqrt(Math.pow(deathCoefficient*averagePregnancyTime + intraspecificCoefficient*timeBetweenPregnancy - numberOfChildren * averagePregnancyTime,2)) -deathCoefficient*timeBetweenPregnancy) / (2*intraspecificCoefficient*timeBetweenPregnancy)
-    let x1 = (-Math.sqrt(Math.pow(deathCoefficient*averagePregnancyTime + intraspecificCoefficient*timeBetweenPregnancy - numberOfChildren * averagePregnancyTime,2)) -deathCoefficient*timeBetweenPregnancy) / (2*intraspecificCoefficient*timeBetweenPregnancy)
-    return [x0,x1]
-
+function generateBP(numberOfIndividuals = Number(sliderIndividuals.value),
+                    deathCoefficient = Number(sliderDeath.value),
+                    numberOfChildren = Number(sliderNumberOfChildren.value),
+                    timeBetweenPregnancy = Number(sliderTimeBetweenPregnancy.value),
+                    intraspecificCoefficient = Number(sliderIntraspecific.value),
+                    averagePregnancyTime = Number(sliderAveragePregnancyTime.value)) {
+    let x0 = (Math.sqrt(Math.pow(deathCoefficient * averagePregnancyTime + intraspecificCoefficient * timeBetweenPregnancy - numberOfChildren * averagePregnancyTime, 2)) - deathCoefficient * timeBetweenPregnancy) / (2 * intraspecificCoefficient * timeBetweenPregnancy)
+    let x1 = (-Math.sqrt(Math.pow(deathCoefficient * averagePregnancyTime + intraspecificCoefficient * timeBetweenPregnancy - numberOfChildren * averagePregnancyTime, 2)) - deathCoefficient * timeBetweenPregnancy) / (2 * intraspecificCoefficient * timeBetweenPregnancy)
+    return BP([x0, x1]);
 }
 
+function BP(arr) {
+    let str = ""
+    arr.filter(i => i > 0).forEach(function (value, i) {
+        str = str + "x" + i + ": " + (value | 0) + "\n";
+    });
+    return str;
+}
 
-    function generateCoordinates(numberOfIndividuals,
+function generateCoordinates(numberOfIndividuals,
                              deathCoefficient,
                              numberOfChildren,
                              timeBetweenPregnancy,
