@@ -46,8 +46,9 @@ let outputAveragePregnancyTime
 let sliderMaxTime
 let outputMaxTime
 let parametersText
+let bifurcationPoints
 
-window.onload = function() {
+window.onload = function () {
     sliderIndividuals = document.getElementById("number-of-individuals");
     outputIndividuals = document.getElementById("number-of-individuals-text");
     sliderDeath = document.getElementById("death-coefficient");
@@ -63,19 +64,20 @@ window.onload = function() {
     sliderMaxTime = document.getElementById("max-time");
     outputMaxTime = document.getElementById("max-time-text");
     parametersText = document.getElementById("parameters-text");
+    bifurcationPoints = document.getElementById("bifurcation-points");
     parametersText.innerHTML = "<b>Размер популяции мышей.</b> <br> Количество особей в популяции: 4 <br> Коэффициент смертности: 0.5 <br> Внутривидовая конкуренция: 0.00151 <br> Среднее количество детей: 2.8 <br> Время между беременностью в днях: 1 <br> Среднее время беременности в днях: 20"
     generate();
     sliders();
 }
 
 let mouseData = () => generateCoordinates(
-        4,
-        0.5,
-        2.8,
-        1,
+    4,
+    0.5,
+    2.8,
+    1,
     0.00151,
-        20,
-        sliderMaxTime === undefined ? 50 : Number(sliderMaxTime.value))
+    20,
+    sliderMaxTime === undefined ? 50 : Number(sliderMaxTime.value))
 
 function parametersInnerHTML() {
     outputIndividuals.innerHTML = sliderIndividuals.value;
@@ -85,11 +87,13 @@ function parametersInnerHTML() {
     outputTimeBetweenPregnancy.innerHTML = sliderTimeBetweenPregnancy.value;
     outputAveragePregnancyTime.innerHTML = sliderAveragePregnancyTime.value;
     outputMaxTime.innerHTML = sliderMaxTime.value;
+    bifurcationPoints.innerHTML = generateBP();
 }
 
 function slider(slider, output) {
-    slider.oninput = function() {
+    slider.oninput = function () {
         output.innerHTML = this.value;
+        bifurcationPoints.innerHTML = generateBP();
         generate();
     }
 }
@@ -130,20 +134,26 @@ function generate(numberOfIndividuals = Number(sliderIndividuals.value),
     drawChart(coords, indexes)
 }
 
-function generateBP(numberOfIndividuals,
-                             deathCoefficient,
-                             numberOfChildren,
-                             timeBetweenPregnancy,
-                             intraspecificCoefficient,
-                             averagePregnancyTime) {
-    let x0 = (Math.sqrt(Math.pow(deathCoefficient*averagePregnancyTime + intraspecificCoefficient*timeBetweenPregnancy - numberOfChildren * averagePregnancyTime,2)) -deathCoefficient*timeBetweenPregnancy) / (2*intraspecificCoefficient*timeBetweenPregnancy)
-    let x1 = (-Math.sqrt(Math.pow(deathCoefficient*averagePregnancyTime + intraspecificCoefficient*timeBetweenPregnancy - numberOfChildren * averagePregnancyTime,2)) -deathCoefficient*timeBetweenPregnancy) / (2*intraspecificCoefficient*timeBetweenPregnancy)
-    return [x0,x1]
-
+function generateBP(numberOfIndividuals = Number(sliderIndividuals.value),
+                    deathCoefficient = Number(sliderDeath.value),
+                    numberOfChildren = Number(sliderNumberOfChildren.value),
+                    timeBetweenPregnancy = Number(sliderTimeBetweenPregnancy.value),
+                    intraspecificCoefficient = Number(sliderIntraspecific.value),
+                    averagePregnancyTime = Number(sliderAveragePregnancyTime.value)) {
+    let x0 = (Math.sqrt(Math.pow(deathCoefficient * averagePregnancyTime + intraspecificCoefficient * timeBetweenPregnancy - numberOfChildren * averagePregnancyTime, 2)) - deathCoefficient * timeBetweenPregnancy) / (2 * intraspecificCoefficient * timeBetweenPregnancy)
+    let x1 = (-Math.sqrt(Math.pow(deathCoefficient * averagePregnancyTime + intraspecificCoefficient * timeBetweenPregnancy - numberOfChildren * averagePregnancyTime, 2)) - deathCoefficient * timeBetweenPregnancy) / (2 * intraspecificCoefficient * timeBetweenPregnancy)
+    return BP([x0, x1]);
 }
 
+function BP(arr) {
+    let str = ""
+    arr.filter(i => i > 0).forEach(function (value, i) {
+        str = str + "x" + i + ": " + (value | 0) + "\n";
+    });
+    return str;
+}
 
-    function generateCoordinates(numberOfIndividuals,
+function generateCoordinates(numberOfIndividuals,
                              deathCoefficient,
                              numberOfChildren,
                              timeBetweenPregnancy,
