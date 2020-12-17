@@ -63,7 +63,7 @@ window.onload = function () {
     sliderMaxTime = document.getElementById("max-time");
     outputMaxTime = document.getElementById("max-time-text");
     parametersText = document.getElementById("parameters-text");
-    parametersText.innerHTML = "<b>Размер популяции мышей.</b> <br> Число особей в популяции в начальный момент: 8 <br> Коэффициент смертности: 0.3 <br> Внутривидовая конкуренция: 0.0014401 <br> Число детенышей: 2.6 <br> Среднее время между беременностями: 1 <br> Средняя длительность беременности на особь: 20"
+    parametersText.innerHTML = "<b>Размер популяции мышей.</b> <br> Число особей в популяции в начальный момент: 8 <br> Коэффициент смертности: 0.3 <br> Внутривидовая конкуренция: 0.0015201 <br> Число детенышей: 2.6 <br> Среднее время между беременностями: 1 <br> Средняя длительность беременности на особь: 20"
     generate();
     sliders();
 }
