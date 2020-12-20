@@ -1,0 +1,16 @@
+Get-Service > services1.txt
+
+REG add "HKLM\SYSTEM\CurrentControlSet\services\Dnscache" /v Start /t REG_DWORD /d 4 /f --- changes current dnscache mode from 2 (Automatic) to 4 (Disabled), but works after reboot.
+
+reboot
+
+Get-Service > services2.txt
+
+Compare-Object (Get-Content services1.txt) (Get-Content services2.txt) > diff.txt
+
+
+REG add "HKLM\SYSTEM\CurrentControlSet\services\Dnscache" /v Start /t REG_DWORD /d 2 /f --- changes to Automatic
+
+reboot
+
+regedit --- to check

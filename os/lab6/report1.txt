@@ -1,0 +1,12 @@
+1
+systeminfo ---  all info about system+mem
+disk --- info about disk
+
+2
+Copy-Item disk.txt,systeminfo.txt -Destination TEST --- copy all files to TEST
+
+3
+gci | foreach-object {$_;""} > new.txt --- for creating new file with content from all others. gci --- Get-ChildItems or smth like this.
+
+4
+ls -file | sort LastWriteTime -d | Select -Skip 1 | rm --- get only files sort them descending, skip one and delete others

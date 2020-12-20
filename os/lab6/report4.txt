@@ -1,0 +1,3 @@
+driverquery /nh > DRIVERS.txt ----- driverquery gets all drivers, /nh means no header and /fo table formats as table but can be ommited since default.
+
+Get-Content DRIVERS.txt | Sort-Object -Descending > sort.txt

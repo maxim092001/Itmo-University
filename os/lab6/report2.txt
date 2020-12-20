@@ -1,0 +1,19 @@
+CMD           RESULT
+
+1.
+
+hostname ---- EC@AMAZ-BDVRDMT
+
+2.
+
+xcopy /z "C:\Windows\test.jpg" "\\EC2AMAZ-BDVRDMT\c$\temp\pict.jpg"
+
+3.
+
+schtasks create /sc MINUTE /tn scheduled /tr "powershell.exe C:\Lab6\second\copy.ps1" --- tn task name tr task run
+
+4.
+
+While(1) {ps | sort -des cpu | select -f 15 | ft -a; sleep 1; cls} ---- top analog
+
+5. fix with /z
