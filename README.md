@@ -56,5 +56,5 @@
       * [Графики](https://github.com/maxim092001/Itmo-University/tree/master/os/lab5/ReportGraphics.pdf)
  
  * *Шестая лаба*
-      * [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/os/lab6). Реализация на Powershell.
+      * [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/os/lab6) Реализация на Powershell.
       * [Условия](https://github.com/maxim092001/Itmo-University/tree/master/os/lab6/OS_Lab6.pdf)
