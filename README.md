@@ -26,6 +26,16 @@
   * *Графы*
       * [Условия](https://github.com/maxim092001/Itmo-University/blob/master/algorithms/graph/problem.pdf)
       * [Реализация](https://github.com/maxim092001/Itmo-University/blob/master/algorithms/graph)    
+
+[Дискретная математика](https://github.com/maxim092001/Itmo-University/tree/master/discrete-math)
+----
+  
+  * *Графы*
+      * [Условия](https://github.com/maxim092001/Itmo-University/blob/master/discrete-math/graphs/problem.pdf)
+      * [Реализация](https://github.com/maxim092001/Itmo-University/blob/master/discrete-math/graphs)    
+  * *Матроиды*
+      * [Условия](https://github.com/maxim092001/Itmo-University/blob/master/discrete-math/matroids/problem.pdf)
+      * [Реализация](https://github.com/maxim092001/Itmo-University/blob/master/discrete-math/matroids)
       
 [Парадигмы программирования](https://github.com/maxim092001/Itmo-University/tree/master/paradigms)
 ----
