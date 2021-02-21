@@ -1,6 +1,7 @@
 package org.mathoptimization.math_optimization;
 
 import org.mathoptimization.math_optimization.methods.GoldenRatio;
+import org.mathoptimization.math_optimization.methods.MethodStep;
 import org.mathoptimization.math_optimization.methods.OptimizationMethod;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -2,7 +2,6 @@ package org.mathoptimization.math_optimization.methods;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.BiFunction;
 import java.util.function.Function;
 
 public class GoldenRatio implements OptimizationMethod {
@@ -54,7 +53,7 @@ public class GoldenRatio implements OptimizationMethod {
                     function.apply((right + left) / 2.0)
             ));
             currentEps *= tau;
-            if (function.apply(x1) <= function.apply(x2)) {
+            if (function.apply(x1) < function.apply(x2)) {
                 right = x2;
                 x2 = x1;
                 x1 = right - tau * (right - left);
