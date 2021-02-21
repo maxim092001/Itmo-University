@@ -15,6 +15,7 @@ public class FibonacciMethod extends AbstractOptimizationMethod {
                            final Double eps,
                            final int stepsCount) {
         super(left, right, function, eps, stepsCount);
+        calculateFibonacciNumbers();
     }
 
     private void calculateFibonacciNumbers() {
@@ -29,7 +30,6 @@ public class FibonacciMethod extends AbstractOptimizationMethod {
 
     @Override
     public void run() {
-        calculateFibonacciNumbers();
         final double startDelta = right - left;
         double x1 = left + fibonacciNumbers.get(stepsCount - 1) / fibonacciNumbers.get(stepsCount + 1) * (right - left);
         double x2 = left + right - x1;
