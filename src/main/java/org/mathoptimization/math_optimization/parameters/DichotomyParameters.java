@@ -1,26 +1,21 @@
 package org.mathoptimization.math_optimization.parameters;
 
-
-import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 @EqualsAndHashCode(callSuper = true)
-@Data
+@ToString(callSuper = true)
 public class DichotomyParameters extends AbstractParameters {
-    private Double firstValue;
-    private Double firstArgument;
-    private Double secondValue;
-    private Double secondArgument;
+    private final Double secondValue;
+    private final Double secondArgument;
 
     public DichotomyParameters(final Double left,
                                final Double right,
-                               final Double firstValue,
-                               final Double firstArgument,
+                               final Double value,
+                               final Double argument,
                                final Double secondValue,
                                final Double secondArgument) {
-        super(left, right);
-        this.firstValue = firstValue;
-        this.firstArgument = firstArgument;
+        super(left, right, value, argument);
         this.secondValue = secondValue;
         this.secondArgument = secondArgument;
     }
