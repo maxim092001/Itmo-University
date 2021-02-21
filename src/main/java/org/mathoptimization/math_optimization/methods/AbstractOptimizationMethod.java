@@ -48,6 +48,14 @@ public abstract class AbstractOptimizationMethod implements OptimizationMethod {
         this.delta = delta;
     }
 
+    public AbstractOptimizationMethod(final Double left,
+                                      final Double right,
+                                      final Function<Double, Double> function,
+                                      final Double eps,
+                                      final int stepsCount) {
+        this(left, right,function, eps, stepsCount, 0.0);
+    }
+
     @Override
     public Double intervalLength() {
         return right - left;

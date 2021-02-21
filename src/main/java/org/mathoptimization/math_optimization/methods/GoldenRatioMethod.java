@@ -4,13 +4,13 @@ import org.mathoptimization.math_optimization.parameters.GoldenRatioParameters;
 
 import java.util.function.Function;
 
-public class GoldenRatio extends AbstractOptimizationMethod {
+public class GoldenRatioMethod extends AbstractOptimizationMethod {
     private final double tau = (Math.sqrt(5.0) - 1.0) / 2.0;
 
-    public GoldenRatio(final Double left,
-                       final Double right,
-                       final Function<Double, Double> function,
-                       final Double eps) {
+    public GoldenRatioMethod(final Double left,
+                             final Double right,
+                             final Function<Double, Double> function,
+                             final Double eps) {
         super(left, right, function, eps);
     }
 

@@ -6,14 +6,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
 
-public class Fibonacci extends AbstractOptimizationMethod {
+public class FibonacciMethod extends AbstractOptimizationMethod {
     private final List<Double> fibonacciNumbers = new ArrayList<>();
 
-    public Fibonacci(final Double left,
-                     final Double right,
-                     final Function<Double, Double> function,
-                     final Double eps) {
-        super(left, right, function, eps);
+    public FibonacciMethod(final Double left,
+                           final Double right,
+                           final Function<Double, Double> function,
+                           final Double eps,
+                           final int stepsCount) {
+        super(left, right, function, eps, stepsCount);
     }
 
     private void calculateFibonacciNumbers() {
