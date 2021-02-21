@@ -1,5 +1,7 @@
 package org.mathoptimization.math_optimization.methods;
 
+import org.mathoptimization.math_optimization.parameters.GoldenRatioParameters;
+
 import java.util.function.Function;
 
 public class GoldenRatio extends AbstractOptimizationMethod {
@@ -14,11 +16,12 @@ public class GoldenRatio extends AbstractOptimizationMethod {
 
     @Override
     public void run() {
+        parameters.clear();
         double x1 = left + (3.0 - Math.sqrt(5.0)) / 2.0 * intervalLength();
         double x2 = left + (Math.sqrt(5.0) - 1.0) / 2.0 * intervalLength();
         double currentEps = intervalLength() / 2;
         while (currentEps > eps) {
-            steps.add(new Step(
+            parameters.add(new GoldenRatioParameters(
                     left,
                     right,
                     (right + left) / 2.0,

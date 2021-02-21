@@ -1,7 +1,8 @@
 package org.mathoptimization.math_optimization.methods;
 
+import org.mathoptimization.math_optimization.parameters.Parameters;
+
 import java.util.List;
-import java.util.function.Function;
 
 public interface OptimizationMethod {
 
@@ -11,5 +12,5 @@ public interface OptimizationMethod {
     Double getMinimumValue();
     Double getMinimumArgument();
 
-    List<? extends MethodStep> getSteps();
+    List<Parameters> getParameters();
 }
