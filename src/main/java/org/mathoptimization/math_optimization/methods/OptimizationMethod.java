@@ -4,14 +4,10 @@ import java.util.List;
 import java.util.function.Function;
 
 public interface OptimizationMethod {
-    OptimizationMethod setFunction(Function<Double, Double> function);
-    OptimizationMethod setInterval(Double left, Double right);
-
-    OptimizationMethod setEpsilon(Double eps);
-    OptimizationMethod setStepsCount(int stepsCount);
 
     void run();
 
+    Double intervalLength();
     Double getMinimumValue();
     Double getMinimumArgument();
 
