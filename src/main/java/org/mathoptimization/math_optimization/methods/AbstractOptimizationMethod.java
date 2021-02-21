@@ -50,4 +50,9 @@ public abstract class AbstractOptimizationMethod implements OptimizationMethod {
     public Double getMinimumArgument() {
         return minArgument;
     }
+
+    @Override
+    public List<? extends MethodStep> getSteps() {
+        return steps;
+    }
 }
