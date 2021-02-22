@@ -25,8 +25,7 @@ public class MathOptimizationApplication {
 				6.0,
 				9.9,
 				x -> Math.pow(Math.log10(x - 2), 2.0) + Math.pow(Math.log10(10 - x), 2.0) - Math.pow(x, 0.2),
-				1e-9,
-				20
+				1e-9
 		);
 
 

@@ -12,19 +12,25 @@ public class FibonacciMethod extends AbstractOptimizationMethod {
     public FibonacciMethod(final Double left,
                            final Double right,
                            final Function<Double, Double> function,
-                           final Double eps,
-                           final int stepsCount) {
-        super(left, right, function, eps, stepsCount);
+                           final Double eps) {
+
+        super(left, right, function, eps);
         calculateFibonacciNumbers();
     }
 
     private void calculateFibonacciNumbers() {
         fibonacciNumbers.add(1.0);
         fibonacciNumbers.add(1.0);
-        for (int i = 2; i < stepsCount + 2; i++) {
+        fibonacciNumbers.add(2.0);
+
+        stepsCount = 0;
+        double boundingValue = (right - left) / eps;
+
+        while (boundingValue >= fibonacciNumbers.get(stepsCount + 2)) {
             Double f1 = fibonacciNumbers.get(fibonacciNumbers.size() - 2);
             Double f2 = fibonacciNumbers.get(fibonacciNumbers.size() - 1);
             fibonacciNumbers.add(f1 + f2);
+            stepsCount++;
         }
     }
 
