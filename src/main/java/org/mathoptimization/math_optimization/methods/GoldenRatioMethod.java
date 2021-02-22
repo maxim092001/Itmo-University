@@ -15,7 +15,7 @@ public class GoldenRatioMethod extends AbstractOptimizationMethod {
     }
 
     @Override
-    public void run() {
+    public void calculate() {
         parameters.clear();
         double x1 = left + (3.0 - Math.sqrt(5.0)) / 2.0 * intervalLength();
         double x2 = left + (Math.sqrt(5.0) - 1.0) / 2.0 * intervalLength();

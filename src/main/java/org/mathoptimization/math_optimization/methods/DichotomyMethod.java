@@ -16,7 +16,7 @@ public class DichotomyMethod extends AbstractOptimizationMethod {
     }
 
     @Override
-    public void run() {
+    public void calculate() {
         parameters.clear();
         double b = right, a = left;
 

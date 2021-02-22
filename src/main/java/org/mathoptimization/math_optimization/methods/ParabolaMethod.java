@@ -20,7 +20,7 @@ public class ParabolaMethod extends AbstractOptimizationMethod {
 
 
     @Override
-    public void run() {
+    public void calculate() {
         Double x1 = left, x3 = right;
 
         while (x3 - x1 > eps) {

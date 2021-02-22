@@ -9,14 +9,51 @@ import java.util.function.Function;
 
 @Data
 public abstract class AbstractOptimizationMethod implements OptimizationMethod {
+
+    /**
+     * Left bound.
+     */
     protected Double left;
+
+    /**
+     * Right bound.
+     */
     protected Double right;
+
+    /**
+     * Function.
+     */
     protected Function<Double, Double> function;
+
+    /**
+     * Epsilon.
+     */
     protected Double eps;
+
+    /**
+     * Custom delta parameter used for Dichotomy method. By default equals 0.
+     */
     protected Double delta;
+
+    /**
+     * Custom number of steps used for Fibonacci method. By default equals 0.
+     */
     protected int stepsCount;
+
+    /**
+     * Minimum value. (f(x))
+     */
     protected Double minValue;
+
+    /**
+     * Minimum argument. (x)
+     */
     protected Double minArgument;
+
+
+    /**
+     * List of parameters used for "logging" our methods steps.
+     */
     protected final List<Parameters> parameters = new ArrayList<>();
 
     public AbstractOptimizationMethod(final Double left,

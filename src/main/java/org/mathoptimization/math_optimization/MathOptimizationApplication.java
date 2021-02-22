@@ -41,16 +41,16 @@ public class MathOptimizationApplication {
 				1e-6
 		);
 
-		ratioMethod.run();
+		ratioMethod.calculate();
 		System.out.println("Ratio: " + ratioMethod.getMinimumArgument() + " " + ratioMethod.getMinimumValue());
 
-		dichotomyMethod.run();
+		dichotomyMethod.calculate();
 		System.out.println("Dichotomy: " + dichotomyMethod.getMinimumArgument() + " " + dichotomyMethod.getMinimumValue());
 
-		fibonacciMethod.run();
+		fibonacciMethod.calculate();
 		System.out.println("Fibonacci: " + fibonacciMethod.getMinimumArgument() + " " + fibonacciMethod.getMinimumValue());
 
-		parabolaMethod.run();
+		parabolaMethod.calculate();
 		System.out.println("Parabola: " + parabolaMethod.getMinimumArgument() + " " + parabolaMethod.getMinimumValue());
 	}
 
