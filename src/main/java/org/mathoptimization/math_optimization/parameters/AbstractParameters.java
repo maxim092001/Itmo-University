@@ -1,10 +1,12 @@
 package org.mathoptimization.math_optimization.parameters;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @ToString
 @Data
+@NoArgsConstructor
 public abstract class AbstractParameters implements Parameters {
 
     /**

@@ -1,11 +1,17 @@
 package org.mathoptimization.math_optimization.methods;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import org.mathoptimization.math_optimization.parameters.FibonacciParameters;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
 
+@EqualsAndHashCode(callSuper = true)
+@Data
+@NoArgsConstructor
 public class FibonacciMethod extends AbstractOptimizationMethod {
     private final List<Double> fibonacciNumbers = new ArrayList<>();
 
@@ -15,8 +21,9 @@ public class FibonacciMethod extends AbstractOptimizationMethod {
                            final Double eps) {
 
         super(left, right, function, eps);
-        calculateFibonacciNumbers();
     }
+
+    { calculateFibonacciNumbers(); }
 
     private void calculateFibonacciNumbers() {
         fibonacciNumbers.add(1.0);

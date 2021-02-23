@@ -1,9 +1,15 @@
 package org.mathoptimization.math_optimization.methods;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import org.mathoptimization.math_optimization.parameters.DichotomyParameters;
 
 import java.util.function.Function;
 
+@EqualsAndHashCode(callSuper = true)
+@Data
+@NoArgsConstructor
 public class DichotomyMethod extends AbstractOptimizationMethod {
 
 

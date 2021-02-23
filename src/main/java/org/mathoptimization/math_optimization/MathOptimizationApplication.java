@@ -1,10 +1,13 @@
 package org.mathoptimization.math_optimization;
 
 import org.mathoptimization.math_optimization.methods.*;
+import org.springframework.boot.SpringApplication;
 
+// @SpringBootApplication(exclude = {SecurityAutoConfiguration.class})
 public class MathOptimizationApplication {
 
 	public static void main(String[] args) {
+		// SpringApplication.run(MathOptimizationApplication.class, args);
 
 		OptimizationMethod ratioMethod = new GoldenRatioMethod(
 				6.0,
