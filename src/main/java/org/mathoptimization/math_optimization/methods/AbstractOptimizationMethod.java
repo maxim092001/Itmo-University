@@ -17,36 +17,36 @@ public abstract class AbstractOptimizationMethod implements OptimizationMethod {
      * Left bound.
      */
     @JsonProperty("left")
-    protected Double left;
+    protected Double left = 0.0;
 
     /**
      * Right bound.
      */
     @JsonProperty("right")
-    protected Double right;
+    protected Double right = 0.0;
 
     /**
      * Function.
      */
-    protected Function<Double, Double> function;
+    protected Function<Double, Double> function = x -> x;
 
     /**
      * Epsilon.
      */
     @JsonProperty("eps")
-    protected Double eps;
+    protected Double eps = 1e-9;
 
     /**
      * Custom delta parameter used for Dichotomy method. By default equals 0.
      */
     @JsonProperty("delta")
-    protected Double delta;
+    protected Double delta = 0.0;
 
     /**
      * Custom number of steps used for Fibonacci method. By default equals 0.
      */
     @JsonProperty("steps-count")
-    protected int stepsCount;
+    protected int stepsCount = 0;
 
     /**
      * Minimum value. (f(x))
