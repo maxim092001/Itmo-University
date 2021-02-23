@@ -21,6 +21,6 @@ public class MethodsController {
     @RequestMapping(path = "/calculate", method = RequestMethod.POST)
     public ResponseEntity<List<Parameters>> calculate(@RequestHeader("method") final String method,
                                                       @RequestBody final String json) {
-        return ResponseEntity.ok(methodsService.calculate(method, json));
+        return ResponseEntity.ok(methodsService.optimizationMethod(method, json));
     }
 }

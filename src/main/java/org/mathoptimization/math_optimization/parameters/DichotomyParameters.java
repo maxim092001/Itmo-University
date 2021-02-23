@@ -8,7 +8,15 @@ import lombok.ToString;
 @ToString(callSuper = true)
 @Data
 public class DichotomyParameters extends AbstractParameters {
+
+    /**
+     * Second point value. f(x)
+     */
     private final Double secondValue;
+
+    /**
+     * Second point argument. (x)
+     */
     private final Double secondArgument;
 
     public DichotomyParameters(final Double left,

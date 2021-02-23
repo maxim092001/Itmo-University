@@ -16,7 +16,14 @@ import java.util.List;
 public class MethodsService {
 
 
-    public List<Parameters> calculate(final String method, final String json) {
+    /**
+     * Function for choosing and calculating optimization.
+     *
+     * @param method - method name.
+     * @param json   - parameters for method.
+     * @return - list of parameters used for "logging" our method steps.
+     */
+    public List<Parameters> optimizationMethod(final String method, final String json) {
 
         ObjectMapper mapper = new ObjectMapper();
         try {

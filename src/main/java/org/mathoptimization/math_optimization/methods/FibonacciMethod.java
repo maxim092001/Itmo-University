@@ -21,8 +21,9 @@ public class FibonacciMethod extends AbstractOptimizationMethod {
                            final Double eps) {
 
         super(left, right, function, eps);
-        calculateFibonacciNumbers();
     }
+
+    { calculateFibonacciNumbers(); }
 
     private void calculateFibonacciNumbers() {
         fibonacciNumbers.add(1.0);
