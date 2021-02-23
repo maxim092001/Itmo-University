@@ -2,6 +2,7 @@ package org.mathoptimization.math_optimization.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.slf4j.Slf4j;
 import org.mathoptimization.math_optimization.exception.ApiJsonException;
 import org.mathoptimization.math_optimization.exception.ApiMethodException;
 import org.mathoptimization.math_optimization.methods.*;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
+@Slf4j
 public class MethodsService {
 
 
@@ -30,6 +32,7 @@ public class MethodsService {
             optimizationMethod.calculate();
             return optimizationMethod.getParameters();
         } catch (JsonProcessingException e) {
+            log.error(e.getMessage());
             throw new ApiJsonException("Что-то пошло не так.");
         }
     }

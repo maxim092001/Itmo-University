@@ -1,10 +1,16 @@
 package org.mathoptimization.math_optimization.methods;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import org.mathoptimization.math_optimization.parameters.ParabolaParameters;
 import org.mathoptimization.math_optimization.parameters.Parameters;
 
 import java.util.function.Function;
 
+@EqualsAndHashCode(callSuper = true)
+@Data
+@NoArgsConstructor
 public class ParabolaMethod extends AbstractOptimizationMethod {
 
     public ParabolaMethod(final Double left,
