@@ -9,15 +9,23 @@ public class BrentsParameters extends AbstractParameters {
     private final Double a1;
     private final Double a2;
 
+    /**
+     * Optimization arguments. (xs)
+     */
     private final Double firstMinimum;
-    private final Double firstMinimumValue;
-
     private final Double secondMinimum;
-    private final Double secondMinimumValue;
-
     private final Double previousSecondMinimum;
+
+    /**
+     * Optimization values. (f(xs))
+     */
+    private final Double firstMinimumValue;
+    private final Double secondMinimumValue;
     private final Double previousSecondMinimumValue;
 
+    /**
+     * Was the Parabola Method used
+     */
     private final Boolean parabolaMethodPassed;
 
     public BrentsParameters(final Double left,
@@ -34,8 +42,8 @@ public class BrentsParameters extends AbstractParameters {
                             final Double minArgument,
                             final Double minValue) {
         super(left, right, minValue, minArgument);
-        this.a0 = null;
-        this.a1 = null;
+        this.a0 = a0;
+        this.a1 = a1;
         this.a2 = a2;
         this.firstMinimum = firstMinimum;
         this.firstMinimumValue = firstMinimumValue;

@@ -3,7 +3,6 @@ package org.mathoptimization.math_optimization.methods;
 import java.util.function.Function;
 import org.mathoptimization.math_optimization.methods.ParabolaMethod.Parabola;
 import org.mathoptimization.math_optimization.parameters.BrentsParameters;
-import org.mathoptimization.math_optimization.parameters.FibonacciParameters;
 
 public class BrentsMethod extends AbstractOptimizationMethod {
     private final double K = (3.0 - Math.sqrt(5.0)) / 2.0;
