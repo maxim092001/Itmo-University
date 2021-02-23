@@ -41,7 +41,7 @@ public class GoldenRatioMethod extends AbstractOptimizationMethod {
             } else {
                 left = x1;
                 x1 = x2;
-                x2 = right - tau * intervalLength();
+                x2 = left + tau * intervalLength();
             }
         }
         minArgument = (right + left) / 2.0;
