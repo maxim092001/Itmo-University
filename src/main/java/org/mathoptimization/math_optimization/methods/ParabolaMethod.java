@@ -81,6 +81,8 @@ public class ParabolaMethod extends AbstractOptimizationMethod {
             Double xMin = parabola.getxMin();
             Double fxMin = parabola.getFxMin();
 
+            left = x1;
+            right = x3;
             Parameters step = new ParabolaParameters(left, right,
                     f1, x1,
                     a0, a1, a2,
