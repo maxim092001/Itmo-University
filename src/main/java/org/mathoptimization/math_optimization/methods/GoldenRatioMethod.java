@@ -1,9 +1,15 @@
 package org.mathoptimization.math_optimization.methods;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import org.mathoptimization.math_optimization.parameters.GoldenRatioParameters;
 
 import java.util.function.Function;
 
+@EqualsAndHashCode(callSuper = true)
+@Data
+@NoArgsConstructor
 public class GoldenRatioMethod extends AbstractOptimizationMethod {
     private final double tau = (Math.sqrt(5.0) - 1.0) / 2.0;
 

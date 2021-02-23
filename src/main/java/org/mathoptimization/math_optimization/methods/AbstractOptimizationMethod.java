@@ -1,6 +1,8 @@
 package org.mathoptimization.math_optimization.methods;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.mathoptimization.math_optimization.parameters.Parameters;
 
 import java.util.ArrayList;
@@ -8,16 +10,19 @@ import java.util.List;
 import java.util.function.Function;
 
 @Data
+@NoArgsConstructor
 public abstract class AbstractOptimizationMethod implements OptimizationMethod {
 
     /**
      * Left bound.
      */
+    @JsonProperty("left")
     protected Double left;
 
     /**
      * Right bound.
      */
+    @JsonProperty("right")
     protected Double right;
 
     /**
@@ -28,16 +33,19 @@ public abstract class AbstractOptimizationMethod implements OptimizationMethod {
     /**
      * Epsilon.
      */
+    @JsonProperty("eps")
     protected Double eps;
 
     /**
      * Custom delta parameter used for Dichotomy method. By default equals 0.
      */
+    @JsonProperty("delta")
     protected Double delta;
 
     /**
      * Custom number of steps used for Fibonacci method. By default equals 0.
      */
+    @JsonProperty("steps-count")
     protected int stepsCount;
 
     /**
