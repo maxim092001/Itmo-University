@@ -30,8 +30,8 @@ public class BrentsMethod extends AbstractOptimizationMethod {
         double w = x;
         double v = x;
         double fx = function.apply(x);
-        double fw = function.apply(x);
-        double fv = function.apply(x);
+        double fw = fx;
+        double fv = fx;
         double d = c - a;
         double e = c - a;
 
