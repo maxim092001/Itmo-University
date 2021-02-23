@@ -18,6 +18,43 @@ public class ParabolaMethod extends AbstractOptimizationMethod {
         return Math.random() * (x3 - x1) + x1;
     }
 
+    public static class Parabola {
+        private final Double a0;
+        private final Double a1;
+        private final Double a2;
+        private final Double xMin;
+        private final Double fxMin;
+
+        Parabola(Function<Double, Double> function, Double x1, Double x2, Double x3, Double f1, Double f2, Double f3) {
+            a0 = f1;
+            a1 = (f2 - f1) / (x2 - x1);
+            a2 = ((f3 - f1) / (x3 - x1) - (f2 - f1) / (x2 - x1)) / (x3 - x2);
+
+            xMin = (x1 + x2 - a1 / a2) / 2.0;
+            fxMin = function.apply(xMin);
+        }
+
+        public Double getA0() {
+            return a0;
+        }
+
+        public Double getA1() {
+            return a1;
+        }
+
+        public Double getA2() {
+            return a2;
+        }
+
+        public Double getxMin() {
+            return xMin;
+        }
+
+        public Double getFxMin() {
+            return fxMin;
+        }
+    }
+
 
     @Override
     public void calculate() {
@@ -29,12 +66,14 @@ public class ParabolaMethod extends AbstractOptimizationMethod {
             Double f2 = function.apply(x2);
             Double f3 = function.apply(x3);
 
-            Double a0 = f1;
-            Double a1 = (f2 - f1) / (x2 - x1);
-            Double a2 = ((f3 - f1) / (x3 - x1) - (f2 - f1) / (x2 - x1)) / (x3 - x2);
 
-            Double xMin = (x1 + x2 - a1 / a2) / 2.0;
-            Double fxMin = function.apply(xMin);
+            Parabola parabola = new Parabola(function, x1, x2, x3, f1, f2, f3);
+            Double a0 = parabola.getA0();
+            Double a1 = parabola.getA1();
+            Double a2 = parabola.getA2();
+
+            Double xMin = parabola.getxMin();
+            Double fxMin = parabola.getFxMin();
 
             Parameters step = new ParabolaParameters(left, right,
                     f1, x1,

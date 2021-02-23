@@ -40,6 +40,17 @@ public class MathOptimizationApplication {
 				1e-6
 		);
 
+		OptimizationMethod brentsMethod = new BrentsMethod(
+				6.0,
+				9.9,
+				(x) -> {
+					double lg1 = Math.log10(x - 2.0);
+					double lg2 = Math.log10(10.0 - x);
+					return lg1 * lg1 + lg2 * lg2 - Math.pow(x, 0.2);
+				},
+				1e-9
+		);
+
 		ratioMethod.calculate();
 		System.out.println("Ratio: " + ratioMethod.getMinimumArgument() + " " + ratioMethod.getMinimumValue());
 
@@ -51,6 +62,9 @@ public class MathOptimizationApplication {
 
 		parabolaMethod.calculate();
 		System.out.println("Parabola: " + parabolaMethod.getMinimumArgument() + " " + parabolaMethod.getMinimumValue());
+
+		brentsMethod.calculate();
+		System.out.println("Brent's Method: " + brentsMethod.getMinimumArgument() + " " + brentsMethod.getMinimumValue());
 	}
 
 }
