@@ -1,6 +1,5 @@
 package org.mathoptimization.math_optimization;
 
-import org.mathoptimization.math_optimization.methods.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
@@ -8,7 +7,7 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
 import java.text.DecimalFormat;
 import java.util.function.Function;
 
-//@SpringBootApplication(exclude = {SecurityAutoConfiguration.class})
+@SpringBootApplication(exclude = {SecurityAutoConfiguration.class})
 public class MathOptimizationApplication {
 
 	public static void main(String[] args) {
@@ -102,26 +101,26 @@ public class MathOptimizationApplication {
 //		}
 
 
-		Function<Double, OptimizationMethod> brents = (eps) -> new BrentsMethod(
-				6.0,
-				9.9,
-				x -> Math.pow(Math.log10(x - 2), 2.0) + Math.pow(Math.log10(10 - x), 2.0) - Math.pow(x, 0.2),
-				eps
-		);
-
-		double[] epss = {1e-1, 5e-2, 1e-2, 5e-3, 1e-3, 5e-4, 1e-4, 5e-5, 1e-5, 5e-6, 1e-6, 5e-7, 1e-7, 5e-8, 1e-8, 5e-9, 1e-9};
-		for (double eps : epss) {
-			OptimizationMethod method = brents.apply(eps);
-			method.calculate();
-
-			System.out.printf("%.10f", eps);
-			System.out.print(", ");
-			System.out.print(method.getParameters().size() + 2);
-			System.out.print(", ");
-			System.out.print(method.getMinimumArgument());
-			System.out.print(", ");
-			System.out.println(method.getMinimumValue());
-		}
+//		Function<Double, OptimizationMethod> brents = (eps) -> new BrentsMethod(
+//				6.0,
+//				9.9,
+//				x -> Math.pow(Math.log10(x - 2), 2.0) + Math.pow(Math.log10(10 - x), 2.0) - Math.pow(x, 0.2),
+//				eps
+//		);
+//
+//		double[] epss = {1e-1, 5e-2, 1e-2, 5e-3, 1e-3, 5e-4, 1e-4, 5e-5, 1e-5, 5e-6, 1e-6, 5e-7, 1e-7, 5e-8, 1e-8, 5e-9, 1e-9};
+//		for (double eps : epss) {
+//			OptimizationMethod method = brents.apply(eps);
+//			method.calculate();
+//
+//			System.out.printf("%.10f", eps);
+//			System.out.print(", ");
+//			System.out.print(method.getParameters().size() + 2);
+//			System.out.print(", ");
+//			System.out.print(method.getMinimumArgument());
+//			System.out.print(", ");
+//			System.out.println(method.getMinimumValue());
+//		}
 
 
 
@@ -184,6 +183,8 @@ public class MathOptimizationApplication {
 //
 //		brentsMethod.calculate();
 //		System.out.println("Brent's Method: " + brentsMethod.getMinimumArgument() + " " + brentsMethod.getMinimumValue());
+
+		 SpringApplication.run(MathOptimizationApplication.class, args);
 	}
 
 }

@@ -30,8 +30,8 @@ public class BrentsMethod extends AbstractOptimizationMethod {
         double w = x;
         double v = x;
         double fx = function.apply(x);
-        double fw = function.apply(x);
-        double fv = function.apply(x);
+        double fw = fx;
+        double fv = fx;
         double d = c - a;
         double e = c - a;
 
@@ -57,8 +57,8 @@ public class BrentsMethod extends AbstractOptimizationMethod {
                             parabola.getA0(),
                             parabola.getA1(),
                             parabola.getA2(),
-                            (right + left) / 2.0,
-                            function.apply((right + left) / 2.0)
+                            (a + c) / 2.0,
+                            function.apply((a + c) / 2.0)
                     ));
                 }
             }
@@ -74,8 +74,8 @@ public class BrentsMethod extends AbstractOptimizationMethod {
                 parameters.add(new BrentsParameters(
                         a, c,
                         x, fx, w, fw, v, fv,
-                        (right + left) / 2.0,
-                        function.apply((right + left) / 2.0)
+                        (a + c) / 2.0,
+                        function.apply((a + c) / 2.0)
                 ));
             }
 
