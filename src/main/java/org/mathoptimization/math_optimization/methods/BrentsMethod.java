@@ -1,9 +1,16 @@
 package org.mathoptimization.math_optimization.methods;
 
 import java.util.function.Function;
+
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import org.mathoptimization.math_optimization.methods.ParabolaMethod.Parabola;
 import org.mathoptimization.math_optimization.parameters.BrentsParameters;
 
+@EqualsAndHashCode(callSuper = true)
+@Data
+@NoArgsConstructor
 public class BrentsMethod extends AbstractOptimizationMethod {
     private final double K = (3.0 - Math.sqrt(5.0)) / 2.0;
 
@@ -12,6 +19,14 @@ public class BrentsMethod extends AbstractOptimizationMethod {
                         final Function<Double, Double> function,
                         final Double eps) {
         super(left, right, function, eps);
+    }
+
+    @Override
+    public void validate() {
+        if (left == null || right == null || eps == null ||
+                equals(eps, 0.0) || eps < 0 || left >= right || function == null) {
+            throw new RuntimeException();
+        }
     }
 
     private boolean equals(final double a, final double b) {
@@ -24,6 +39,7 @@ public class BrentsMethod extends AbstractOptimizationMethod {
 
     @Override
     public void calculate() {
+        validate();
         double a = left;
         double c = right;
         double x = a + K * (c - a);

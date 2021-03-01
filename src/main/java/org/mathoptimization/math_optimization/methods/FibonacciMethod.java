@@ -19,8 +19,15 @@ public class FibonacciMethod extends AbstractOptimizationMethod {
                            final Double right,
                            final Function<Double, Double> function,
                            final Double eps) {
-
         super(left, right, function, eps);
+    }
+
+    @Override
+    public void validate() {
+        if (left == null || right == null || eps == null ||
+                 eps < 0 || Math.abs(eps) < 1e-9 || left >= right || function == null) {
+            throw new RuntimeException();
+        }
     }
 
     { calculateFibonacciNumbers(); }
@@ -43,6 +50,7 @@ public class FibonacciMethod extends AbstractOptimizationMethod {
 
     @Override
     public void calculate() {
+        validate();
         final double startDelta = right - left;
         double x1 = left + fibonacciNumbers.get(stepsCount - 1) / fibonacciNumbers.get(stepsCount + 1) * (right - left);
         double x2 = left + right - x1;

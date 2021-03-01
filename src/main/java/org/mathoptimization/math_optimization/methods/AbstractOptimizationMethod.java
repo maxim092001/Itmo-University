@@ -1,5 +1,6 @@
 package org.mathoptimization.math_optimization.methods;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -28,6 +29,7 @@ public abstract class AbstractOptimizationMethod implements OptimizationMethod {
     /**
      * Function.
      */
+    @JsonIgnore
     protected Function<Double, Double> function = x -> x;
 
     /**
@@ -120,4 +122,6 @@ public abstract class AbstractOptimizationMethod implements OptimizationMethod {
     public List<Parameters> getParameters() {
         return parameters;
     }
+
+    public abstract void validate();
 }

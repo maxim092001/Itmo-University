@@ -20,6 +20,14 @@ public class ParabolaMethod extends AbstractOptimizationMethod {
         super(left, right, function, eps);
     }
 
+    @Override
+    public void validate() {
+        if (left == null || right == null || eps == null ||
+                eps < 0 || Math.abs(eps) < 1e-9 || left >= right || function == null) {
+            throw new RuntimeException();
+        }
+    }
+
     private Double findX2(Double x1, Double x3) {
         return Math.random() * (x3 - x1) + x1;
     }
@@ -64,6 +72,7 @@ public class ParabolaMethod extends AbstractOptimizationMethod {
 
     @Override
     public void calculate() {
+        validate();
         Double x1 = left, x3 = right;
 
         while (x3 - x1 > eps) {

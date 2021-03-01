@@ -22,7 +22,17 @@ public class DichotomyMethod extends AbstractOptimizationMethod {
     }
 
     @Override
+    public void validate() {
+        if (left == null || right == null || eps == null || delta == null ||
+                eps < 0 || Math.abs(eps) < 1e-9 || delta < 0 || Math.abs(delta) < 1e-9 || eps <= delta
+                || left >= right || function == null) {
+            throw new RuntimeException();
+        }
+    }
+
+    @Override
     public void calculate() {
+        validate();
         parameters.clear();
         double b = right, a = left;
 

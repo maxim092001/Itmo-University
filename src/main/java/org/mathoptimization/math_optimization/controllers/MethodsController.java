@@ -1,6 +1,8 @@
-package org.mathoptimization.math_optimization.controller;
+package org.mathoptimization.math_optimization.controllers;
 
+import org.mathoptimization.math_optimization.dto.OptimizationResult;
 import org.mathoptimization.math_optimization.parameters.Parameters;
+import org.mathoptimization.math_optimization.services.MethodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,8 +21,8 @@ public class MethodsController {
 
 
     @RequestMapping(path = "/calculate", method = RequestMethod.POST)
-    public ResponseEntity<List<Parameters>> calculate(@RequestHeader("method") final String method,
-                                                      @RequestBody final String json) {
+    public ResponseEntity<OptimizationResult> calculate(@RequestHeader("method") final String method,
+                                                        @RequestBody final String json) throws MethodsService.MethodsServiceException {
         return ResponseEntity.ok(methodsService.optimizationMethod(method, json));
     }
 }
