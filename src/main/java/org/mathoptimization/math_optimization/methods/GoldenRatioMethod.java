@@ -34,6 +34,9 @@ public class GoldenRatioMethod extends AbstractOptimizationMethod {
         parameters.clear();
         double x1 = left + (3.0 - Math.sqrt(5.0)) / 2.0 * intervalLength();
         double x2 = left + (Math.sqrt(5.0) - 1.0) / 2.0 * intervalLength();
+        double f1 = function.apply(x1);
+        double f2 = function.apply(x2);
+
         double currentEps = intervalLength() / 2;
         while (currentEps > eps) {
             parameters.add(new GoldenRatioParameters(
@@ -43,14 +46,18 @@ public class GoldenRatioMethod extends AbstractOptimizationMethod {
                     function.apply((right + left) / 2.0)
             ));
             currentEps *= tau;
-            if (function.apply(x1) < function.apply(x2)) {
+            if (f1 < f2) {
+                f2 = f1;
                 right = x2;
                 x2 = x1;
                 x1 = right - tau * intervalLength();
+                f1 = function.apply(x1);
             } else {
+                f1 = f2;
                 left = x1;
                 x1 = x2;
                 x2 = left + tau * intervalLength();
+                f2 = function.apply(x2);
             }
         }
         minArgument = (right + left) / 2.0;

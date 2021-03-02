@@ -75,20 +75,29 @@ public class ParabolaMethod extends AbstractOptimizationMethod {
         validate();
         Double x1 = left, x3 = right;
 
+        Double f1 = function.apply(x1);
+        Double f3 = function.apply(x3);
         while (x3 - x1 > eps) {
-            Double x2 = findX2(x1, x3);
-            Double f1 = function.apply(x1);
-            Double f2 = function.apply(x2);
-            Double f3 = function.apply(x3);
+            Double x2;
+            Double f2;
 
+            Double a0;
+            Double a1;
+            Double a2;
 
-            Parabola parabola = new Parabola(function, x1, x2, x3, f1, f2, f3);
-            Double a0 = parabola.getA0();
-            Double a1 = parabola.getA1();
-            Double a2 = parabola.getA2();
+            Double xMin;
+            Double fxMin;
 
-            Double xMin = parabola.getxMin();
-            Double fxMin = parabola.getFxMin();
+            do {
+                x2 = findX2(x1, x3);
+                f2 = function.apply(x2);
+                Parabola parabola = new Parabola(function, x1, x2, x3, f1, f2, f3);
+                a0 = parabola.getA0();
+                a1 = parabola.getA1();
+                a2 = parabola.getA2();
+                xMin = parabola.getxMin();
+                fxMin = parabola.getFxMin();
+            } while (Math.abs(xMin - x2) < eps / 4);
 
             left = x1;
             right = x3;
@@ -104,14 +113,18 @@ public class ParabolaMethod extends AbstractOptimizationMethod {
             if (fxMin < f2) {
                 if (xMin < x2) {
                     x3 = x2;
+                    f3 = f2;
                 } else {
                     x1 = x2;
+                    f1 = f2;
                 }
             } else {
                 if (xMin < x2) {
                     x1 = xMin;
+                    f1 = fxMin;
                 } else {
                     x3 = xMin;
+                    f3 = fxMin;
                 }
             }
         }
