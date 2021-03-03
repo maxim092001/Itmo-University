@@ -1,0 +1,7 @@
+org.mathoptimization.math_optimization
+org.mathoptimization.math_optimization.controllers
+org.mathoptimization.math_optimization.dto
+org.mathoptimization.math_optimization.exception
+org.mathoptimization.math_optimization.methods
+org.mathoptimization.math_optimization.parameters
+org.mathoptimization.math_optimization.services
