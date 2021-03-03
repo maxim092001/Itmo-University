@@ -30,8 +30,6 @@ public class FibonacciMethod extends AbstractOptimizationMethod {
         }
     }
 
-    { calculateFibonacciNumbers(); }
-
     private void calculateFibonacciNumbers() {
         fibonacciNumbers.add(1.0);
         fibonacciNumbers.add(1.0);
@@ -50,18 +48,20 @@ public class FibonacciMethod extends AbstractOptimizationMethod {
 
     @Override
     public void calculate() {
+        calculateFibonacciNumbers();
         validate();
         final double startDelta = right - left;
-        double x1 = left + fibonacciNumbers.get(stepsCount - 1) / fibonacciNumbers.get(stepsCount + 1) * (right - left);
+        double x1 = left + fibonacciNumbers.get(stepsCount - 1) / fibonacciNumbers.get(stepsCount + 1) * startDelta;
         double x2 = left + right - x1;
-        for (int i = 0; i < stepsCount; i++) {
+        for (int i = 1; i < stepsCount; i++) {
+            double f1 = function.apply(x1);
+            double f2 = function.apply(x2);
             parameters.add(new FibonacciParameters(
                     left,
                     right,
-                    (right + left) / 2.0,
-                    function.apply((right + left) / 2.0)
+                    f1, x1, f2, x2
             ));
-            if (function.apply(x1) < function.apply(x2)) {
+            if (f1 < f2) {
                 right = x2;
             } else {
                 left = x1;

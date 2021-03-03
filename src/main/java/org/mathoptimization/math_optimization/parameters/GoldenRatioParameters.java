@@ -8,7 +8,25 @@ import lombok.ToString;
 @ToString(callSuper = true)
 @Data
 public class GoldenRatioParameters extends AbstractParameters {
-    public GoldenRatioParameters(final Double left, final Double right, final Double value, final Double argument) {
+
+    /**
+     * Second point value. f(x)
+     */
+    private final Double secondValue;
+
+    /**
+     * Second point argument. (x)
+     */
+    private final Double secondArgument;
+
+    public GoldenRatioParameters(final Double left,
+                               final Double right,
+                               final Double value,
+                               final Double argument,
+                               final Double secondValue,
+                               final Double secondArgument) {
         super(left, right, value, argument);
+        this.secondValue = secondValue;
+        this.secondArgument = secondArgument;
     }
 }

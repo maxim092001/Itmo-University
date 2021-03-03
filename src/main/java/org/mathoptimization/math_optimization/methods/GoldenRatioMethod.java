@@ -11,7 +11,9 @@ import java.util.function.Function;
 @Data
 @NoArgsConstructor
 public class GoldenRatioMethod extends AbstractOptimizationMethod {
-    private final double tau = (Math.sqrt(5.0) - 1.0) / 2.0;
+    private static final double sqrt5 = Math.sqrt(5.0);
+    private static final double tau = (sqrt5 - 1.0) / 2.0;
+    private static final double tauInv = (3.0 - sqrt5) / 2.0;
 
     public GoldenRatioMethod(final Double left,
                              final Double right,
@@ -32,18 +34,18 @@ public class GoldenRatioMethod extends AbstractOptimizationMethod {
     public void calculate() {
         validate();
         parameters.clear();
-        double x1 = left + (3.0 - Math.sqrt(5.0)) / 2.0 * intervalLength();
-        double x2 = left + (Math.sqrt(5.0) - 1.0) / 2.0 * intervalLength();
+        double length = intervalLength();
+        double x1 = left + tauInv * length;
+        double x2 = left + tau * length;
         double f1 = function.apply(x1);
         double f2 = function.apply(x2);
 
-        double currentEps = intervalLength() / 2;
+        double currentEps = length / 2;
         while (currentEps > eps) {
             parameters.add(new GoldenRatioParameters(
                     left,
                     right,
-                    (right + left) / 2.0,
-                    function.apply((right + left) / 2.0)
+                    f1, x1, f2, x2
             ));
             currentEps *= tau;
             if (f1 < f2) {

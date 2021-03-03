@@ -30,11 +30,6 @@ public class BrentsParameters extends AbstractParameters {
     private final Double secondMinimumValue;
     private final Double previousSecondMinimumValue;
 
-    /**
-     * Was the Parabola Method used
-     */
-    private final Boolean parabolaMethodPassed;
-
     public BrentsParameters(final Double left,
                             final Double right,
                             final Double firstMinimum,
@@ -45,10 +40,8 @@ public class BrentsParameters extends AbstractParameters {
                             final Double previousSecondMinimumValue,
                             final Double a0,
                             final Double a1,
-                            final Double a2,
-                            final Double minArgument,
-                            final Double minValue) {
-        super(left, right, minValue, minArgument);
+                            final Double a2) {
+        super(left, right, null, null);
         this.a0 = a0;
         this.a1 = a1;
         this.a2 = a2;
@@ -58,7 +51,6 @@ public class BrentsParameters extends AbstractParameters {
         this.secondMinimumValue = secondMinimumValue;
         this.previousSecondMinimum = previousSecondMinimum;
         this.previousSecondMinimumValue = previousSecondMinimumValue;
-        this.parabolaMethodPassed = true;
     }
 
     public BrentsParameters(final Double left,
@@ -68,10 +60,8 @@ public class BrentsParameters extends AbstractParameters {
                             final Double secondMinimum,
                             final Double secondMinimumValue,
                             final Double previousSecondMinimum,
-                            final Double previousSecondMinimumValue,
-                            final Double minArgument,
-                            final Double minValue) {
-        super(left, right, minValue, minArgument);
+                            final Double previousSecondMinimumValue) {
+        super(left, right, null, null);
         this.a0 = null;
         this.a1 = null;
         this.a2 = null;
@@ -81,6 +71,5 @@ public class BrentsParameters extends AbstractParameters {
         this.secondMinimumValue = secondMinimumValue;
         this.previousSecondMinimum = previousSecondMinimum;
         this.previousSecondMinimumValue = previousSecondMinimumValue;
-        this.parabolaMethodPassed = false;
     }
 }

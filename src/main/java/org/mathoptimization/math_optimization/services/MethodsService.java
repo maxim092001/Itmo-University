@@ -1,19 +1,12 @@
 package org.mathoptimization.math_optimization.services;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.util.JSONPObject;
 import lombok.extern.slf4j.Slf4j;
 import org.mathoptimization.math_optimization.dto.OptimizationResult;
-import org.mathoptimization.math_optimization.exception.ApiJsonException;
-import org.mathoptimization.math_optimization.exception.ApiMethodException;
 import org.mathoptimization.math_optimization.methods.*;
-import org.mathoptimization.math_optimization.parameters.Parameters;
-import org.springframework.boot.jackson.JsonObjectDeserializer;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Map;
 
 @Service

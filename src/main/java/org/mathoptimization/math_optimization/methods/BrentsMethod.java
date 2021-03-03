@@ -12,7 +12,7 @@ import org.mathoptimization.math_optimization.parameters.BrentsParameters;
 @Data
 @NoArgsConstructor
 public class BrentsMethod extends AbstractOptimizationMethod {
-    private final double K = (3.0 - Math.sqrt(5.0)) / 2.0;
+    private static final double K = (3.0 - Math.sqrt(5.0)) / 2.0;
 
     public BrentsMethod(final Double left,
                         final Double right,
@@ -72,9 +72,7 @@ public class BrentsMethod extends AbstractOptimizationMethod {
                             x, fx, w, fw, v, fv,
                             parabola.getA0(),
                             parabola.getA1(),
-                            parabola.getA2(),
-                            (a + c) / 2.0,
-                            function.apply((a + c) / 2.0)
+                            parabola.getA2()
                     ));
                 }
             }
@@ -89,9 +87,7 @@ public class BrentsMethod extends AbstractOptimizationMethod {
                 }
                 parameters.add(new BrentsParameters(
                         a, c,
-                        x, fx, w, fw, v, fv,
-                        (a + c) / 2.0,
-                        function.apply((a + c) / 2.0)
+                        x, fx, w, fw, v, fv
                 ));
             }
 

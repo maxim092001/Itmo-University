@@ -1,5 +1,7 @@
 package org.mathoptimization.math_optimization.parameters;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import java.io.Serializable;
 
 /**
@@ -10,5 +12,6 @@ import java.io.Serializable;
  * @see GoldenRatioParameters
  * @see ParabolaParameters
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public interface Parameters extends Serializable {
 }

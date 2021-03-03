@@ -89,8 +89,10 @@ public class ParabolaMethod extends AbstractOptimizationMethod {
             Double fxMin;
 
             do {
-                x2 = findX2(x1, x3);
-                f2 = function.apply(x2);
+                do {
+                    x2 = findX2(x1, x3);
+                    f2 = function.apply(x2);
+                } while (f1 < f2 || f2 > f3);
                 Parabola parabola = new Parabola(function, x1, x2, x3, f1, f2, f3);
                 a0 = parabola.getA0();
                 a1 = parabola.getA1();
