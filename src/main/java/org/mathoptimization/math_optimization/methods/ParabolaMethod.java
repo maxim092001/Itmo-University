@@ -8,6 +8,9 @@ import org.mathoptimization.math_optimization.parameters.Parameters;
 
 import java.util.function.Function;
 
+/**
+ * Parabola optimization method.
+ */
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor

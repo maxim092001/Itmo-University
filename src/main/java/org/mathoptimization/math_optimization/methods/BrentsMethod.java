@@ -8,6 +8,9 @@ import lombok.NoArgsConstructor;
 import org.mathoptimization.math_optimization.methods.ParabolaMethod.Parabola;
 import org.mathoptimization.math_optimization.parameters.BrentsParameters;
 
+/**
+ * Brent's optimization method.
+ */
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor

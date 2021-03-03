@@ -51,12 +51,12 @@ public abstract class AbstractOptimizationMethod implements OptimizationMethod {
     protected int stepsCount = 0;
 
     /**
-     * Minimum value. (f(x))
+     * Minimum value. <i>f(x)</i>
      */
     protected Double minValue;
 
     /**
-     * Minimum argument. (x)
+     * Minimum argument. <i>x</i>
      */
     protected Double minArgument;
 
@@ -103,25 +103,40 @@ public abstract class AbstractOptimizationMethod implements OptimizationMethod {
         this(left, right,function, eps, stepsCount, 0.0);
     }
 
+    /**
+     * @return Interval length. <i>right - left</i>.
+     */
     @Override
     public Double intervalLength() {
         return right - left;
     }
 
+    /**
+     * @return current minimum value.
+     */
     @Override
     public Double getMinimumValue() {
         return minValue;
     }
 
+    /**
+     * @return current minimum argument.
+     */
     @Override
     public Double getMinimumArgument() {
         return minArgument;
     }
 
+    /**
+     * @return list of method steps.
+     */
     @Override
     public List<Parameters> getParameters() {
         return parameters;
     }
 
-    public abstract void validate();
+    /**
+     * Validation method.
+     */
+    protected abstract void validate();
 }

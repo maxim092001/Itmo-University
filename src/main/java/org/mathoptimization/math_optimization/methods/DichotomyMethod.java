@@ -7,6 +7,9 @@ import org.mathoptimization.math_optimization.parameters.DichotomyParameters;
 
 import java.util.function.Function;
 
+/**
+ * Dichotomy optimization method.
+ */
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor

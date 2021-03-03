@@ -7,6 +7,9 @@ import org.mathoptimization.math_optimization.parameters.GoldenRatioParameters;
 
 import java.util.function.Function;
 
+/**
+ * Golden-ratio optimization method.
+ */
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor

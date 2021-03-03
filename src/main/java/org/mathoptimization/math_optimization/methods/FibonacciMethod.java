@@ -9,6 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
 
+/**
+ * Fibonacci optimization method.
+ */
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
