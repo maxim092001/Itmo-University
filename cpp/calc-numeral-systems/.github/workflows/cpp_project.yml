@@ -1,0 +1,19 @@
+name: Calc CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+      with: 
+        submodules: true
+    - name: Generate build files using cmake
+      run: cmake CMakeLists.txt
+    - name: Run make
+      run: make
+    - name: Run tests
+      run: ./runUnitTests
