@@ -1,0 +1,6 @@
+[submodule "googletest"]
+	path = googletest
+	url = https://github.com/google/googletest.git
+[submodule "test"]
+	path = test
+	url = https://github.com/itiviti-cpp-master/genome-assembly-test.git

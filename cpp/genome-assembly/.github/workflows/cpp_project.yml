@@ -1,0 +1,49 @@
+name: CPP project with GTest CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+      with: 
+        submodules: recursive
+    - name: Prepare build dir
+      run: mkdir build
+    - name: Generate build files using cmake
+      run: cmake ..
+      working-directory: ./build
+    - name: Run make
+      run: make
+      working-directory: ./build
+    - name: Run tests
+      timeout-minutes: 15
+      run: ./test/runUnitTests
+      working-directory: ./build
+    - name: Prepare ASAN build dir
+      run: mkdir build_asan
+    - name: Generate ASAN build files using cmake
+      run: cmake .. -DCMAKE_BUILD_TYPE=ASAN
+      working-directory: ./build_asan
+    - name: Run make
+      run: make
+      working-directory: ./build_asan
+    - name: Run tests
+      timeout-minutes: 15
+      run: ./test/runUnitTests
+      working-directory: ./build_asan
+    - name: Prepare USAN build dir
+      run: mkdir build_usan
+    - name: Generate USAN build files using cmake
+      run: cmake .. -DCMAKE_BUILD_TYPE=USAN
+      working-directory: ./build_usan
+    - name: Run make
+      run: make
+      working-directory: ./build_usan
+    - name: Run tests
+      timeout-minutes: 15
+      run: ./test/runUnitTests
+      working-directory: ./build_usan
