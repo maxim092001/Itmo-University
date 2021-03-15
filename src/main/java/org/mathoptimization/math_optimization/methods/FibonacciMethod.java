@@ -58,7 +58,13 @@ public class FibonacciMethod extends AbstractOptimizationMethod {
         double x2 = left + right - x1;
         double f1 = function.apply(x1);
         double f2 = function.apply(x2);
+//        System.out.println(stepsCount);
         for (int i = 1; i < stepsCount - 1; i++) {
+            parameters.add(new FibonacciParameters(
+                    left,
+                    right,
+                    f1, x1, f2, x2
+            ));
             if (f1 > f2) {
                 left = x1;
                 x1 = x2;
@@ -73,6 +79,11 @@ public class FibonacciMethod extends AbstractOptimizationMethod {
                 f1 = function.apply(x1);
             }
         }
+        parameters.add(new FibonacciParameters(
+                left,
+                right,
+                f1, x1, f2, x2
+        ));
         minArgument = (x1 + x2) / 2.0;
         minValue = function.apply(minArgument);
     }
