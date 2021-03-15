@@ -58,7 +58,7 @@ public class FibonacciMethod extends AbstractOptimizationMethod {
         double x2 = left + right - x1;
         double f1 = function.apply(x1);
         double f2 = function.apply(x2);
-        for (int i = 1; i < stepsCount; i++) {
+        for (int i = 1; i < stepsCount - 1; i++) {
             if (f1 > f2) {
                 left = x1;
                 x1 = x2;
