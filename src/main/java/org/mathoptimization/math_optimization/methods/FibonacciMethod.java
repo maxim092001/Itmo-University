@@ -56,21 +56,20 @@ public class FibonacciMethod extends AbstractOptimizationMethod {
         final double startDelta = right - left;
         double x1 = left + fibonacciNumbers.get(stepsCount - 1) / fibonacciNumbers.get(stepsCount + 1) * startDelta;
         double x2 = left + right - x1;
+        double f1 = function.apply(x1);
+        double f2 = function.apply(x2);
         for (int i = 1; i < stepsCount; i++) {
-            double f1 = function.apply(x1);
-            double f2 = function.apply(x2);
-            parameters.add(new FibonacciParameters(
-                    left,
-                    right,
-                    f1, x1, f2, x2
-            ));
-            if (f1 < f2) {
-                right = x2;
-            } else {
+            if (f1 > f2) {
                 left = x1;
+                x1 = x2;
+                f1 = f2;
+                x2 = left + fibonacciNumbers.get(stepsCount - i - 1)/ fibonacciNumbers.get(stepsCount - i) * (right - left);
+            } else {
+                right = x2;
+                x2 = x1;
+                f2 = f1;
+                x1 = left + fibonacciNumbers.get(stepsCount - i - 2)/ fibonacciNumbers.get(stepsCount - i) * (right - left);
             }
-            x1 = left + fibonacciNumbers.get(stepsCount - (i + 1)) / fibonacciNumbers.get(stepsCount + 1) * startDelta;
-            x2 = left + fibonacciNumbers.get(stepsCount - (i + 1) + 1) / fibonacciNumbers.get(stepsCount + 1) * startDelta;
         }
         minArgument = (x1 + x2) / 2.0;
         minValue = function.apply(minArgument);
