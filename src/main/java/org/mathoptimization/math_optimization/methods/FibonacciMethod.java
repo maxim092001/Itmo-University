@@ -64,11 +64,13 @@ public class FibonacciMethod extends AbstractOptimizationMethod {
                 x1 = x2;
                 f1 = f2;
                 x2 = left + fibonacciNumbers.get(stepsCount - i - 1)/ fibonacciNumbers.get(stepsCount - i) * (right - left);
+                f2 = function.apply(x2);
             } else {
                 right = x2;
                 x2 = x1;
                 f2 = f1;
                 x1 = left + fibonacciNumbers.get(stepsCount - i - 2)/ fibonacciNumbers.get(stepsCount - i) * (right - left);
+                f1 = function.apply(x1);
             }
         }
         minArgument = (x1 + x2) / 2.0;
