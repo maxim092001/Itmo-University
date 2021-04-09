@@ -1,9 +1,9 @@
 FROM openjdk:15-alpine as build-stage
 WORKDIR /srv     
-COPY .mvn ./.mvn
-COPY mvnw pom.xml ./
+COPY ../.mvn ./.mvn
+COPY ../mvnw pom.xml ./
 RUN ./mvnw dependency:go-offline
-COPY . .
+COPY .. .
 RUN ./mvnw clean package
 
 FROM openjdk:15-alpine as run-stage
