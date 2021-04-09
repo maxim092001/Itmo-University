@@ -11,8 +11,8 @@ public class GradientDescentMinimizer implements GradientMinimizer {
             final double eps,
             final MultiDimensionalPoint point
     ) {
-        final List<Double> gradient = gradient(f, point, eps);
         final double fPoint = f.apply(point);
+        final List<Double> gradient = gradient(f, point, fPoint, eps);
         if (gradientRate(gradient) < eps) {
             return MinPointAndFunction.of(point, fPoint);
         } else {
@@ -47,11 +47,5 @@ public class GradientDescentMinimizer implements GradientMinimizer {
                 0.000000001,
                 MultiDimensionalPoint.of(10.0)
         ));
-//        Function<MultiDimensionalPoint, Double> f = p -> {
-//            var s = p.getPoints().stream().reduce(0.0, Double::sum);
-//            return s * s;
-//        };
-////        System.out.println(f.apply(MultiDimensionalPoint.of(10.0)));
-//        System.out.println(new GradientDescentMinimizer().gradient(f, MultiDimensionalPoint.of(10.0), 0.0000001));
     }
 }

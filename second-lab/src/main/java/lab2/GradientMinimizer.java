@@ -11,12 +11,13 @@ public interface GradientMinimizer {
     default List<Double> gradient(
             final Function<MultiDimensionalPoint, Double> f,
             final MultiDimensionalPoint point,
-            final Double eps
+            final double fPoint,
+            final double eps
     ) {
         return IntStream.range(0, point.getPoints().size()).mapToObj(index -> {
             final var newList = new ArrayList<>(point.getPoints());
             newList.set(index, point.getPoints().get(index) + eps);
-            return (f.apply(MultiDimensionalPoint.of(newList)) - f.apply(point)) / eps;
+            return (f.apply(MultiDimensionalPoint.of(newList)) - fPoint) / eps;
         }).collect(Collectors.toList());
     }
 
