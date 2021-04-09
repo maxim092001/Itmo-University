@@ -14,7 +14,7 @@ public interface GradientMinimizer {
             final Double eps
     ) {
         return IntStream.range(0, point.getPoints().size()).mapToObj(index -> {
-            var newList = new ArrayList<>(point.getPoints());
+            final var newList = new ArrayList<>(point.getPoints());
             newList.set(index, point.getPoints().get(index) + eps);
             return (f.apply(MultiDimensionalPoint.of(newList)) - f.apply(point)) / eps;
         }).collect(Collectors.toList());
