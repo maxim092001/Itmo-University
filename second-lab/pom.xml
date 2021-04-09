@@ -2,14 +2,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <artifactId>math_optimization</artifactId>
-        <groupId>org.math-optimization</groupId>
-        <version>0.0.1-SNAPSHOT</version>
-    </parent>
     <modelVersion>4.0.0</modelVersion>
-
+    <groupId>lab2</groupId>
     <artifactId>second-lab</artifactId>
+    <version>1.0-SNAPSHOT</version>
 
     <dependencies>
         <dependency>
@@ -17,6 +13,22 @@
             <artifactId>javafx-controls</artifactId>
             <version>15.0.1</version>
         </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>15.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-graphics</artifactId>
+            <version>15.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-web</artifactId>
+            <version>15.0.1</version>
+        </dependency>
+
     </dependencies>
     <properties>
         <maven.compiler.source>15</maven.compiler.source>
@@ -30,7 +42,7 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.5</version>
                 <configuration>
-                    <mainClass>HelloFX</mainClass>
+                    <mainClass>lab2.HelloWorld</mainClass>
                 </configuration>
             </plugin>
         </plugins>
