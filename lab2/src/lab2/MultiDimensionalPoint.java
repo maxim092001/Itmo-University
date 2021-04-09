@@ -17,7 +17,7 @@ public class MultiDimensionalPoint {
     public static MultiDimensionalPoint of(final List<Double> points) {
         return new MultiDimensionalPoint(points);
     }
-    
+
     public static MultiDimensionalPoint of(Double ...args) {
         return new MultiDimensionalPoint(List.of(args));
     }
@@ -35,6 +35,11 @@ public class MultiDimensionalPoint {
 
     public MultiDimensionalPoint mul(final double value) {
         return MultiDimensionalPoint.of(points.stream().map(el -> el * value).collect(Collectors.toList()));
+    }
+
+    @Override
+    public String toString() {
+        return points.stream().map(el -> el + " ").collect(Collectors.joining());
     }
 
     @Override

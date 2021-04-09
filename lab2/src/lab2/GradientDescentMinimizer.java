@@ -38,20 +38,20 @@ public class GradientDescentMinimizer implements GradientMinimizer {
     }
 
     public static void main(String[] args) {
-//        System.out.println(new GradientDescentMinimizer().minimize(
-//                p -> {
-//                    var s = p.getPoints().stream().reduce(0.0, Double::sum);
-//                    return s * s;
-//                },
-//                120,
-//                0.000000001,
-//                MultiDimensionalPoint.of(10.0)
-//        ));
-        Function<MultiDimensionalPoint, Double> f = p -> {
-            var s = p.getPoints().stream().reduce(0.0, Double::sum);
-            return s * s;
-        };
-//        System.out.println(f.apply(MultiDimensionalPoint.of(10.0)));
-        System.out.println(new GradientDescentMinimizer().gradient(f, MultiDimensionalPoint.of(10.0), 0.0000001));
+        System.out.println(new GradientDescentMinimizer().minimize(
+                p -> {
+                    var s = p.getPoints().stream().reduce(0.0, Double::sum);
+                    return s * s;
+                },
+                120,
+                0.000000001,
+                MultiDimensionalPoint.of(10.0)
+        ));
+//        Function<MultiDimensionalPoint, Double> f = p -> {
+//            var s = p.getPoints().stream().reduce(0.0, Double::sum);
+//            return s * s;
+//        };
+////        System.out.println(f.apply(MultiDimensionalPoint.of(10.0)));
+//        System.out.println(new GradientDescentMinimizer().gradient(f, MultiDimensionalPoint.of(10.0), 0.0000001));
     }
 }

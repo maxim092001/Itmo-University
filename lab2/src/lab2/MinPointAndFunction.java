@@ -13,6 +13,11 @@ public class MinPointAndFunction {
         return new MinPointAndFunction(point, functionResult);
     }
 
+    @Override
+    public String toString() {
+        return String.format("x = %s; f* = %f", point.toString(), functionResult);
+    }
+
     public MultiDimensionalPoint getPoint() {
         return point;
     }
