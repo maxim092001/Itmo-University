@@ -8,10 +8,10 @@
         <version>2.5.0-SNAPSHOT</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>org.math-optimization</groupId>
-    <artifactId>math_optimization</artifactId>
+    <groupId>first-lab</groupId>
+    <artifactId>first-lab</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>math_optimization</name>
+    <name>first-lab</name>
     <description>Math optimization</description>
     <properties>
         <java.version>15</java.version>

@@ -1,4 +1,4 @@
-package lab2;
+package lab2.gradient;
 
 public class MinPointAndFunction {
     private MultiDimensionalPoint point;

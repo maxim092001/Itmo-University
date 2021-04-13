@@ -1,4 +1,4 @@
-package lab2;
+package lab2.gradient;
 
 import java.util.ArrayList;
 import java.util.List;

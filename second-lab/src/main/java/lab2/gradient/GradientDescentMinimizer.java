@@ -1,4 +1,4 @@
-package lab2;
+package lab2.gradient;
 
 import java.util.List;
 import java.util.function.Function;
@@ -38,6 +38,7 @@ public class GradientDescentMinimizer implements GradientMinimizer {
     }
 
     public static void main(String[] args) {
+        // l , L --> 2 / (l + L)
         System.out.println(new GradientDescentMinimizer().minimize(
                 p -> {
                     var s = p.getPoints().stream().reduce(0.0, Double::sum);
@@ -45,7 +46,7 @@ public class GradientDescentMinimizer implements GradientMinimizer {
                 },
                 120,
                 0.000000001,
-                MultiDimensionalPoint.of(10.0)
+                MultiDimensionalPoint.of(10.0) // n = 1, x1 = 10.0
         ));
     }
 }
