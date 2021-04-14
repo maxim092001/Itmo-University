@@ -5,7 +5,10 @@ import lab2.gradient.utils.QuadraticFunction;
 import lab2.gradient.utils.Vector;
 import lab2.methods.FibonacciMethod;
 
-public class GradientDescentFastestsMinimizer extends AbstractGradientMinimizer {
+/**
+ * Gradient fastest descent minimizer.
+ */
+public class GradientDescentFastestMinimizer extends AbstractGradientMinimizer {
     public MinPointAndFunction newPoint(
             final QuadraticFunction f,
             final Vector point,
@@ -34,7 +37,7 @@ public class GradientDescentFastestsMinimizer extends AbstractGradientMinimizer 
     public static void main(String[] args) {
         // l , L --> 2 / (l + L)
         QuadraticFunction f1 = QuadraticFunction.from2d(1, 2, 3, 4, 5, 6);
-        MinPointAndFunction pointAndFunction = new GradientDescentFastestsMinimizer().minimize(
+        MinPointAndFunction pointAndFunction = new GradientDescentFastestMinimizer().minimize(
                 f1,
                 1,
                 1e-7,
