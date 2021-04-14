@@ -1,4 +1,4 @@
-package lab2.gradient;
+package lab2.gradient.utils;
 
 import java.util.Arrays;
 

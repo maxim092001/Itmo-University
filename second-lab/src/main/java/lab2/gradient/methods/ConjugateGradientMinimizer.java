@@ -1,4 +1,7 @@
-package lab2.gradient;
+package lab2.gradient.methods;
+
+import lab2.gradient.utils.QuadraticFunction;
+import lab2.gradient.utils.Vector;
 
 import java.util.ArrayList;
 import java.util.List;

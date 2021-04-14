@@ -1,9 +1,9 @@
-package lab2.gradient;
+package lab2.gradient.methods;
 
+import lab2.gradient.utils.MinPointAndFunction;
+import lab2.gradient.utils.QuadraticFunction;
+import lab2.gradient.utils.Vector;
 import lab2.methods.FibonacciMethod;
-
-import java.util.List;
-import java.util.function.Function;
 
 public class GradientDescentFastestsMinimizer extends GradientDescentMinimizer {
     public MinPointAndFunction minimize(

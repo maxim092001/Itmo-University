@@ -1,9 +1,13 @@
-package lab2.gradient;
+package lab2.gradient.methods;
+
+import lab2.gradient.utils.MinPointAndFunction;
+import lab2.gradient.utils.QuadraticFunction;
+import lab2.gradient.utils.Vector;
 
 /**
  * Gradient descent method.
  */
-public class GradientDescentMinimizer implements GradientMinimizer {
+public class GradientDescentMinimizer {
 
     /**
      * Minimizing function.

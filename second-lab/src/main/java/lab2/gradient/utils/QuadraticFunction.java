@@ -1,13 +1,34 @@
-package lab2.gradient;
+package lab2.gradient.utils;
 
 import java.util.function.Function;
 
+/**
+ * Quadratic function representation.
+ */
 public class QuadraticFunction implements Function<Vector, Double> {
+
+    /**
+     * Matrix a. {@link Matrix}
+     */
     private final Matrix a;
+
+    /**
+     * Matrix b. {@link Vector}
+     */
     private final Vector b;
+
+    /**
+     * Coefficient c.
+     */
     private final double c;
 
-    public QuadraticFunction(Matrix a, Vector b, double c) {
+    /**
+     * Quadratic function constructor.
+     * @param a
+     * @param b
+     * @param c
+     */
+    public QuadraticFunction(final Matrix a, final Vector b, final double c) {
         int n = a.verticalLength();
         int m = a.horizontalLength();
 
@@ -48,7 +69,7 @@ public class QuadraticFunction implements Function<Vector, Double> {
         return ((Vector) getA().mul(x)).add(getB());
     }
 
-    public Vector antigradient(Vector x) {
+    public Vector antiGradient(Vector x) {
         return gradient(x).mul(-1);
     }
 
@@ -58,11 +79,11 @@ public class QuadraticFunction implements Function<Vector, Double> {
 
     // A x^2 + B xy + C y^2 + Dx + Ey + F
     public static QuadraticFunction from2d(double a, double b, double c, double d, double e, double f) {
-        double[][] A = new double[][] {
+        double[][] A = new double[][]{
                 {a, b},
                 {0.0, c}
         };
-        double[] B = new double[] {d, e};
+        double[] B = new double[]{d, e};
         return new QuadraticFunction(new Matrix(A), new Vector(B), f);
     }
 
