@@ -1,9 +1,12 @@
 package lab2.gradient.methods;
 
-import lab2.gradient.utils.MinPointAndFunction;
+import lab2.gradient.utils.MinimizationResult;
 import lab2.gradient.utils.QuadraticFunction;
 import lab2.gradient.utils.Vector;
 
+/**
+ * Abstract gradient minimizer.
+ */
 public abstract class AbstractGradientMinimizer {
 
     /**
@@ -13,20 +16,21 @@ public abstract class AbstractGradientMinimizer {
      * @param rateValue rate value (alpha or value to calculate alpha).
      * @param eps       epsilon.
      * @param point     given point.
-     * @return returns the point where the function reaches its minimum. {@link MinPointAndFunction}
+     * @return returns the point where the function reaches its minimum. {@link MinimizationResult}
      */
-    public MinPointAndFunction minimize(
+    public MinimizationResult minimize(
             final QuadraticFunction f,
             final double rateValue,
             final double eps,
-            final Vector point
+            final Vector point,
+            final long numberOfIterations
     ) {
         final double fPoint = f.apply(point);
         final Vector gradient = f.gradient(point);
         if (gradient.rate() < eps) {
-            return MinPointAndFunction.of(point, fPoint);
+            return MinimizationResult.of(point, fPoint, numberOfIterations);
         } else {
-            return newPoint(f, point, eps, rateValue, fPoint, gradient);
+            return this.newPoint(f, point, eps, rateValue, fPoint, gradient, numberOfIterations + 1);
         }
     }
 
@@ -41,12 +45,13 @@ public abstract class AbstractGradientMinimizer {
      * @param gradient  gradient for given function and point.
      * @return new point.
      */
-    public abstract MinPointAndFunction newPoint(
+    public abstract MinimizationResult newPoint(
             final QuadraticFunction f,
             final Vector point,
             final double eps,
             final double rateValue,
             final double fPoint,
-            final Vector gradient
+            final Vector gradient,
+            final long numberOfIterations
     );
 }

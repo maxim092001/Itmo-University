@@ -1,6 +1,6 @@
 package lab2.gradient.methods;
 
-import lab2.gradient.utils.MinPointAndFunction;
+import lab2.gradient.utils.MinimizationResult;
 import lab2.gradient.utils.QuadraticFunction;
 import lab2.gradient.utils.Vector;
 import lab2.methods.FibonacciMethod;
@@ -9,13 +9,14 @@ import lab2.methods.FibonacciMethod;
  * Gradient fastest descent minimizer.
  */
 public class GradientDescentFastestMinimizer extends AbstractGradientMinimizer {
-    public MinPointAndFunction newPoint(
+    public MinimizationResult newPoint(
             final QuadraticFunction f,
             final Vector point,
             final double eps,
             final double maxEigenvalue,
             final double fPoint,
-            final Vector gradient
+            final Vector gradient,
+            final long numberOfIterations
     ) {
         final var method = new FibonacciMethod(
                 0.0,
@@ -28,22 +29,23 @@ public class GradientDescentFastestMinimizer extends AbstractGradientMinimizer {
         final Vector y = point.sub(gradient.mul(learningRate));
         final double fY = f.apply(y);
         if (fY < fPoint) {
-            return minimize(f, maxEigenvalue, eps, y);
+            return minimize(f, maxEigenvalue, eps, y, numberOfIterations);
         } else {
-            return newPoint(f, point, eps, maxEigenvalue, fPoint, gradient);
+            return newPoint(f, point, eps, maxEigenvalue, fPoint, gradient, numberOfIterations);
         }
     }
 
     public static void main(String[] args) {
         // l , L --> 2 / (l + L)
         QuadraticFunction f1 = QuadraticFunction.from2d(1, 2, 3, 4, 5, 6);
-        MinPointAndFunction pointAndFunction = new GradientDescentFastestMinimizer().minimize(
+        MinimizationResult result = new GradientDescentFastestMinimizer().minimize(
                 f1,
                 1,
                 1e-7,
-                new Vector(0.0, 0.0)
+                new Vector(0.0, 0.0),
+                0L
         );
-        System.out.println(pointAndFunction.getPoint().toString());
+        System.out.println(result);
     }
 
 }
