@@ -58,6 +58,26 @@ public class Matrix {
         }
     }
 
+    public Matrix add(Matrix right) {
+        int n = verticalLength();
+        int m = horizontalLength();
+        if (n != right.verticalLength() || m != right.horizontalLength()) {
+            throw new IllegalArgumentException();
+        }
+
+        double[][] a = new double[n][m];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                a[i][j] = get(i, j) + right.get(i, j);
+            }
+        }
+        if (this instanceof Vector) {
+            return new Vector(a);
+        } else {
+            return new Matrix(a);
+        }
+    }
+
     public Matrix mul(Matrix right) {
         int n = verticalLength();
         int m = horizontalLength();

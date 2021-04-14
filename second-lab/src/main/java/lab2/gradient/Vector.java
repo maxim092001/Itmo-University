@@ -21,8 +21,24 @@ public class Vector extends Matrix {
         return (Vector) super.mul(alpha);
     }
 
+    public Vector add(Vector right) {
+        return (Vector) super.add(right);
+    }
+
     public double scalarMul(Vector right) {
         return transpose().mul(right).get(0, 0);
+    }
+
+    public double sqrNorm() {
+        double sum = 0.0;
+        for (int i = 0; i < length(); i++) {
+            sum += get(i) * get(i);
+        }
+        return sum;
+    }
+
+    public double norm() {
+        return Math.sqrt(sqrNorm());
     }
 
     private static double[][] prepareMatrix(double[] vector) {

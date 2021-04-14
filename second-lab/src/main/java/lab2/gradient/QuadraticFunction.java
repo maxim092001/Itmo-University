@@ -44,6 +44,18 @@ public class QuadraticFunction implements Function<Vector, Double> {
         return c;
     }
 
+    public Vector gradient(Vector x) {
+        return ((Vector) getA().mul(x)).add(getB());
+    }
+
+    public Vector antigradient(Vector x) {
+        return gradient(x).mul(-1);
+    }
+
+    public int dimensions() {
+        return a.verticalLength();
+    }
+
     // A x^2 + B xy + C y^2 + Dx + Ey + F
     public static QuadraticFunction from2d(double a, double b, double c, double d, double e, double f) {
         double[][] A = new double[][] {
