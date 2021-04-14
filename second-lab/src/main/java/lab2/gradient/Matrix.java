@@ -2,16 +2,42 @@ package lab2.gradient;
 
 import java.util.Arrays;
 
+/**
+ * Matrix representation.
+ */
 public class Matrix {
+
+    /**
+     * Given matrix.
+     */
     private final double[][] a;
+
+    /**
+     * Transposed flag.
+     */
     private final boolean transposed;
 
-    public Matrix(double[][] a) {
+    /**
+     * Constructor for matrix. Transposed {@code false} by default.
+     *
+     * @param a given matrix.
+     */
+    public Matrix(final double[][] a) {
+        this(a, false);
+    }
+
+    /**
+     * Constructor for matrix.
+     *
+     * @param a          given matrix.
+     * @param transposed given transposed flag.
+     */
+    private Matrix(double[][] a, boolean transposed) {
         if (a.length == 0) {
             throw new IllegalArgumentException();
         }
 
-        int n = a[0].length;
+        final int n = a[0].length;
         if (n == 0) {
             throw new IllegalArgumentException();
         }
@@ -23,27 +49,46 @@ public class Matrix {
         }
 
         this.a = a;
-        this.transposed = false;
-    }
 
-    private Matrix(double[][] a, boolean transposed) {
-        this.a = a;
         this.transposed = transposed;
     }
 
+    /**
+     * Get element from matrix.
+     *
+     * @param i row index.
+     * @param j column index.
+     * @return matrix element.
+     */
     public double get(int i, int j) {
         return (transposed ? a[j][i] : a[i][j]);
     }
 
+    /**
+     * Number of columns.
+     *
+     * @return number of columns.
+     */
     public int verticalLength() {
         return (transposed ? a[0].length : a.length);
     }
 
+    /**
+     * Number of rows.
+     *
+     * @return number of rows.
+     */
     public int horizontalLength() {
         return (transposed ? a.length : a[0].length);
     }
 
-    public Matrix mul(Number alpha) {
+    /**
+     * Multiply matrix on given scalar number.
+     *
+     * @param alpha given scalar number.
+     * @return multiplied matrix.
+     */
+    public Matrix mul(final Number alpha) {
         double t = alpha.doubleValue();
         int n = verticalLength();
         int m = horizontalLength();
@@ -60,7 +105,14 @@ public class Matrix {
         }
     }
 
-    public Matrix add(Matrix right) {
+
+    /**
+     * Add matrix.
+     *
+     * @param right matrix to be added.
+     * @return new matrix.
+     */
+    public Matrix add(final Matrix right) {
         int n = verticalLength();
         int m = horizontalLength();
         if (n != right.verticalLength() || m != right.horizontalLength()) {
@@ -80,7 +132,13 @@ public class Matrix {
         }
     }
 
-    public Matrix mul(Matrix right) {
+    /**
+     * Multiply matrix on another matrix.
+     *
+     * @param right given matrix.
+     * @return multiplied matrix.
+     */
+    public Matrix mul(final Matrix right) {
         int n = verticalLength();
         int m = horizontalLength();
         if (right.verticalLength() != m) {
@@ -106,12 +164,12 @@ public class Matrix {
         }
     }
 
+    /**
+     * Transpose matrix.
+     * @return transposed matrix.
+     */
     public Matrix transpose() {
         return new Matrix(a, !transposed);
-    }
-
-    public static Matrix mul(Matrix a, Matrix b) {
-        return a.mul(b);
     }
 
     @Override

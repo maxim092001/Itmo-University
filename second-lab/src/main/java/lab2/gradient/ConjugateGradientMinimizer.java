@@ -24,7 +24,7 @@ public class ConjugateGradientMinimizer {
     private void iteration(int k) {
         Vector pk = p.get(k);
         Vector aPk = (Vector) f.getA().mul(pk);
-        double alphaK = gradients.get(k).sqrNorm() / aPk.scalarMul(pk);
+        double alphaK = gradients.get(k).sqrRate() / aPk.scalarMul(pk);
         alpha.add(alphaK);
 
         Vector xk = x.get(k);
@@ -35,7 +35,7 @@ public class ConjugateGradientMinimizer {
         Vector gradientK1 = gradientK.add(aPk.mul(alphaK));
         gradients.add(gradientK1);
 
-        double betaK = gradientK1.sqrNorm() / gradientK.sqrNorm();
+        double betaK = gradientK1.sqrRate() / gradientK.sqrRate();
         beta.add(betaK);
 
         Vector pk1 = gradientK1.mul(-1).add(pk.mul(betaK));
