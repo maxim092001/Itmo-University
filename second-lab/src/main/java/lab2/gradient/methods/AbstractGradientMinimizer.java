@@ -4,6 +4,8 @@ import lab2.gradient.utils.MinimizationResult;
 import lab2.gradient.utils.QuadraticFunction;
 import lab2.gradient.utils.Vector;
 
+import java.util.List;
+
 /**
  * Abstract gradient minimizer.
  */
@@ -23,14 +25,16 @@ public abstract class AbstractGradientMinimizer {
             final double rateValue,
             final double eps,
             final Vector point,
-            final long numberOfIterations
+            final long numberOfIterations,
+            final List<IterationStep> steps
     ) {
+        steps.add(new IterationStep(numberOfIterations, point));
         final double fPoint = f.apply(point);
         final Vector gradient = f.gradient(point);
         if (gradient.rate() < eps) {
-            return MinimizationResult.of(point, fPoint, numberOfIterations);
+            return MinimizationResult.of(point, fPoint, numberOfIterations, steps);
         } else {
-            return this.newPoint(f, point, eps, rateValue, fPoint, gradient, numberOfIterations + 1);
+            return this.newPoint(f, point, eps, rateValue, fPoint, gradient, numberOfIterations + 1, steps);
         }
     }
 
@@ -52,6 +56,7 @@ public abstract class AbstractGradientMinimizer {
             final double rateValue,
             final double fPoint,
             final Vector gradient,
-            final long numberOfIterations
+            final long numberOfIterations,
+            final List<IterationStep> steps
     );
 }
