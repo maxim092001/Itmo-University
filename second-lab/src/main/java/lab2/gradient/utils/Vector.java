@@ -22,9 +22,6 @@ public class Vector extends Matrix {
      */
     public Vector(final double[][] matrix) {
         super(matrix);
-        if (matrix.length == 1) {
-            throw new IllegalArgumentException("Vector is one dimension matrix only");
-        }
     }
 
     /**

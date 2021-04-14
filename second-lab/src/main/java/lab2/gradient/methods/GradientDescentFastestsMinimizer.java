@@ -5,29 +5,14 @@ import lab2.gradient.utils.QuadraticFunction;
 import lab2.gradient.utils.Vector;
 import lab2.methods.FibonacciMethod;
 
-public class GradientDescentFastestsMinimizer extends GradientDescentMinimizer {
-    public MinPointAndFunction minimize(
+public class GradientDescentFastestsMinimizer extends AbstractGradientMinimizer {
+    public MinPointAndFunction newPoint(
             final QuadraticFunction f,
-            final double eps,
             final Vector point,
-            final double maxEigenvalue
-    ) {
-        final double fPoint = f.apply(point);
-        final Vector gradient = f.gradient(point);
-        if (gradient.rate() < eps) {
-            return MinPointAndFunction.of(point, fPoint);
-        } else {
-            return newPoint(f, eps, point, fPoint, gradient, maxEigenvalue);
-        }
-    }
-
-    private MinPointAndFunction newPoint(
-            final QuadraticFunction f,
             final double eps,
-            final Vector point,
+            final double maxEigenvalue,
             final double fPoint,
-            final Vector gradient,
-            final double maxEigenvalue
+            final Vector gradient
     ) {
         final var method = new FibonacciMethod(
                 0.0,
@@ -40,9 +25,9 @@ public class GradientDescentFastestsMinimizer extends GradientDescentMinimizer {
         final Vector y = point.sub(gradient.mul(learningRate));
         final double fY = f.apply(y);
         if (fY < fPoint) {
-            return minimize(f, eps, y, maxEigenvalue);
+            return minimize(f, maxEigenvalue, eps, y);
         } else {
-            return newPoint(f, eps, point, fPoint, gradient, maxEigenvalue);
+            return newPoint(f, point, eps, maxEigenvalue, fPoint, gradient);
         }
     }
 
@@ -51,9 +36,9 @@ public class GradientDescentFastestsMinimizer extends GradientDescentMinimizer {
         QuadraticFunction f1 = QuadraticFunction.from2d(1, 2, 3, 4, 5, 6);
         MinPointAndFunction pointAndFunction = new GradientDescentFastestsMinimizer().minimize(
                 f1,
+                1,
                 1e-7,
-                new Vector(0.0, 0.0),
-                1
+                new Vector(0.0, 0.0)
         );
         System.out.println(pointAndFunction.getPoint().toString());
     }

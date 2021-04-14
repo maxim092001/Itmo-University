@@ -7,48 +7,12 @@ import lab2.gradient.utils.Vector;
 /**
  * Gradient descent method.
  */
-public class GradientDescentMinimizer {
-
-    /**
-     * Minimizing function.
-     *
-     * @param f            given function.
-     * @param learningRate given learning rate (alpha).
-     * @param eps          epsilon.
-     * @param point        given point.
-     * @return returns the point where the function reaches its minimum. {@link MinPointAndFunction}
-     */
-    public MinPointAndFunction minimize(
+public class GradientDescentMinimizer extends AbstractGradientMinimizer{
+    public MinPointAndFunction newPoint(
             final QuadraticFunction f,
-            final double learningRate,
-            final double eps,
-            final Vector point
-    ) {
-        final double fPoint = f.apply(point);
-        final Vector gradient = f.gradient(point);
-        if (gradient.rate() < eps) {
-            return MinPointAndFunction.of(point, fPoint);
-        } else {
-            return newPoint(f, learningRate, eps, point, fPoint, gradient);
-        }
-    }
-
-    /**
-     * Finds new point (xk).
-     *
-     * @param f            given function.
-     * @param learningRate learning rate (alpha.
-     * @param eps          epsilon.
-     * @param point        given point.
-     * @param fPoint       function result in given point.
-     * @param gradient     gradient for given function and point.
-     * @return new point.
-     */
-    private MinPointAndFunction newPoint(
-            final QuadraticFunction f,
-            final double learningRate,
-            final double eps,
             final Vector point,
+            final double eps,
+            final double learningRate,
             final double fPoint,
             final Vector gradient
     ) {
@@ -57,7 +21,7 @@ public class GradientDescentMinimizer {
         if (fY < fPoint) {
             return minimize(f, learningRate, eps, y);
         } else {
-            return newPoint(f, learningRate / 2, eps, point, fPoint, gradient);
+            return newPoint(f, point, eps, learningRate / 2, fPoint, gradient);
         }
     }
 
