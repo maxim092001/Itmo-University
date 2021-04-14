@@ -31,7 +31,7 @@ public abstract class AbstractGradientMinimizer {
         steps.add(new IterationStep(numberOfIterations, point));
         final double fPoint = f.apply(point);
         final Vector gradient = f.gradient(point);
-        if (gradient.rate() < eps) {
+        if (gradient.rate() < eps || numberOfIterations >= 1000) {
             return MinimizationResult.of(point, fPoint, numberOfIterations, steps);
         } else {
             return this.newPoint(f, point, eps, rateValue, fPoint, gradient, numberOfIterations + 1, steps);

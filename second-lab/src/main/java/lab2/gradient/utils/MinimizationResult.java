@@ -23,7 +23,7 @@ public class MinimizationResult {
 
     @Override
     public String toString() {
-        return String.format("x = %s; f* = %f, number of iterations = %d", point.toString(), functionResult, numberOfIterations);
+        return String.format("x = %s; f* = %f, number of iterations = %d", point.toString(), functionResult, numberOfIterations + 1);
     }
 
     public Vector getPoint() {
