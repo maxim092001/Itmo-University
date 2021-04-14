@@ -57,9 +57,9 @@ public class ConjugateGradientMinimizer {
     }
 
     public static void main(String[] args) {
-        QuadraticFunction f1 = QuadraticFunction.from2d(64, 126, 64, -10, 30, 13);
+        QuadraticFunction f1 = QuadraticFunction.from2d(1, 2, 3, 4 , 5, 6);
         ConjugateGradientMinimizer minimizer = new ConjugateGradientMinimizer(f1, new Vector(0.0, 0.0));
         minimizer.minimize();
-        System.out.println(minimizer.getMinF());
+        System.out.println(minimizer.getMinX());
     }
 }

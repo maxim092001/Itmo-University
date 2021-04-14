@@ -1,5 +1,7 @@
 package lab2.gradient;
 
+import java.util.Arrays;
+
 public class Matrix {
     private final double[][] a;
     private final boolean transposed;
@@ -110,5 +112,13 @@ public class Matrix {
 
     public static Matrix mul(Matrix a, Matrix b) {
         return a.mul(b);
+    }
+
+    @Override
+    public String toString() {
+        return "Matrix{" +
+                "a=" + Arrays.deepToString(a) +
+                ", transposed=" + transposed +
+                '}';
     }
 }

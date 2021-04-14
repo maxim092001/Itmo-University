@@ -1,15 +1,15 @@
 package lab2.gradient;
 
 public class MinPointAndFunction {
-    private MultiDimensionalPoint point;
+    private Vector point;
     private double functionResult;
 
-    private MinPointAndFunction(final MultiDimensionalPoint point, final double functionResult) {
+    private MinPointAndFunction(final Vector point, final double functionResult) {
         this.point = point;
         this.functionResult = functionResult;
     }
 
-    public static MinPointAndFunction of(final MultiDimensionalPoint point, final double functionResult) {
+    public static MinPointAndFunction of(final Vector point, final double functionResult) {
         return new MinPointAndFunction(point, functionResult);
     }
 
@@ -18,11 +18,11 @@ public class MinPointAndFunction {
         return String.format("x = %s; f* = %f", point.toString(), functionResult);
     }
 
-    public MultiDimensionalPoint getPoint() {
+    public Vector getPoint() {
         return point;
     }
 
-    public void setPoint(final MultiDimensionalPoint point) {
+    public void setPoint(final Vector point) {
         this.point = point;
     }
 

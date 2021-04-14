@@ -1,34 +1,54 @@
 package lab2.gradient;
 
-import java.util.List;
-import java.util.function.Function;
-
+/**
+ * Gradient descent method.
+ */
 public class GradientDescentMinimizer implements GradientMinimizer {
 
+    /**
+     * Minimizing function.
+     *
+     * @param f            given function.
+     * @param learningRate given learning rate (alpha).
+     * @param eps          epsilon.
+     * @param point        given point.
+     * @return returns the point where the function reaches its minimum. {@link MinPointAndFunction}
+     */
     public MinPointAndFunction minimize(
-            final Function<MultiDimensionalPoint, Double> f,
+            final QuadraticFunction f,
             final double learningRate,
             final double eps,
-            final MultiDimensionalPoint point
+            final Vector point
     ) {
         final double fPoint = f.apply(point);
-        final List<Double> gradient = gradient(f, point, fPoint, eps);
-        if (gradientRate(gradient) < eps) {
+        final Vector gradient = f.gradient(point);
+        if (gradient.rate() < eps) {
             return MinPointAndFunction.of(point, fPoint);
         } else {
             return newPoint(f, learningRate, eps, point, fPoint, gradient);
         }
     }
 
+    /**
+     * Finds new point (xk).
+     *
+     * @param f            given function.
+     * @param learningRate learning rate (alpha.
+     * @param eps          epsilon.
+     * @param point        given point.
+     * @param fPoint       function result in given point.
+     * @param gradient     gradient for given function and point.
+     * @return new point.
+     */
     private MinPointAndFunction newPoint(
-            final Function<MultiDimensionalPoint, Double> f,
+            final QuadraticFunction f,
             final double learningRate,
             final double eps,
-            final MultiDimensionalPoint point,
+            final Vector point,
             final double fPoint,
-            final List<Double> gradient
+            final Vector gradient
     ) {
-        final MultiDimensionalPoint y = point.sub(MultiDimensionalPoint.of(gradient).mul(learningRate));
+        final Vector y = point.sub(gradient.mul(learningRate));
         final double fY = f.apply(y);
         if (fY < fPoint) {
             return minimize(f, learningRate, eps, y);
@@ -38,15 +58,13 @@ public class GradientDescentMinimizer implements GradientMinimizer {
     }
 
     public static void main(String[] args) {
-        // l , L --> 2 / (l + L)
-        System.out.println(new GradientDescentMinimizer().minimize(
-                p -> {
-                    var s = p.getPoints().stream().reduce(0.0, Double::sum);
-                    return s * s;
-                },
+        QuadraticFunction f1 = QuadraticFunction.from2d(1, 2, 3, 4, 5, 6);
+        MinPointAndFunction pointAndFunction = new GradientDescentMinimizer().minimize(
+                f1,
                 120,
-                0.000000001,
-                MultiDimensionalPoint.of(10.0) // n = 1, x1 = 10.0
-        ));
+                1e-7,
+                new Vector(0.0, 0.0)
+        );
+        System.out.println(pointAndFunction.getPoint().toString());
     }
 }

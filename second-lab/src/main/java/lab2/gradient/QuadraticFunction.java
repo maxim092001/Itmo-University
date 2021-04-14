@@ -28,8 +28,8 @@ public class QuadraticFunction implements Function<Vector, Double> {
     }
 
     @Override
-    public Double apply(Vector x) {
-        return 0.5 * ((Vector) a.mul(x)).scalarMul(x) + b.scalarMul(x) + c;
+    public Double apply(final Vector v) {
+        return 0.5 * ((Vector) a.mul(v)).scalarMul(v) + b.scalarMul(v) + c;
     }
 
     public Matrix getA() {
@@ -44,7 +44,7 @@ public class QuadraticFunction implements Function<Vector, Double> {
         return c;
     }
 
-    public Vector gradient(Vector x) {
+    public Vector gradient(final Vector x) {
         return ((Vector) getA().mul(x)).add(getB());
     }
 
