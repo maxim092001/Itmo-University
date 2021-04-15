@@ -36,7 +36,6 @@ public class GradientDescentMinimizer extends AbstractGradientMinimizer {
         System.out.println(f1);
         Vector startPoint = new Vector(0.0, 0.0);
         List<IterationStep> steps = new ArrayList<>();
-        steps.add(new IterationStep(0, startPoint));
         MinimizationResult result = new GradientDescentMinimizer().iteration(
                 f1,
                 0.25,

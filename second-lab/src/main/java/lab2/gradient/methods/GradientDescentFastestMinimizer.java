@@ -3,7 +3,10 @@ package lab2.gradient.methods;
 import lab2.gradient.utils.MinimizationResult;
 import lab2.gradient.utils.QuadraticFunction;
 import lab2.gradient.utils.Vector;
+import lab2.methods.BrentsMethod;
+import lab2.methods.DichotomyMethod;
 import lab2.methods.FibonacciMethod;
+import lab2.methods.GoldenRatioMethod;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +42,6 @@ public class GradientDescentFastestMinimizer extends AbstractGradientMinimizer {
         QuadraticFunction f1 = QuadraticFunction.from2d(1, 2, 3, 4, 5, 6);
         Vector startPoint = new Vector(0.0, 0.0);
         List<IterationStep> steps = new ArrayList<>();
-        steps.add(new IterationStep(0, startPoint));
         MinimizationResult result = new GradientDescentFastestMinimizer().iteration(
                 f1,
                 1,
