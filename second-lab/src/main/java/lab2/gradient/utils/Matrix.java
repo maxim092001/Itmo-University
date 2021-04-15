@@ -172,11 +172,20 @@ public class Matrix {
         return new Matrix(a, !transposed);
     }
 
+    private CharSequence lineToString(int i) {
+        StringBuilder result = new StringBuilder("[").append(get(i, 0));
+        for (int j = 1; j < horizontalLength(); j++) {
+            result.append(", ").append(get(i, j));
+        }
+        return result.append("]");
+    }
+
     @Override
     public String toString() {
-        return "Matrix{" +
-                "a=" + Arrays.deepToString(a) +
-                ", transposed=" + transposed +
-                '}';
+        StringBuilder result = new StringBuilder("[").append(lineToString(0));
+        for (int i = 1; i < a.length; i++) {
+            result.append(",").append(lineToString(i));
+        }
+        return result.append("]").toString();
     }
 }

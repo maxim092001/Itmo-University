@@ -14,27 +14,29 @@ public abstract class AbstractGradientMinimizer {
     /**
      * Minimizing function.
      *
-     * @param f         given function.
-     * @param rateValue rate value (alpha or value to calculate alpha).
-     * @param eps       epsilon.
-     * @param point     given point.
+     * @param f     given function.
+     * @param alpha rate value (alpha or value to calculate alpha).
+     * @param eps   epsilon.
+     * @param x     given point.
      * @return returns the point where the function reaches its minimum. {@link MinimizationResult}
      */
-    public MinimizationResult minimize(
+    public MinimizationResult iteration(
             final QuadraticFunction f,
-            final double rateValue,
+            final double alpha,
             final double eps,
-            final Vector point,
+            final Vector x,
             final long numberOfIterations,
             final List<IterationStep> steps
     ) {
-        steps.add(new IterationStep(numberOfIterations, point));
-        final double fPoint = f.apply(point);
-        final Vector gradient = f.gradient(point);
+        steps.add(new IterationStep(numberOfIterations, x));
+
+        final double fPoint = f.apply(x);
+        final Vector gradient = f.gradient(x);
+
         if (gradient.rate() < eps || numberOfIterations >= 1000) {
-            return MinimizationResult.of(point, fPoint, numberOfIterations, steps);
+            return MinimizationResult.of(x, fPoint, numberOfIterations, steps);
         } else {
-            return this.newPoint(f, point, eps, rateValue, fPoint, gradient, numberOfIterations + 1, steps);
+            return this.newPoint(f, x, eps, alpha, fPoint, gradient, numberOfIterations + 1, steps);
         }
     }
 

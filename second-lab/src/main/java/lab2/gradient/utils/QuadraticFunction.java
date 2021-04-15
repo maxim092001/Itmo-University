@@ -116,6 +116,15 @@ public class QuadraticFunction implements Function<Vector, Double> {
         return a.verticalLength();
     }
 
+    @Override
+    public String toString() {
+        return "QuadraticFunction{" +
+                "a=" + a +
+                ", b=" + b +
+                ", c=" + c +
+                '}';
+    }
+
     /**
      * Create quadratic function from 2d. {@code Ax^2 + Bxy + C y^2 + Dx + Ey + F}
      *

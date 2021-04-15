@@ -121,6 +121,10 @@ public class Vector extends Matrix {
 
     @Override
     public String toString() {
-        return "Vector{} " + super.toString();
+        StringBuilder result = new StringBuilder("[").append(get(0));
+        for (int i = 1; i < length(); i++) {
+            result.append(", ").append(get(i));
+        }
+        return result.append("]").toString();
     }
 }

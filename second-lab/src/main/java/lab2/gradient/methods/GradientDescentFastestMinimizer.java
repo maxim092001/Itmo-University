@@ -31,7 +31,7 @@ public class GradientDescentFastestMinimizer extends AbstractGradientMinimizer {
         method.calculate();
         final double learningRate = method.getMinimumArgument();
         final Vector y = point.sub(gradient.mul(learningRate));
-        return minimize(f, maxEigenvalue, eps, y, numberOfIterations, steps);
+        return iteration(f, maxEigenvalue, eps, y, numberOfIterations, steps);
     }
 
     public static void main(String[] args) {
@@ -40,7 +40,7 @@ public class GradientDescentFastestMinimizer extends AbstractGradientMinimizer {
         Vector startPoint = new Vector(0.0, 0.0);
         List<IterationStep> steps = new ArrayList<>();
         steps.add(new IterationStep(0, startPoint));
-        MinimizationResult result = new GradientDescentFastestMinimizer().minimize(
+        MinimizationResult result = new GradientDescentFastestMinimizer().iteration(
                 f1,
                 1,
                 1e-5,
