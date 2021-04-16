@@ -12,7 +12,7 @@ import java.util.List;
 public abstract class AbstractGradientMinimizer {
 
     /**
-     * Minimizing function.
+     * New iteration function.
      *
      * @param f     given function.
      * @param rateValue rate value (alpha or value to calculate alpha).
