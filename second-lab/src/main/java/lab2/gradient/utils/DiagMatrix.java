@@ -80,6 +80,11 @@ public class DiagMatrix extends Matrix {
         return result.append("]").toString();
     }
 
+    @Override
+    public Matrix makeSymmetric() {
+        return this;
+    }
+
     public static void main(String[] args) {
         DiagMatrix a = new DiagMatrix(1.0, 2.0, 3.0);
         System.out.println(a.mul(new DiagMatrix(2, 4, 5)));

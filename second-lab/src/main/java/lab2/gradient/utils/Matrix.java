@@ -186,4 +186,20 @@ public class Matrix {
         }
         return result.append("]").toString();
     }
+
+    public Matrix makeSymmetric() {
+        int n = verticalLength();
+        if (n != horizontalLength()) {
+            throw new IllegalArgumentException();
+        }
+
+        double[][] aSymmetric = new double[n][n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                aSymmetric[i][j] = get(i, j) + get(j, i);
+            }
+        }
+
+        return new Matrix(aSymmetric);
+    }
 }

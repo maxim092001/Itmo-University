@@ -129,6 +129,11 @@ public class Vector extends Matrix {
         return result.append("]").toString();
     }
 
+    @Override
+    public Matrix makeSymmetric() {
+        throw new UnsupportedOperationException();
+    }
+
     public static Vector zero(int n) {
         double[] a = new double[n];
         for (int i = 0; i < n; i++) {
