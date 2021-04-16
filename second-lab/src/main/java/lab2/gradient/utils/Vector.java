@@ -1,11 +1,14 @@
 package lab2.gradient.utils;
 
+import java.util.Random;
 import java.util.stream.IntStream;
 
 /**
  * One dimensional matrix representation.
  */
 public class Vector extends Matrix {
+    private static final Random rnd = new Random();
+
     /**
      * Vector constructor.
      *
@@ -22,6 +25,14 @@ public class Vector extends Matrix {
      */
     public Vector(final double[][] matrix) {
         super(matrix);
+    }
+
+    public static Vector randomVector(int dim) {
+        double[] v = new double[dim];
+        for (int i = 0; i < dim; i++) {
+            v[i] = rnd.nextDouble();
+        }
+        return new Vector(v);
     }
 
     /**

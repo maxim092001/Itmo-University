@@ -22,6 +22,10 @@ public class ConjugateGradientMinimizer {
      */
     private final List<IterationStep> steps = new ArrayList<>();
 
+    public List<IterationStep> getSteps() {
+        return steps;
+    }
+
     /**
      *
      */
@@ -128,20 +132,23 @@ public class ConjugateGradientMinimizer {
     }
 
     public static void main(String[] args) {
-        QuadraticFunction f3 = QuadraticFunction.from2d(1, 2, 3, 4 , 5, 6);
-        QuadraticFunction f4 = QuadraticFunction.from2d(254, 506, 254, 50, 130, -111);
-
-        QuadraticFunction f2 = QuadraticFunction.from2d(1, 2, 1, 0, 0, 0);
-        QuadraticFunction f1 = new QuadraticFunction(new DiagMatrix(1, 1), new Vector(0, 0), 0);
-        System.out.println(f1);
-        System.out.println(f1.apply(new Vector(5, -19)));
-        System.out.println(f2);
-        System.out.println(f2.apply(new Vector(5, -19)));
-
-        System.out.println(f1);
-        ConjugateGradientMinimizer minimizer = new ConjugateGradientMinimizer(f2, new Vector(5, 10), 1e-5);
+        QuadraticFunction f1 = QuadraticFunction.from2d(64, 126, 64, -10, 30, 13);
+        ConjugateGradientMinimizer minimizer = new ConjugateGradientMinimizer(f1, new Vector(10.0, 15.0), 1e-5);
         minimizer.minimize();
-        System.out.println(minimizer.getMinX());
-        System.out.println(minimizer.getMinF());
+
+        System.out.println("X = " + minimizer.getMinX());
+        System.out.println("FX = " + minimizer.getMinF());
+        System.out.println("number of iterations = " + minimizer.getSteps().size());
+        System.out.println("X");
+        for (IterationStep step : minimizer.getSteps()) {
+            System.out.print(step.getVector().get(0) + ", ");
+        }
+
+        System.out.println();
+
+        System.out.println("Y");
+        for (IterationStep step : minimizer.getSteps()) {
+            System.out.print(step.getVector().get(1) + ", ");
+        }
     }
 }

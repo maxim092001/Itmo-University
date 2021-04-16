@@ -55,6 +55,7 @@ public class IterationStep {
         return functionResult;
     }
 
+
     @Override
     public String toString() {
         var s =  String.format("\\hline \n %d & %f & %s", stepNumber, functionResult, vector);
