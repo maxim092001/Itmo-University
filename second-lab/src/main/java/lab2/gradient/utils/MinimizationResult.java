@@ -37,4 +37,8 @@ public class MinimizationResult {
     public List<IterationStep> getSteps() {
         return steps;
     }
+
+    public long getNumberOfIterations() {
+        return numberOfIterations;
+    }
 }

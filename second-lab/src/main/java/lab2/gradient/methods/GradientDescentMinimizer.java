@@ -1,5 +1,6 @@
 package lab2.gradient.methods;
 
+import lab2.gradient.utils.DiagMatrix;
 import lab2.gradient.utils.MinimizationResult;
 import lab2.gradient.utils.QuadraticFunction;
 import lab2.gradient.utils.Vector;
@@ -65,17 +66,44 @@ public class GradientDescentMinimizer extends AbstractGradientMinimizer {
         System.out.println(f1);
         Vector startPoint = new Vector(10.0, 15.0);
         List<IterationStep> steps = new ArrayList<>();
-        MinimizationResult result = new GradientDescentMinimizer().hui(
+        MinimizationResult result = new GradientDescentMinimizer().iteration(
                 f1,
-                startPoint,
+                2/256.0,
                 1e-5,
-                2 / 256.
+                startPoint,
+                0L,
+                steps
         );
         System.out.println(result);
 
         List<IterationStep> allSteps = result.getSteps();
+        System.out.println("X");
         for (IterationStep step : allSteps) {
-            System.out.println(step);
+            System.out.print(step.getVector().get(0) + ", ");
         }
+        System.out.println();
+        System.out.println("Y");
+        for (IterationStep step : allSteps) {
+            System.out.print(step.getVector().get(1) + ", ");
+        }
+        System.out.println();
+
+        for (int n = 10; n <= 10000; n *= 10) {
+            System.out.println("Dimensions = " + n + ":");
+            for (int k = 1; k < 2000; k += 100) {
+                QuadraticFunction g = new QuadraticFunction(new DiagMatrix(n, k), Vector.randomVector(n), 0);
+                Vector sp = Vector.randomVector(n);
+                List<IterationStep> stps = new ArrayList<>();
+                MinimizationResult res = new GradientDescentMinimizer().hui(
+                        g,
+                        sp,
+                        1e-3,
+                        2 / (double)(k + 1)
+                );
+                System.out.print(res.getNumberOfIterations() + ", ");
+            }
+            System.out.println();
+        }
+
     }
 }

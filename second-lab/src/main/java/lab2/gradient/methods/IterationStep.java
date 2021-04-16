@@ -13,6 +13,18 @@ public class IterationStep {
         this.functionResult = functionResult;
     }
 
+    public long getStepNumber() {
+        return stepNumber;
+    }
+
+    public Vector getVector() {
+        return vector;
+    }
+
+    public double getFunctionResult() {
+        return functionResult;
+    }
+
     @Override
     public String toString() {
         var s =  String.format("\\hline \n %d & %f & %s", stepNumber, functionResult, vector);

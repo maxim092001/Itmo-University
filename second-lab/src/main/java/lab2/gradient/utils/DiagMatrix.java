@@ -5,6 +5,19 @@ public class DiagMatrix extends Matrix {
         super(prepareMatrix(diag));
     }
 
+    private static double[] kek(int n, int conditionNumber) {
+        double[] diag = new double[n];
+        diag[0] = conditionNumber;
+        for (int i = 1; i < n; i++) {
+            diag[i] = 1;
+        }
+        return diag;
+    }
+
+    public DiagMatrix(int n, int conditionNumber) {
+        this(kek(n, conditionNumber));
+    }
+
     private static double[][] prepareMatrix(double[] diag) {
         if (diag.length == 0) {
             throw new IllegalArgumentException();
