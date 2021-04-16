@@ -22,6 +22,10 @@ public class ConjugateGradientMinimizer {
      */
     private final List<IterationStep> steps = new ArrayList<>();
 
+    public List<IterationStep> getSteps() {
+        return steps;
+    }
+
     /**
      *
      */
@@ -47,11 +51,6 @@ public class ConjugateGradientMinimizer {
      */
     private final double eps;
 
-    public List<Vector> getX() {
-        return x;
-    }
-
-    public ConjugateGradientMinimizer(QuadraticFunction f, Vector startPoint, double eps) {
     /**
      * Constructs conjugate gradient method.
      *
@@ -139,17 +138,17 @@ public class ConjugateGradientMinimizer {
 
         System.out.println("X = " + minimizer.getMinX());
         System.out.println("FX = " + minimizer.getMinF());
-        System.out.println("number of iterations = " + minimizer.getX().size());
+        System.out.println("number of iterations = " + minimizer.getSteps().size());
         System.out.println("X");
-        for (Vector step : minimizer.getX()) {
-            System.out.print(step.get(0) + ", ");
+        for (IterationStep step : minimizer.getSteps()) {
+            System.out.print(step.getVector().get(0) + ", ");
         }
 
         System.out.println();
 
         System.out.println("Y");
-        for (Vector step : minimizer.getX()) {
-            System.out.print(step.get(1) + ", ");
+        for (IterationStep step : minimizer.getSteps()) {
+            System.out.print(step.getVector().get(1) + ", ");
         }
     }
 }
