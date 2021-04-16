@@ -1,7 +1,5 @@
 package lab2.gradient.utils;
 
-import java.util.Arrays;
-
 /**
  * Matrix representation.
  */

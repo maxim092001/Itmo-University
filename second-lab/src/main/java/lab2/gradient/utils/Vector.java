@@ -107,6 +107,7 @@ public class Vector extends Matrix {
 
     /**
      * Create matrix from vector.
+     *
      * @param vector given vector.
      * @return matrix with one row.
      */
