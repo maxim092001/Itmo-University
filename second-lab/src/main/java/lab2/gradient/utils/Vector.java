@@ -139,4 +139,12 @@ public class Vector extends Matrix {
         }
         return result.append("]").toString();
     }
+
+    public static Vector zero(int n) {
+        double[] a = new double[n];
+        for (int i = 0; i < n; i++) {
+            a[i] = 0;
+        }
+        return new Vector(a);
+    }
 }
