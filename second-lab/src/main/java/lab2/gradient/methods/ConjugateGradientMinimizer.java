@@ -7,13 +7,44 @@ import lab2.gradient.utils.Vector;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Conjugate gradient minimizer.
+ */
 public class ConjugateGradientMinimizer {
+
+    /**
+     * Given function.
+     */
     private final QuadraticFunction f;
-    private final List<Vector> x = new ArrayList<>();
+
+    /**
+     * Iteration steps.
+     */
+    private final List<IterationStep> steps = new ArrayList<>();
+
+    /**
+     *
+     */
     private final List<Vector> p = new ArrayList<>();
+
+    /**
+     * Alpha coefficient.
+     */
     private final List<Double> alpha = new ArrayList<>();
+
+    /**
+     * Beta coefficient.
+     */
     private final List<Double> beta = new ArrayList<>();
+
+    /**
+     * Gradients.
+     */
     private final List<Vector> gradients = new ArrayList<>();
+
+    /**
+     * Given epsilon.
+     */
     private final double eps;
 
     public List<Vector> getX() {
@@ -21,10 +52,22 @@ public class ConjugateGradientMinimizer {
     }
 
     public ConjugateGradientMinimizer(QuadraticFunction f, Vector startPoint, double eps) {
+    /**
+     * Constructs conjugate gradient method.
+     *
+     * @param f given function.
+     * @param startPoint given start point.
+     * @param eps given epsilon.
+     */
+    public ConjugateGradientMinimizer(
+            final QuadraticFunction f,
+            final Vector startPoint,
+            final double eps
+    ) {
         this.f = f;
-        this.x.add(startPoint);
+        this.steps.add(new IterationStep(0, startPoint, f.apply(startPoint)));
 
-        Vector gradient0 = f.gradient(startPoint);
+        final Vector gradient0 = f.gradient(startPoint);
         this.gradients.add(gradient0);
 
         this.p.add(gradient0.mul(-1));
@@ -32,29 +75,37 @@ public class ConjugateGradientMinimizer {
         this.eps = eps;
     }
 
-    private void iteration(int k) {
-        Vector pk = p.get(k);
-        Vector aPk = (Vector) f.getA().mul(pk);
-        double alphaK = gradients.get(k).sqrRate() / aPk.scalarMul(pk);
+    /**
+     * New iteration.
+     *
+     * @param k last iteration step.
+     */
+    private void iteration(final int k) {
+        final Vector pk = p.get(k);
+        final Vector aPk = (Vector) f.getA().mul(pk);
+        final double alphaK = gradients.get(k).sqrRate() / aPk.scalarMul(pk);
         alpha.add(alphaK);
 
-        Vector xk = x.get(k);
-        Vector xk1 = xk.add(pk.mul(alphaK));
-        x.add(xk1);
+        final Vector xk = steps.get(k).getVector();
+        final Vector xk1 = xk.add(pk.mul(alphaK));
+        steps.add(new IterationStep(k + 1, xk1, f.apply(xk1))); // calculating function only for step logging.
 
-        Vector gradientK = gradients.get(k);
-        Vector gradientK1 = gradientK.add(aPk.mul(alphaK));
+        final Vector gradientK = gradients.get(k);
+        final Vector gradientK1 = gradientK.add(aPk.mul(alphaK));
         gradients.add(gradientK1);
 
-        double betaK = gradientK1.sqrRate() / gradientK.sqrRate();
+        final double betaK = gradientK1.sqrRate() / gradientK.sqrRate();
         beta.add(betaK);
 
-        Vector pk1 = gradientK1.mul(-1).add(pk.mul(betaK));
+        final Vector pk1 = gradientK1.mul(-1).add(pk.mul(betaK));
         p.add(pk1);
     }
 
+    /**
+     * Minimize given function.
+     */
     public void minimize() {
-        double epsSqr = eps * eps;
+        final double epsSqr = eps * eps;
         for (int i = 0; i <= f.dimensions(); i++) {
             iteration(i);
             if (gradients.get(gradients.size() - 1).sqrRate() < epsSqr) {
@@ -63,10 +114,20 @@ public class ConjugateGradientMinimizer {
         }
     }
 
+    /**
+     * Get minimum argument.
+     *
+     * @return minimum argument.
+     */
     public Vector getMinX() {
-        return x.get(x.size() - 1);
+        return steps.get(steps.size() - 1).getVector();
     }
 
+    /**
+     * Get function result in minimum argument.
+     *
+     * @return function result.
+     */
     public double getMinF() {
         return f.apply(getMinX());
     }
