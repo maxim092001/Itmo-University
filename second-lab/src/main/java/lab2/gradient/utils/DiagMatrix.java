@@ -51,22 +51,23 @@ public class DiagMatrix extends Matrix {
     }
 
     @Override
-    public DiagMatrix mul(Matrix right) {
+    public Vector mul(Matrix right) {
         int n = verticalLength();
 
-        if (right.verticalLength() != n || right.horizontalLength() != n) {
+        if (!(right instanceof Vector) || right.verticalLength() != n || right.horizontalLength() != n) {
             throw new IllegalArgumentException();
         }
 
+        Vector vector = (Vector) right;
         double[] result = new double[n];
         for (int i = 0; i < n; i++) {
-            result[i] = get(i, i) * right.get(i, i);
+            result[i] = get(i, i) * vector.get(i);
         }
-        return new DiagMatrix(result);
+        return new Vector(result);
     }
 
     @Override
-    public Matrix transpose() {
+    public DiagMatrix transpose() {
         return this;
     }
 
