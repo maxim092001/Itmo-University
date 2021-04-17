@@ -93,14 +93,13 @@ public class GradientDescentMinimizer extends AbstractGradientMinimizer {
             for (int k = 1; k < 2000; k += 100) {
                 QuadraticFunction g = new QuadraticFunction(new DiagMatrix(n, k), Vector.randomVector(n), 0);
                 Vector sp = Vector.randomVector(n);
-                List<IterationStep> stps = new ArrayList<>();
                 MinimizationResult res = new GradientDescentMinimizer().hui(
                         g,
                         sp,
                         1e-3,
                         2 / (double)(k + 1)
                 );
-                System.out.print(res.getNumberOfIterations() + ", ");
+                System.out.print("(" + k + ", " + res.getNumberOfIterations() + ") ");
             }
             System.out.println();
         }

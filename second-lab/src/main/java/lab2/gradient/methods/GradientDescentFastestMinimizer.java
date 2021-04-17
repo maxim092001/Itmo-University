@@ -1,5 +1,6 @@
 package lab2.gradient.methods;
 
+import lab2.gradient.utils.DiagMatrix;
 import lab2.gradient.utils.MinimizationResult;
 import lab2.gradient.utils.QuadraticFunction;
 import lab2.gradient.utils.Vector;
@@ -103,6 +104,24 @@ public class GradientDescentFastestMinimizer extends AbstractGradientMinimizer {
 //        for (int i = 0; i < 100; i++) {
 //            System.out.print(allSteps.get(i).getVector().get(1) + ", ");
 //        }
+
+        System.out.println();
+
+        for (int n = 10; n <= 10000; n *= 10) {
+            System.out.println("Dimensions = " + n + ":");
+            for (int k = 1; k < 2000; k += 100) {
+                QuadraticFunction g = new QuadraticFunction(new DiagMatrix(n, k), Vector.randomVector(n), 0);
+                Vector sp = Vector.randomVector(n);
+                MinimizationResult res = new GradientDescentFastestMinimizer().hui(
+                        g,
+                        sp,
+                        1e-3,
+                        (double)(k + 1)
+                );
+                System.out.print(res.getNumberOfIterations() + ", ");
+            }
+            System.out.println();
+        }
     }
 
 }
