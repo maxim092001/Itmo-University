@@ -7,9 +7,11 @@ public class DiagMatrix extends Matrix {
 
     private static double[] kek(int n, int conditionNumber) {
         double[] diag = new double[n];
-        diag[0] = conditionNumber;
-        for (int i = 1; i < n; i++) {
-            diag[i] = 1;
+        double step = (double) (1 + conditionNumber) / n;
+        double start = 1;
+        for (int i = 1; i <= n; i++) {
+            diag[i - 1] = start;
+            start += step;
         }
         return diag;
     }

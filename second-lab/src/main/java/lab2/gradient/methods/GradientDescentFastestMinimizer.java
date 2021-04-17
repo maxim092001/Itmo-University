@@ -110,15 +110,27 @@ public class GradientDescentFastestMinimizer extends AbstractGradientMinimizer {
         for (int n = 10; n <= 10000; n *= 10) {
             System.out.println("Dimensions = " + n + ":");
             for (int k = 1; k < 2000; k += 100) {
-                QuadraticFunction g = new QuadraticFunction(new DiagMatrix(n, k), Vector.randomVector(n), 0);
-                Vector sp = Vector.randomVector(n);
-                MinimizationResult res = new GradientDescentFastestMinimizer().hui(
-                        g,
-                        sp,
-                        1e-3,
-                        (double)(k + 1)
-                );
-                System.out.print(res.getNumberOfIterations() + ", ");
+                int sum = 0;
+                for (int q = 0; q < 5; q++) {
+                    QuadraticFunction g = new QuadraticFunction(new DiagMatrix(n, k), Vector.randomVector(n), 0);
+                    Vector sp = Vector.randomVector(n);
+                    MinimizationResult res = new GradientDescentFastestMinimizer().hui(
+                            g,
+                            sp,
+                            1e-3,
+                            (double)(k + 1)
+                    );
+                    sum += res.getNumberOfIterations();
+                }
+//                QuadraticFunction g = new QuadraticFunction(new DiagMatrix(n, k), Vector.randomVector(n), 0);
+//                Vector sp = Vector.randomVector(n);
+//                MinimizationResult res = new GradientDescentFastestMinimizer().hui(
+//                        g,
+//                        sp,
+//                        1e-3,
+//                        (double)(k + 1)
+//                );
+                System.out.print("(" + k + ", " + (sum / 5) + ") ");
             }
             System.out.println();
         }

@@ -166,7 +166,7 @@ public class ConjugateGradientMinimizer {
                 Vector sp = Vector.randomVector(n);
                 ConjugateGradientMinimizer mn = new ConjugateGradientMinimizer(g, sp, 1e-3);
                 mn.minimize();
-                System.out.print("(" + k + ", " + mn.getSteps().size() + ") ");
+                System.out.print("(" + k + ", " + (mn.getSteps().size() - 1) + ") ");
             }
             System.out.println();
         }
