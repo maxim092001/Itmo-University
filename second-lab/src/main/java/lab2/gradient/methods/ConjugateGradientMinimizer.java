@@ -23,12 +23,8 @@ public class ConjugateGradientMinimizer {
      */
     private final List<IterationStep> steps = new ArrayList<>();
 
-    public List<IterationStep> getSteps() {
-        return steps;
-    }
-
     /**
-     *
+     * Search direction.
      */
     private final List<Vector> p = new ArrayList<>();
 
@@ -130,6 +126,15 @@ public class ConjugateGradientMinimizer {
      */
     public double getMinF() {
         return f.apply(getMinX());
+    }
+
+    /**
+     * Get iteration steps.
+     *
+     * @return iteration steps.
+     */
+    public List<IterationStep> getSteps() {
+        return steps;
     }
 
     public static void main(String[] args) {
