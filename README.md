@@ -90,3 +90,6 @@
       * Демонстрация решения для различных параметров
       * Сравнение с реальным миром
       * Игровой режим: возможность интерактивно управлять системой, описанной уравнениями
+  * Мы реализовывали [моделирование численности популяции животных](https://github.com/maxim092001/Itmo-University/tree/master/differential-equations/population-model)
+  * Развертывали на [heroku](https://population-model.herokuapp.com/)
+
