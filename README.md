@@ -27,6 +27,20 @@
       * [Условия](https://github.com/maxim092001/Itmo-University/blob/master/algorithms/graph/problem.pdf)
       * [Реализация](https://github.com/maxim092001/Itmo-University/blob/master/algorithms/graph)    
 
+[C++](https://github.com/maxim092001/Itmo-University/tree/master/cpp)
+----
+  * [8-puzzle](https://github.com/maxim092001/Itmo-University/blob/master/cpp/8-puzzle) 
+  
+  * [genome-assembly](https://github.com/maxim092001/Itmo-University/blob/master/cpp/genome-assembly) 
+      
+  * [calc-numeral-systems](https://github.com/maxim092001/Itmo-University/blob/master/cpp/calc-numeral-systems) 
+      
+  * [ouch-enter-order](https://github.com/maxim092001/Itmo-University/blob/master/cpp/ouch-enter-order) 
+      
+  * [sort-n-f](https://github.com/maxim092001/Itmo-University/blob/master/cpp/sort-n-f) 
+  
+  * [second-chance-arbitrary](https://github.com/maxim092001/Itmo-University/blob/master/cpp/second-chance-arbitrary)
+      
 [Дискретная математика](https://github.com/maxim092001/Itmo-University/tree/master/discrete-math)
 ----
   
