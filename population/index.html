@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Модель изменения численности популяций</title>
+</head>
+
+<script>
+    // Initialize tooltip component
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+
+    // Initialize popover component
+    $(function () {
+        $('[data-toggle="popover"]').popover()
+    })
+</script>
+
+<script src="script.js"></script>
+<body>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+
+
+<span class="navbar-text d-flex justify-content-center">
+    Моделирование численности популяции животных с помощью дифференциальных уравнений
+</span>
+
+</nav>
+
+<div>
+    <br>
+    <div class="controller">
+        <form>
+            <div class="container-fluid my-2">
+                <p>Число особей в популяции: <span id="number-of-individuals-text"/>
+                </p>
+                <input type="range" min="2" max="1000" value="4" class="slider my-2" id="number-of-individuals">
+            </div>
+            <div class="container-fluid my-2">
+                <div class="d-flex flex-row">
+                    <p>Коэффициент смертности: <span id="death-coefficient-text"/>
+                    </p>
+                    <button type="button" class="btn btn-outline-info ml-2 md-3 btn-sm" data-container="body"
+                            data-toggle="popover" data-placement="top"
+                            data-content="Частота смерти особей, размерность: обратная зависимость к времени">
+                        Info
+                    </button>
+
+                </div>
+                <input type="range" min="0" max="1" value="0.5" step="0.01" class="slider my-2" id="death-coefficient">
+
+            </div>
+            <div class="container-fluid my-2">
+                <div class="d-flex flex-row">
+                    <p>Внутривидовая конкуренция: <span id="intraspecific-competition-text"/>
+                    </p>
+                    <button type="button" class="btn btn-outline-info ml-2 md-2 btn-sm" data-container="body"
+                            data-toggle="popover" data-placement="top"
+                            data-content="Внутривидовая конкуренция, размерность: обратная зависимость к (особь * время)">
+                        Info
+                    </button>
+
+                </div>
+                <input type="range" min="0.0000001" max="0.008" value="0.0015201" step="0.00001" class="slider my-2"
+                       id="intraspecific-competition">
+            </div>
+            <div class="container-fluid my-2">
+                <div class="d-flex flex-row">
+                    <p>
+                        Количество детенышей после встречи в момент времени: <span id="number-of-children-text"/>
+                    </p>
+                    <button type="button" class="btn btn-outline-info ml-2 md-2 btn-sm" data-container="body"
+                            data-toggle="popover" data-placement="top"
+                            data-content="Количество детенышей после встречи в момент времени, размерность: обратная зависимость от (время * особь)">
+                        Info
+                    </button>
+                </div>
+                <input type="range" min="0g" max="10" value="2.8" step="0.1" class="slider my-2" id="number-of-children">
+            </div>
+            <div class="container-fluid my-2">
+                <p>Среднее время между беременностями, прямопропорционально времени: <span id="time-between-pregnancy-text"/>
+                </p>
+                <input type="range" min="1" max="20" value="1" step="1" class="slider my-2"
+                       id="time-between-pregnancy">
+            </div>
+            <div class="container-fluid my-2">
+                <p>Средняя длительность беременности на особь, прямопропорционально времени, обратнопропорциональна числу особей: <span id="average-pregnancy-time-text"/>
+                </p>
+                <input type="range" min="1" max="21" value="21" step="1" class="slider my-2"
+                       id="average-pregnancy-time">
+            </div>
+            <div class="container-fluid my-2">
+                <p>Максимальное время в неделях: <span id="max-time-text"/>
+                </p>
+                <input type="range" min="10" max="200" value="26" step="1" class="slider my-2" id="max-time">
+            </div>
+        </form>
+    </div>
+    <div class="d-flex">
+        <div class="container" id="canvas-container">
+            <canvas id="сhart"></canvas>
+        </div>
+        <div class="card p-2 mr-5" id="parameters-text">
+        </div>
+    </div>
+    <sub>* Результаты получены с помощью рекуррентной формулы</sub>
+
+</div>
+<div class="caption">
+    <br>
+    <h4>Сравнение полученных нами результатов с данными эксперимента</h4>
+    <em>
+        В ходе <a href="https://en.wikipedia.org/wiki/Behavioral_sink">Эксперимента 25</a> были получены следующие
+        результаты:
+        численность популяции крыс сначала резко возросла, что объясняется низкой внутривидовой конкуренцией
+        (ученым удалось искусственно снизить её, обеспечив избыток питания), некоторое время колебалась, а затем резко начала уменьшаться.
+    </em>
+    <br>
+    <h5>Что мы не учли?</h5>
+    <ul>
+        <li>Различия между самками и самцами</li>
+        <li>Возраст половой зрелости самок</li>
+        <li>Особенности поведения животных, которые были предметом <b>Эксперимента 25</b></li>
+    </ul>
+</div>
+<div class="media border p-5">
+    <div class="embed-responsive embed-responsive-16by9">
+        <iframe
+                class="embed-responsive-item"
+                src="https://www.youtube.com/embed/7CXj0AGuh4c"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+    </div>
+</div>
+<div class="pdf">
+    <iframe src="https://drive.google.com/file/d/1oBZNEWNGYctmb6I5lfypHKMW1HmIvHDZ/preview" width="80%" height="1000"></iframe>
+</div>
+</body>
+</html>
