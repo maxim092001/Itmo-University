@@ -1,6 +1,8 @@
 package lab3;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class ProfileMatrix {
     private static final double EPS = 1e-5;
@@ -45,6 +47,33 @@ public class ProfileMatrix {
         this.di = di;
     }
 
+    private ProfileMatrix(final double[][] matrix) {
+        di = new double[matrix.length];
+        List<Double> au = new ArrayList<>();
+        List<Double> al = new ArrayList<>();
+        List<Integer> ia = new ArrayList<>(List.of(1, 1));
+
+        for (int i = 0; i < matrix.length; i++) {
+            di[i] = matrix[i][i];
+            int firstNonZero = -1;
+            for (int j = 0; j < i; j++) {
+                if (firstNonZero == -1 && (Math.abs(matrix[i][j]) > EPS || Math.abs(matrix[j][i]) > EPS)) {
+                    firstNonZero = j;
+                    ia.add(ia.get(ia.size() - 1) + (i - firstNonZero));
+                }
+                if (firstNonZero != -1) {
+                    au.add(matrix[j][i]);
+                    al.add(matrix[i][j]);
+                }
+            }
+        }
+
+        this.n = matrix.length;
+        this.au = au.stream().mapToDouble(i -> i).toArray();
+        this.al = al.stream().mapToDouble(i -> i).toArray();
+        this.ia = ia.stream().mapToInt(i -> i).toArray();
+    }
+
     public static ProfileMatrix of(
             final int n,
             final double[] au,
@@ -57,6 +86,10 @@ public class ProfileMatrix {
 
     public static ProfileMatrix of(final int n) {
         return new ProfileMatrix(n, new double[n], new double[n], new int[n], new double[n]);
+    }
+
+    public static ProfileMatrix of(final double[][] matrix) {
+        return new ProfileMatrix(matrix);
     }
 
 

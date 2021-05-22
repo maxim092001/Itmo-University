@@ -47,6 +47,32 @@ public class ProfileMatrixGenerator {
         );
     }
 
+    public ProfileMatrix generateDenseMatrix(String arg, int n, int k) {
+        double[][] matrix = new double[n][n];
+        Random random = new Random();
+        for (int i = 0; i < n; i++) {
+            for (int j = i; j < n; j++) {
+                if (i != j) {
+                    matrix[j][i] = -random.nextInt(4);
+                    matrix[i][j] = -random.nextInt(4);
+                }
+            }
+        }
+
+        for (int i = 0; i < n; i++) {
+            double sum = 0;
+            for (int j = 0; j < n; j++) {
+                if (i != j) {
+                    sum += matrix[i][j];
+                }
+            }
+            matrix[i][i] = -sum;
+        }
+
+        matrix[0][0] += Math.pow(10.0, -k);
+
+        return ProfileMatrix.of(matrix);
+    }
 
     public static void main(String[] args) throws IOException {
         System.out.print("Enter directory name: ");
