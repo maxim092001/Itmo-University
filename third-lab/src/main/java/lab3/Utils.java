@@ -15,6 +15,7 @@ public class Utils {
         ProfileMatrix matrix = ProfileMatrixGenerator.generateDenseMatrix(n, k);
         Vector f = matrix.multiply(realX);
 
+        matrix.computeLUDecomposition();
         Vector x = matrix.solve(f);
         x.sub(realX);
         return x.norm();
