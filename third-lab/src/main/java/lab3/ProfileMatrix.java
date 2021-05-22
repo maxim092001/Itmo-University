@@ -1,9 +1,6 @@
 package lab3;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 
 public class ProfileMatrix {
     private static final double EPS = 1e-5;
@@ -46,6 +43,14 @@ public class ProfileMatrix {
         return new ProfileMatrix(n, new double[n], new double[n], new double[n], new int[n], new double[n]);
     }
 
+
+    /**
+     * Gets element from profile matrix.
+     *
+     * @param i row index.
+     * @param j column index.
+     * @return elements value.
+     */
     public double get(int i, int j) {
         if (i == j) {
             return di[i];
@@ -60,6 +65,13 @@ public class ProfileMatrix {
         }
     }
 
+    /**
+     * Sets value to an element in profile matrix.
+     *
+     * @param i     row index.
+     * @param j     column index.
+     * @param value given value to set.
+     */
     public void set(int i, int j, double value) {
         if (i == j) {
             di[i] = value;
@@ -78,6 +90,9 @@ public class ProfileMatrix {
         }
     }
 
+    /**
+     * Function to calculate LU decomposition for this profile matrix.
+     */
     public void computeLUDecomposition() {
         double sum;
         for (int i = 0; i < n; i++) {
