@@ -47,7 +47,7 @@ public class ProfileMatrixGenerator {
         );
     }
 
-    public ProfileMatrix generateDenseMatrix(String arg, int n, int k) {
+    public static ProfileMatrix generateDenseMatrix(int n, int k) {
         double[][] matrix = new double[n][n];
         Random random = new Random();
         for (int i = 0; i < n; i++) {

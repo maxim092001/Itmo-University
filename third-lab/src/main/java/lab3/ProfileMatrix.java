@@ -184,6 +184,16 @@ public class ProfileMatrix {
         return new Vector(x, n);
     }
 
+    public Vector multiply(final Vector vector) {
+        final double[] result = new double[n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                result[i] += get(i, j) * vector.get(j);
+            }
+        }
+        return new Vector(result, n);
+    }
+
 
     @Override
     public String toString() {
