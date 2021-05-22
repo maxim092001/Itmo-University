@@ -10,7 +10,7 @@ public class Pase {
         String[] q = in.nextLine().replace(",", "").replace("(", "").replace(")", "").split(" ");
         List<String> x = new ArrayList<>();
         List<String> y = new ArrayList<>();
-        int z = 200;
+        int z = 400;
         for (int i = 0; i < q.length; i += 2) {
             System.out.println(q[i] + " " + (Math.max(Integer.parseInt(q[i + 1]) + z, 0)) + "\\\\");
         }

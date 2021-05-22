@@ -1,8 +1,13 @@
 package lab3;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class ProfileMatrix {
+    private static final double EPS = 1e-5;
+
     final int n;
     final double[] au;
     final double[] al;
@@ -35,6 +40,62 @@ public class ProfileMatrix {
             final double[] di
     ) {
         return new ProfileMatrix(n, au, al, r, ia, di);
+    }
+
+    public static ProfileMatrix of(final int n) {
+        return new ProfileMatrix(n, new double[n], new double[n], new double[n], new int[n], new double[n]);
+    }
+
+    public double get(int i, int j) {
+        if (i == j) {
+            return di[i];
+        } else if (i < j) {
+            int profilelNum = ia[j + 1] - ia[j];
+            int firstInProfile = j - profilelNum;
+            return i < firstInProfile ? 0 : au[ia[j] + i - firstInProfile - 1];
+        } else {
+            int profilelNum = ia[i + 1] - ia[i];
+            int firstInProfile = i - profilelNum;
+            return j < firstInProfile ? 0 : al[ia[i] + j - firstInProfile - 1];
+        }
+    }
+
+    public void set(int i, int j, double value) {
+        if (i == j) {
+            di[i] = value;
+        } else if (i < j) {
+            int profilelNum = ia[j + 1] - ia[j];
+            int firstInProfile = j - profilelNum;
+            if (i >= firstInProfile) {
+                au[ia[j] + i - firstInProfile - 1] = value;
+            }
+        } else {
+            int profilelNum = ia[i + 1] - ia[i];
+            int firstInProfile = i - profilelNum;
+            if (j >= firstInProfile) {
+                al[ia[i] + j - firstInProfile - 1] = value;
+            }
+        }
+    }
+
+    public void computeLUDecomposition() {
+        double sum;
+        for (int i = 0; i < n; i++) {
+            for (int j = i; j < n; j++) {
+                sum = 0;
+                for (int k = 0; k < i; k++) {
+                    sum += get(i, k) * get(k, j);
+                }
+                set(i, j, get(i, j) - sum);
+            }
+            for (int j = i + 1; j < n; j++) {
+                sum = 0;
+                for (int k = 0; k < i; k++) {
+                    sum += get(j, k) * get(k, i);
+                }
+                set(j, i, (1.0 / get(i, i)) * (get(j, i) - sum));
+            }
+        }
     }
 
     @Override
