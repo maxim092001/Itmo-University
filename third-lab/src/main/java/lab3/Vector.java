@@ -1,11 +1,13 @@
 package lab3;
 
+import java.util.Arrays;
+
 public class Vector {
     private final double[] vector;
     private final int n;
 
 
-    public Vector(final double[] vector, final int n) {
+    public Vector(final int n, final double... vector) {
         this.vector = vector;
         this.n = n;
     }
@@ -31,5 +33,13 @@ public class Vector {
             res += a * a;
         }
         return Math.sqrt(res);
+    }
+
+    @Override
+    public String toString() {
+        return "Vector{" +
+                "vector=" + Arrays.toString(vector) +
+                ", n=" + n +
+                '}';
     }
 }

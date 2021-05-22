@@ -3,10 +3,10 @@ package lab3;
 public class Utils {
     public static Vector generateRealX(final int n) {
         final double[] tmp = new double[n];
-        for (int i = 1; i <= n; i++) {
-            tmp[i] = i;
+        for (int i = 0; i < n; i++) {
+            tmp[i] = i + 1;
         }
-        return new Vector(tmp, n);
+        return new Vector(n, tmp);
     }
 
     public static double error(final int n, final int k) {

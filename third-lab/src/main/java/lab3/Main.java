@@ -3,35 +3,39 @@ package lab3;
 public class Main {
     public static void main(String[] args) {
 //        ProfileMatrix m = ProfileMatrix.of(
-//                8,
-//                new double[]{0.0, 0.0, 7.346040100982539, 0.0, 0.0, 12.665538048056002, 0.0, 0.0, 0.0, 23.02399101217314, -0.5595649417861753, 70.20178614938091, -42.83921968800111, 0.0, 1.758716245929226, 35.6684511726277, 0.0},
-//                new double[]{-45.77664412469091, 0.0, 0.0, 22.29086971146586, 0.0, 16.905914947450466, 0.0, 0.0, 0.0, -3.7102372573420137, 0.0, 21.531115215905718, 0.0, 0.0, 0.0, 64.82386090036754, 9.698470345196728},
-//                new double[]{0.4703292627842026, 0.47729577295077563, 0.2880842759489889, 0.17522144290538866, 0.07631462935378175, 0.45270198552334284, 0.9483104609952967, 0.06287141970236698},
-//                new int[]{1, 1, 1, 3, 6, 8, 10, 13, 18},
-//                new double[]{0.8822510484179426, 0.2082544708146331, 0.7741125059940641, 0.1939358559325024, 0.810472343571536, 0.7837185057558625, 0.8369255449987417, 0.15032425539273342}
-//                );
+//                3,
+//                new double[]{2.0, 3.0, 6.0},
+//                new double[]{4.0, 7.0, 8.0},
+//                new int[]{1, 1, 2, 4},
+//                new double[]{1.0, 10.0, 42.0}
+//        );
+//
+//        m.computeLUDecomposition();
+//        for (int i = 0; i < m.n; i++) {
+//            for (int j = 0; j < m.n; j++) {
+//                System.out.print(m.get(i, j) + " ");
+//            }
+//            System.out.println();
+//        }
+//        System.out.println();
+//
+//        Vector solution = m.solve(new Vector(new double[]{1.0, 1.0, 1.0}, 3));
+//        for (int i = 0; i < solution.size(); i++) {
+//            System.out.print(solution.get(i) + " ");
+//        }
+//        System.out.println();
 
-        ProfileMatrix m = ProfileMatrix.of(
-                3,
-                new double[]{2.0, 3.0, 6.0},
-                new double[]{4.0, 7.0, 8.0},
-                new int[]{1, 1, 2, 4},
-                new double[]{1.0, 10.0, 42.0}
-        );
 
-        m.computeLUDecomposition();
-        for (int i = 0; i < m.n; i++) {
-            for (int j = 0; j < m.n; j++) {
-                System.out.print(m.get(i, j) + " ");
+        for (int n = 10; n <= 1000; n *= 10) {
+            for (int k = 1; k <= 10; k++) {
+                var sub = Utils.error(n, k);
+                var div = Utils.diff(n, k);
+                System.out.printf("%d & %d & %f & %f \\\\ %n \\hline", n, k, sub, div);
             }
             System.out.println();
         }
-        System.out.println();
-
-        Vector solution = m.solve(new Vector(new double[]{1.0, 1.0, 1.0}, 3));
-        for (int i = 0; i < solution.size(); i++) {
-            System.out.print(solution.get(i) + " ");
-        }
-        System.out.println();
+//        var kek = ProfileMatrixGenerator.generateDenseMatrix(5, 1);
+//        System.out.println(kek);
+//        System.out.println(kek.solve(new Vector(5, 1, 2, 3, 4, 5)));
     }
 }

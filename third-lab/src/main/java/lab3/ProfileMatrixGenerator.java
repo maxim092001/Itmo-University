@@ -53,8 +53,8 @@ public class ProfileMatrixGenerator {
         for (int i = 0; i < n; i++) {
             for (int j = i; j < n; j++) {
                 if (i != j) {
-                    matrix[j][i] = -random.nextInt(4);
-                    matrix[i][j] = -random.nextInt(4);
+                    matrix[j][i] = -random.nextInt(5);
+                    matrix[i][j] = -random.nextInt(5);
                 }
             }
         }

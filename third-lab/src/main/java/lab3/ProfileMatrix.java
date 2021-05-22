@@ -51,7 +51,7 @@ public class ProfileMatrix {
         di = new double[matrix.length];
         List<Double> au = new ArrayList<>();
         List<Double> al = new ArrayList<>();
-        List<Integer> ia = new ArrayList<>(List.of(1, 1));
+        List<Integer> ia = new ArrayList<>(List.of(1));
 
         for (int i = 0; i < matrix.length; i++) {
             di[i] = matrix[i][i];
@@ -65,6 +65,9 @@ public class ProfileMatrix {
                     au.add(matrix[j][i]);
                     al.add(matrix[i][j]);
                 }
+            }
+            if (firstNonZero == -1) {
+                ia.add(ia.get(ia.size() - 1));
             }
         }
 
@@ -179,9 +182,9 @@ public class ProfileMatrix {
             for (int k = i + 1; k < n; k++) {
                 sum += get(i, k) * x[k];
             }
-            x[i] = (1.0 / get(i, i)) * (y[i] - sum);
+            x[i] = (y[i] - sum) / (get(i, i));
         }
-        return new Vector(x, n);
+        return new Vector(n, x);
     }
 
     public Vector multiply(final Vector vector) {
@@ -191,7 +194,7 @@ public class ProfileMatrix {
                 result[i] += get(i, j) * vector.get(j);
             }
         }
-        return new Vector(result, n);
+        return new Vector(n, result);
     }
 
 
