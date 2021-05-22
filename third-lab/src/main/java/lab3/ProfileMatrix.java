@@ -5,11 +5,34 @@ import java.util.Arrays;
 public class ProfileMatrix {
     private static final double EPS = 1e-5;
 
+    /**
+     * Matrix dimension.
+     */
     final int n;
+
+    /**
+     * Matrix elements starting from first non-zero above main diagonal.
+     */
     final double[] au;
+
+    /**
+     * Matrix elements starting from first non-zero below main diagonal.
+     */
     final double[] al;
+
+    /**
+     * Right values of system of linear algebraic equations.
+     */
     final double[] r;
+
+    /**
+     * "Matrix profile".
+     */
     final int[] ia;
+
+    /**
+     * Main diagonal values.
+     */
     final double[] di;
 
     private ProfileMatrix(
