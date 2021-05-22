@@ -42,7 +42,6 @@ public class ProfileMatrixGenerator {
                 n,
                 au.stream().mapToDouble(i -> i).toArray(),
                 al.stream().mapToDouble(i -> i).toArray(),
-                r,
                 ia,
                 di
         );

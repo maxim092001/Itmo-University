@@ -11,7 +11,6 @@ public class ProfileMatrix {
     final int n;
     final double[] au;
     final double[] al;
-    final double[] r;
     final int[] ia;
     final double[] di;
 
@@ -19,14 +18,12 @@ public class ProfileMatrix {
             final int n,
             final double[] au,
             final double[] al,
-            final double[] r,
             final int[] ia,
             final double[] di
     ) {
         this.n = n;
         this.au = au;
         this.al = al;
-        this.r = r;
         this.ia = ia;
         this.di = di;
     }
@@ -35,15 +32,14 @@ public class ProfileMatrix {
             final int n,
             final double[] au,
             final double[] al,
-            final double[] r,
             final int[] ia,
             final double[] di
     ) {
-        return new ProfileMatrix(n, au, al, r, ia, di);
+        return new ProfileMatrix(n, au, al, ia, di);
     }
 
     public static ProfileMatrix of(final int n) {
-        return new ProfileMatrix(n, new double[n], new double[n], new double[n], new int[n], new double[n]);
+        return new ProfileMatrix(n, new double[n], new double[n], new int[n], new double[n]);
     }
 
     public double get(int i, int j) {
@@ -98,6 +94,29 @@ public class ProfileMatrix {
         }
     }
 
+    public Vector solve(final Vector r) {
+        double[] y = new double[n];
+        double sum;
+        for (int i = 0; i < n; i++) {
+            sum = 0;
+            for (int k = 0; k < i; k++) {
+                sum += get(i, k) * y[k];
+            }
+            y[i] = r.get(i) - sum;
+        }
+
+        double[] x = new double[n];
+        for (int i = n - 1; i >= 0; i--) {
+            sum = 0;
+            for (int k = i + 1; k < n; k++) {
+                sum += get(i, k) * x[k];
+            }
+            x[i] = (1.0 / get(i, i)) * (y[i] - sum);
+        }
+        return new Vector(x, n);
+    }
+
+
     @Override
     public String toString() {
         final String lineSeparator = System.lineSeparator();
@@ -105,7 +124,6 @@ public class ProfileMatrix {
         return "n=" + n + lineSeparator +
                 "au=" + Arrays.toString(au) + lineSeparator +
                 "al=" + Arrays.toString(al) + lineSeparator +
-                "r=" + Arrays.toString(r) + lineSeparator +
                 "ia=" + Arrays.toString(ia) + lineSeparator +
                 "di=" + Arrays.toString(di) + lineSeparator;
     }

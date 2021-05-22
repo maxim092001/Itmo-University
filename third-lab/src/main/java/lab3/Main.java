@@ -15,9 +15,8 @@ public class Main {
                 3,
                 new double[]{2.0, 3.0, 6.0},
                 new double[]{4.0, 7.0, 8.0},
-                new double[]{1.0, 1.0, 1.0},
                 new int[]{1, 1, 2, 4},
-                new double[]{1.0, 5.0, 9.0}
+                new double[]{1.0, 10.0, 42.0}
         );
 
         m.computeLUDecomposition();
@@ -27,5 +26,12 @@ public class Main {
             }
             System.out.println();
         }
+        System.out.println();
+
+        Vector solution = m.solve(new Vector(new double[]{1.0, 1.0, 1.0}, 3));
+        for (int i = 0; i < solution.size(); i++) {
+            System.out.print(solution.get(i) + " ");
+        }
+        System.out.println();
     }
 }
