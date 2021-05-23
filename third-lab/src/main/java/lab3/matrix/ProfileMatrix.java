@@ -1,11 +1,16 @@
-package lab3;
+package lab3.matrix;
+
+import lab3.Vector;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class ProfileMatrix {
-    private static final double EPS = 1e-5;
+/**
+ * Representation of profile matrix.
+ */
+public class ProfileMatrix implements Matrix {
+    private static final double EPS = 1e-7;
 
     /**
      * Matrix dimension.
@@ -16,6 +21,11 @@ public class ProfileMatrix {
      * Matrix elements starting from first non-zero above main diagonal.
      */
     final double[] au;
+
+    /**
+     * Elements located on right part of equatation.
+     */
+    final double[] r;
 
     /**
      * Matrix elements starting from first non-zero below main diagonal.
@@ -38,13 +48,15 @@ public class ProfileMatrix {
             final double[] au,
             final double[] al,
             final int[] ia,
-            final double[] di
+            final double[] di,
+            final double[] r
     ) {
         this.n = n;
         this.au = au;
         this.al = al;
         this.ia = ia;
         this.di = di;
+        this.r = r;
     }
 
     private ProfileMatrix(final double[][] matrix) {
@@ -75,6 +87,8 @@ public class ProfileMatrix {
         this.au = au.stream().mapToDouble(i -> i).toArray();
         this.al = al.stream().mapToDouble(i -> i).toArray();
         this.ia = ia.stream().mapToInt(i -> i).toArray();
+        this.r = null;
+
     }
 
     public static ProfileMatrix of(
@@ -82,13 +96,10 @@ public class ProfileMatrix {
             final double[] au,
             final double[] al,
             final int[] ia,
-            final double[] di
+            final double[] di,
+            final double[] r
     ) {
-        return new ProfileMatrix(n, au, al, ia, di);
-    }
-
-    public static ProfileMatrix of(final int n) {
-        return new ProfileMatrix(n, new double[n], new double[n], new int[n], new double[n]);
+        return new ProfileMatrix(n, au, al, ia, di, r);
     }
 
     public static ProfileMatrix of(final double[][] matrix) {
@@ -165,6 +176,11 @@ public class ProfileMatrix {
         }
     }
 
+    /**
+     * Solves LU decomposition.
+     * @param r given vector.
+     * @return solution.
+     */
     public Vector solve(final Vector r) {
         double[] y = new double[n];
         double sum;
@@ -184,9 +200,15 @@ public class ProfileMatrix {
             }
             x[i] = (y[i] - sum) / (get(i, i));
         }
-        return new Vector(n, x);
+        return Vector.of(x);
     }
 
+    /**
+     * Multiplication profile matrix on vector.
+     *
+     * @param vector given vector.
+     * @return multiplied vector.
+     */
     public Vector multiply(final Vector vector) {
         final double[] result = new double[n];
         for (int i = 0; i < n; i++) {
@@ -194,7 +216,7 @@ public class ProfileMatrix {
                 result[i] += get(i, j) * vector.get(j);
             }
         }
-        return new Vector(n, result);
+        return Vector.of(result);
     }
 
 
@@ -206,6 +228,7 @@ public class ProfileMatrix {
                 "au=" + Arrays.toString(au) + lineSeparator +
                 "al=" + Arrays.toString(al) + lineSeparator +
                 "ia=" + Arrays.toString(ia) + lineSeparator +
-                "di=" + Arrays.toString(di) + lineSeparator;
+                "di=" + Arrays.toString(di) + lineSeparator +
+                "r=" + Arrays.toString(r) + lineSeparator;
     }
 }

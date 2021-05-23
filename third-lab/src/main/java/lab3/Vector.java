@@ -2,26 +2,57 @@ package lab3;
 
 import java.util.Arrays;
 
+/**
+ * Util class for one dimension matrix.
+ */
 public class Vector {
+
+    /**
+     * Vector.
+     */
     private final double[] vector;
+
+    /**
+     * Size.
+     */
     private final int n;
 
-
-    public Vector(final int n, final double... vector) {
+    private Vector(final double... vector) {
         this.vector = vector;
-        this.n = n;
+        this.n = vector.length;
     }
 
+    public static Vector of(final double... vector) {
+        return new Vector(vector);
+    }
+
+    /**
+     * Size of current vector.
+     *
+     * @return size.
+     */
     public int size() {
         return n;
     }
 
+    /**
+     * Get element by index.
+     *
+     * @param i index.
+     * @return value on index.
+     */
     public double get(final int i) {
         return vector[i];
     }
 
-    public void set(final int i, final double x) {
-        vector[i] = x;
+    /**
+     * Sets value on given index.
+     *
+     * @param i     index.
+     * @param value value
+     */
+    public void set(final int i, final double value) {
+        vector[i] = value;
     }
 
     public void sub(final Vector a) {
@@ -30,6 +61,11 @@ public class Vector {
         }
     }
 
+    /**
+     * Norm of current vector.
+     *
+     * @return norm.
+     */
     public double norm() {
         double res = 0;
         for (int i = 0; i < n; i++) {
@@ -39,14 +75,25 @@ public class Vector {
         return Math.sqrt(res);
     }
 
-    public void swap(int i, int j) {
+    /**
+     * Swaps two elements in vector.
+     *
+     * @param i first index.
+     * @param j second index.
+     */
+    public void swap(final int i, final int j) {
         double tmp = vector[i];
         vector[i] = vector[j];
         vector[j] = tmp;
     }
 
+    /**
+     * Copies current vector.
+     *
+     * @return new copy.
+     */
     public Vector copy() {
-        return new Vector(n, Arrays.copyOf(vector, n));
+        return Vector.of(Arrays.copyOf(vector, n));
     }
 
     @Override

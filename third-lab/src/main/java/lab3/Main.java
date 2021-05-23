@@ -26,20 +26,19 @@ public class Main {
 //        System.out.println();
 
 
-//        for (int n = 10; n <= 1000; n *= 10) {
-//            for (int k = 1; k <= 10; k++) {
-//                var sub = Utils.error(n, k);
-//                var div = Utils.diff(n, k);
-//                System.out.printf("%d & %d & %f & %f \\\\ %n \\hline", n, k, sub, div);
-//            }
-//            System.out.println();
-//        }
+        for (int n = 1; n <= 30; n += 2) {
+                var sub = Utils.error(n, 1, Utils.Mode.GILBERT, true);
+                var div = Utils.diff(n, 1, Utils.Mode.GILBERT, true);
+                System.out.printf("%d & %.9f & %.9f \\\\ %n \\hline %n", n, sub, div);
+            System.out.println();
+        }
 //        var kek = ProfileMatrixGenerator.generateDenseMatrix(5, 1);
 //        System.out.println(kek);
 //        System.out.println(kek.solve(new Vector(5, 1, 2, 3, 4, 5)));
 
-        FullMatrix matrix = new FullMatrix(new double[][]{{1, 2, 3}, {4, 10, 6}, {7, 8, 42}});
-        Vector solution = matrix.gauss(new Vector(3, 1.0, 1.0, 1.0), 1e-5);
-        System.out.println(solution);
+//        FullMatrix matrix = new FullMatrix(new double[][]{{1, 2, 3}, {4, 10, 6}, {7, 8, 42}});
+//        Vector solution = matrix.gauss(new Vector(3, 1.0, 1.0, 1.0), 1e-5);
+//        ProfileMatrix profileMatrix = matrix.toProfileMatrix();
+//        System.out.println(solution);
     }
 }

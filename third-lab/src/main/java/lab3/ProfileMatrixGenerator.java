@@ -1,5 +1,7 @@
 package lab3;
 
+import lab3.matrix.ProfileMatrix;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -9,7 +11,17 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
+
+/**
+ * Profile matrix generator.
+ */
 public class ProfileMatrixGenerator {
+
+    /**
+     * Generates matrix in profile format.
+     *
+     * @return profile format matrix.
+     */
     public static ProfileMatrix generateMatrix() {
         var rnd = new Random(System.currentTimeMillis());
         int n = Math.abs(rnd.nextInt()) % 10;
@@ -43,11 +55,18 @@ public class ProfileMatrixGenerator {
                 au.stream().mapToDouble(i -> i).toArray(),
                 al.stream().mapToDouble(i -> i).toArray(),
                 ia,
-                di
+                di,
+                r
         );
     }
 
-    public static ProfileMatrix generateDenseMatrix(int n, int k) {
+    /**
+     * Generates dense matrix dimension n.
+     * @param n given n.
+     * @param k given k for computing.
+     * @return dense matrix.
+     */
+    public static double[][] generateDenseMatrix(int n, int k) {
         double[][] matrix = new double[n][n];
         Random random = new Random();
         for (int i = 0; i < n; i++) {
@@ -71,20 +90,30 @@ public class ProfileMatrixGenerator {
 
         matrix[0][0] += Math.pow(10.0, -k);
 
-        return ProfileMatrix.of(matrix);
+        return matrix;
     }
 
-    public static ProfileMatrix generateGilbertMatrix(int k) {
-        double[][] matrix = new double[k][k];
-        for (int i = 0; i < k; i++) {
-            for (int j = 0; j < k; j++) {
+    /**
+     * Generates Gilbert matrix dimension n.
+     * @param n given dimension.
+     * @return Gilbert matrix.
+     */
+    public static double[][] generateGilbertMatrix(final int n) {
+        double[][] matrix = new double[n][n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
                 matrix[i][j] = 1.0 / ((i + 1) + (j + 1) - 1);
             }
         }
 
-        return ProfileMatrix.of(matrix);
+        return matrix;
     }
 
+    /**
+     * Main method. Generates matrix and writes it to file.
+     * @param args program arguments
+     * @throws IOException if some exception with files occuired.
+     */
     public static void main(String[] args) throws IOException {
         System.out.print("Enter directory name: ");
         final var sc = new Scanner(System.in);
