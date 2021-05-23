@@ -20,6 +20,10 @@ public class Vector {
         return vector[i];
     }
 
+    public void set(final int i, final double x) {
+        vector[i] = x;
+    }
+
     public void sub(final Vector a) {
         for (int i = 0; i < n; i++) {
             vector[i] -= a.get(i);
@@ -33,6 +37,16 @@ public class Vector {
             res += a * a;
         }
         return Math.sqrt(res);
+    }
+
+    public void swap(int i, int j) {
+        double tmp = vector[i];
+        vector[i] = vector[j];
+        vector[j] = tmp;
+    }
+
+    public Vector copy() {
+        return new Vector(n, Arrays.copyOf(vector, n));
     }
 
     @Override
