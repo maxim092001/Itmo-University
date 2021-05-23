@@ -74,6 +74,17 @@ public class ProfileMatrixGenerator {
         return ProfileMatrix.of(matrix);
     }
 
+    public static ProfileMatrix generateGilbertMatrix(int k) {
+        double[][] matrix = new double[k][k];
+        for (int i = 0; i < k; i++) {
+            for (int j = 0; j < k; j++) {
+                matrix[i][j] = 1.0 / ((i + 1) + (j + 1) - 1);
+            }
+        }
+
+        return ProfileMatrix.of(matrix);
+    }
+
     public static void main(String[] args) throws IOException {
         System.out.print("Enter directory name: ");
         final var sc = new Scanner(System.in);
