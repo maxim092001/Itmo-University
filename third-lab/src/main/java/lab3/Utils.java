@@ -27,7 +27,7 @@ public class Utils {
         final Vector f = profileMatrix.multiply(realX);
         if (isGauss) {
             final var fullMatrix = new FullMatrix(matrix);
-            return fullMatrix.gauss(f, 1e-7).map(Vector::norm).orElse(INF);
+            return fullMatrix.gauss(f, 1e-20).map(v -> v.sub(realX).norm()).orElse(INF);
         } else {
             profileMatrix.computeLUDecomposition();
             final Vector x = profileMatrix.solve(f);

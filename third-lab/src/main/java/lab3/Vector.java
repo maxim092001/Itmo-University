@@ -55,10 +55,11 @@ public class Vector {
         vector[i] = value;
     }
 
-    public void sub(final Vector a) {
+    public Vector sub(final Vector a) {
         for (int i = 0; i < n; i++) {
             vector[i] -= a.get(i);
         }
+        return this;
     }
 
     /**

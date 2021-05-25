@@ -29,8 +29,7 @@ public class Main {
         for (int n = 1; n <= 30; n += 2) {
                 var sub = Utils.error(n, 1, Utils.Mode.GILBERT, true);
                 var div = Utils.diff(n, 1, Utils.Mode.GILBERT, true);
-                System.out.printf("%d & %.9f & %.9f \\\\ %n \\hline %n", n, sub, div);
-            System.out.println();
+                System.out.printf("%d & %.15f & %.15f \\\\ %n \\hline %n", n, sub, div);
         }
 //        var kek = ProfileMatrixGenerator.generateDenseMatrix(5, 1);
 //        System.out.println(kek);
