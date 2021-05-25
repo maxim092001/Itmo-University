@@ -61,4 +61,8 @@ public class IterationStep {
         var s =  String.format("\\hline \n %d & %f & %s", stepNumber, functionResult, vector);
         return s.substring(0, s.length() - 2) + "\\\\";
     }
+
+    public double[] toInteropResponse() {
+        return vector.toInteropResponse();
+    }
 }

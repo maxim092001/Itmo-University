@@ -57,7 +57,7 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.5</version>
                 <configuration>
-                    <mainClass>lab2.HelloWorld</mainClass>
+                    <mainClass>lab2.gui.lab2</mainClass>
                 </configuration>
             </plugin>
         </plugins>

@@ -145,6 +145,15 @@ public class Vector extends Matrix {
         throw new UnsupportedOperationException();
     }
 
+    public double[] toInteropResponse() {
+        int n = length();
+        double[] a = new double[n];
+        for (int i = 0; i < n; i++) {
+            a[i] = get(i);
+        }
+        return a;
+    }
+
     public static Vector zero(int n) {
         double[] a = new double[n];
         for (int i = 0; i < n; i++) {
