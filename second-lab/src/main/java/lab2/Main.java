@@ -14,6 +14,7 @@ import lab2.interop.InteropRequest;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.InetSocketAddress;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -41,8 +42,12 @@ public class Main {
                 );
                 steps = result.getSteps();
             } else if ("GradientDescentFastest".equals(request.getMethod())) {
-                MinimizationResult result = new GradientDescentFastestMinimizer().hui(
-                        request.getParsedFunction(), request.getParsedStartPoint(), request.getEps(), request.getAlpha()
+//                MinimizationResult result = new GradientDescentFastestMinimizer().hui(
+//                        request.getParsedFunction(), request.getParsedStartPoint(), request.getEps(), request.getAlpha()
+//                );
+                MinimizationResult result = new GradientDescentFastestMinimizer().iteration(
+                        request.getParsedFunction(), request.getAlpha(), request.getEps(), request.getParsedStartPoint(),
+                        0, new ArrayList<>()
                 );
                 steps = result.getSteps();
             } else {
