@@ -46,7 +46,7 @@ public class GradientDescentMinimizer extends AbstractGradientMinimizer {
             steps.add(new IterationStep(numberOfIterations, xk, fX));
             Vector y = xk.sub(gradient.mul(alpha));
             Double fY = f.apply(y);
-            while (fY > fX) {
+            while (fY >= fX) {
                 alpha /= 2;
                 y = xk.sub(gradient.mul(alpha));
                 fY = f.apply(y);
