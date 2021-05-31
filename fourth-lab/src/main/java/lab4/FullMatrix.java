@@ -6,7 +6,7 @@ import java.util.Optional;
 /**
  * Full matrix implementation.
  */
-public class FullMatrix {
+public class FullMatrix implements Matrix {
 
     /**
      * Matrix.
@@ -129,5 +129,14 @@ public class FullMatrix {
         }
 
         return new FullMatrix(m);
+    }
+
+    /**
+     * Creating representation of current matrix into profile.
+     *
+     * @return profile matrix.
+     */
+    public ProfileMatrix toProfileMatrix() {
+        return ProfileMatrix.of(matrix);
     }
 }

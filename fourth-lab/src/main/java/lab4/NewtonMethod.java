@@ -43,8 +43,9 @@ public class NewtonMethod {
         Vector xPrev = startPoint;
         while (true) {
             Vector gradient = gradient(xPrev);
-            FullMatrix H = new FullMatrix(gesseMatrixCalculation(xPrev));
-            Vector pk = H.gauss(gradient.mul(-1.0), eps).get();
+            ProfileMatrix H = (new FullMatrix(gesseMatrixCalculation(xPrev))).toProfileMatrix();
+            H.computeLUDecomposition();
+            Vector pk = H.solve(gradient.mul(-1.0));
             Vector xK = xPrev.add(pk);
             if (xK.sub(xPrev).norm() < eps) {
                 xPrev = xK;
