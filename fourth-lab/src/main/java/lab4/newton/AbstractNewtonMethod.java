@@ -1,21 +1,25 @@
-package lab4;
+package lab4.newton;
+
+import lab4.matrix.FullMatrix;
+import lab4.matrix.Vector;
 
 import java.util.function.Function;
 
-public class NewtonMethod {
-    private final Function<Vector, Double> function;
-    private final Double eps;
-    private final Vector startPoint;
-    private final int size;
+public abstract class AbstractNewtonMethod implements NewtonMethod {
 
-    public NewtonMethod(final Function<Vector, Double> function, final Double eps, final Vector startPoint) {
+    protected final Function<Vector, Double> function;
+    protected final Double eps;
+    protected final Vector startPoint;
+    protected final int size;
+
+    public AbstractNewtonMethod(final Function<Vector, Double> function, final Double eps, final Vector startPoint) {
         this.function = function;
         this.eps = eps;
         this.startPoint = startPoint;
         this.size = startPoint.size();
     }
 
-    private Vector gradient(final Vector vector) {
+    protected Vector gradient(final Vector vector) {
         double[] result = new double[size];
         double f0 = function.apply(vector);
         for (int i = 0; i < size; i++) {
@@ -25,7 +29,8 @@ public class NewtonMethod {
         return Vector.of(result);
     }
 
-    private double[][] gesseMatrixCalculation(final Vector vector) {
+    // TODO protected
+    public double[][] hesseMatrixCalculation(final Vector vector) {
         double[][] result = new double[size][size];
         double f0 = function.apply(vector);
         for (int i = 0; i < size; i++) {
@@ -39,14 +44,15 @@ public class NewtonMethod {
         return result;
     }
 
-    public Vector optimize() {
+
+    @Override
+    public Vector minimize() {
         Vector xPrev = startPoint;
         while (true) {
-            Vector gradient = gradient(xPrev);
-            ProfileMatrix H = (new FullMatrix(gesseMatrixCalculation(xPrev))).toProfileMatrix();
-            H.computeLUDecomposition();
-            Vector pk = H.solve(gradient.mul(-1.0));
-            Vector xK = xPrev.add(pk);
+            final var gradient = gradient(xPrev);
+            final var H = (new FullMatrix(hesseMatrixCalculation(xPrev)));
+            final var pk = getDirection(H, gradient, eps);
+            final var xK = xPrev.add(pk.mul(getAlpha(xPrev, pk)));
             if (xK.sub(xPrev).norm() < eps) {
                 xPrev = xK;
                 break;
@@ -55,4 +61,5 @@ public class NewtonMethod {
         }
         return xPrev;
     }
+
 }

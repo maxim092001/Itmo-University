@@ -1,6 +1,7 @@
-package lab4;
+package lab4.matrix;
 
 import java.util.Arrays;
+import java.util.stream.IntStream;
 
 /**
  * Util class for one dimension matrix.
@@ -117,6 +118,11 @@ public class Vector {
             values[i] = vector[i] + other.get(i);
         }
         return new Vector(values);
+    }
+
+    public double scalarMultiply(final Vector other) {
+        return IntStream.range(0, n)
+                .mapToDouble(i -> this.get(i) * other.get(i)).sum();
     }
 
     @Override

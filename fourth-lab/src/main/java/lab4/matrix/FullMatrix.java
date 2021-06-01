@@ -1,4 +1,4 @@
-package lab4;
+package lab4.matrix;
 
 import java.util.Arrays;
 import java.util.Optional;
