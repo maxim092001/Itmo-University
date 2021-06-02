@@ -20,10 +20,10 @@ public abstract class AbstractNewtonMethod implements NewtonMethod {
     }
 
     protected Vector gradient(final Vector vector) {
-        double[] result = new double[size];
-        double f0 = function.apply(vector);
+        final double[] result = new double[size];
+        final double f0 = function.apply(vector);
         for (int i = 0; i < size; i++) {
-            Vector curVector = vector.add(i, eps);
+            final var curVector = vector.add(i, eps);
             result[i] = Math.abs(f0 - function.apply(curVector)) / eps;
         }
         return Vector.of(result);
@@ -31,13 +31,13 @@ public abstract class AbstractNewtonMethod implements NewtonMethod {
 
     // TODO protected
     public double[][] hesseMatrixCalculation(final Vector vector) {
-        double[][] result = new double[size][size];
-        double f0 = function.apply(vector);
+        final double[][] result = new double[size][size];
+        final double f0 = function.apply(vector);
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
-                double fij = function.apply(vector.add(i, eps).add(j, eps));
-                double fi = function.apply(vector.add(i, eps));
-                double fj = function.apply(vector.add(j, eps));
+                final double fij = function.apply(vector.add(i, eps).add(j, eps));
+                final double fi = function.apply(vector.add(i, eps));
+                final double fj = function.apply(vector.add(j, eps));
                 result[i][j] = (fij - fi - fj + f0) / (eps * eps);
             }
         }
