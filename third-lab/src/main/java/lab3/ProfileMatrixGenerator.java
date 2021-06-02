@@ -112,7 +112,7 @@ public class ProfileMatrixGenerator {
     /**
      * Main method. Generates matrix and writes it to file.
      * @param args program arguments
-     * @throws IOException if some exception with files occuired.
+     * @throws IOException if some exception with files occurred.
      */
     public static void main(String[] args) throws IOException {
         System.out.print("Enter directory name: ");

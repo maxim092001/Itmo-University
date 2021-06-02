@@ -72,8 +72,10 @@ public class Vector {
         for (int i = 0; i < n; i++) {
             double a = get(i);
             res += a * a;
+//            res += Math.abs(a);
         }
         return Math.sqrt(res);
+//        return res;
     }
 
     /**
