@@ -125,6 +125,16 @@ public class Vector {
                 .mapToDouble(i -> this.get(i) * other.get(i)).sum();
     }
 
+    public FullMatrix mulByTransposed(final Vector other) {
+        double[][] result = new double[n][n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                result[i][j] = this.get(i) * other.get(j);
+            }
+        }
+        return new FullMatrix(result);
+    }
+
     @Override
     public String toString() {
         return "Vector{" +

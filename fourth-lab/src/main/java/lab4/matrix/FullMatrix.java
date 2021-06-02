@@ -139,4 +139,42 @@ public class FullMatrix implements Matrix {
     public ProfileMatrix toProfileMatrix() {
         return ProfileMatrix.of(matrix);
     }
+
+    public static FullMatrix identityMatrix(final int size) {
+        double[][] m = new double[size][size];
+        for (int i = 0; i < size; i++) {
+            m[i][i] = 1.0;
+        }
+        return new FullMatrix(m);
+    }
+
+    public Vector multiply(final Vector vector) {
+        final double[] result = new double[n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                result[i] += get(i, j) * vector.get(j);
+            }
+        }
+        return Vector.of(result);
+    }
+
+    public FullMatrix div(final double value) {
+        final double[][] result = new double[n][n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                result[i][j] = get(i, j) / value;
+            }
+        }
+        return new FullMatrix(result);
+    }
+
+    public FullMatrix sub(final FullMatrix other) {
+        final double[][] result = new double[n][n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                result[i][j] = get(i, j) - other.get(i, j);
+            }
+        }
+        return new FullMatrix(result);
+    }
 }
