@@ -2,7 +2,11 @@ package lab4.newton;
 
 import lab4.matrix.FullMatrix;
 import lab4.matrix.Vector;
+import lab4.utils.IterationStep;
+import lab4.utils.Steps;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Function;
 
 public abstract class AbstractNewtonMethod implements NewtonMethod {
@@ -11,12 +15,15 @@ public abstract class AbstractNewtonMethod implements NewtonMethod {
     protected final Double eps;
     protected final Vector startPoint;
     protected final int size;
+    private final Steps steps;
+
 
     public AbstractNewtonMethod(final Function<Vector, Double> function, final Double eps, final Vector startPoint) {
         this.function = function;
         this.eps = eps;
         this.startPoint = startPoint;
         this.size = startPoint.size();
+        this.steps = new Steps(new ArrayList<>(), startPoint);
     }
 
     protected Vector gradient(final Vector vector) {
@@ -52,7 +59,9 @@ public abstract class AbstractNewtonMethod implements NewtonMethod {
             final var gradient = gradient(xPrev);
             final var H = (new FullMatrix(hesseMatrixCalculation(xPrev)));
             final var pk = getDirection(H, gradient, eps);
-            final var xK = xPrev.add(pk.mul(getAlpha(xPrev, pk)));
+            final double alpha = getAlpha(xPrev, pk);
+            final var xK = xPrev.add(pk.mul(alpha));
+            steps.addIteration(alpha, xK, pk, function.apply(xK));
             if (xK.sub(xPrev).norm() < eps) {
                 xPrev = xK;
                 break;
@@ -62,4 +71,8 @@ public abstract class AbstractNewtonMethod implements NewtonMethod {
         return xPrev;
     }
 
+
+    public Steps getSteps() {
+        return steps;
+    }
 }

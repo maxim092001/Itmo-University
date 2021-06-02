@@ -142,4 +142,8 @@ public class Vector {
                 ", n=" + n +
                 '}';
     }
+
+    public String view() {
+        return Arrays.toString(vector);
+    }
 }

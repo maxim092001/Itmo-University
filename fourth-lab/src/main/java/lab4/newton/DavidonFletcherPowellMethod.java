@@ -38,8 +38,8 @@ public class DavidonFletcherPowellMethod extends AbstractNewtonMethod {
 
             prevG = nextG;
             prevW = nextW;
-            prevX = nextX;
             prevDX = nextX.sub(prevX);
+            prevX = nextX;
         }
         return prevX;
     }
