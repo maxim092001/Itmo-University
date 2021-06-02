@@ -36,6 +36,11 @@ public class FullMatrix implements Matrix {
         return matrix[i][j];
     }
 
+    @Override
+    public int getN() {
+        return n;
+    }
+
     /**
      * Sets value to an element in profile matrix.
      *

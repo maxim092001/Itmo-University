@@ -91,6 +91,26 @@ public class ProfileMatrix implements Matrix {
 
     }
 
+    /*
+            final int n,
+            final double[] au,
+            final double[] al,
+            final int[] ia,
+            final double[] di,
+            final double[] r
+     */
+    @SuppressWarnings("CopyConstructorMissesField")
+    public ProfileMatrix(ProfileMatrix another) {
+        this(
+                another.n,
+                Arrays.copyOf(another.au, another.au.length),
+                Arrays.copyOf(another.al, another.al.length),
+                Arrays.copyOf(another.ia, another.ia.length),
+                Arrays.copyOf(another.di, another.di.length),
+                (another.r == null ? null : Arrays.copyOf(another.r, another.r.length))
+        );
+    }
+
     public static ProfileMatrix of(
             final int n,
             final double[] au,
@@ -128,6 +148,11 @@ public class ProfileMatrix implements Matrix {
         }
     }
 
+    @Override
+    public int getN() {
+        return n;
+    }
+
     /**
      * Sets value to an element in profile matrix.
      *
@@ -156,7 +181,7 @@ public class ProfileMatrix implements Matrix {
     /**
      * Function to calculate LU decomposition for this profile matrix.
      */
-    public void computeLUDecomposition() {
+    public LUView computeLUDecomposition() {
         double sum;
         for (int i = 0; i < n; i++) {
             for (int j = i; j < n; j++) {
@@ -166,6 +191,7 @@ public class ProfileMatrix implements Matrix {
                 }
                 set(i, j, get(i, j) - sum);
             }
+            // L
             for (int j = i + 1; j < n; j++) {
                 sum = 0;
                 for (int k = 0; k < i; k++) {
@@ -174,6 +200,7 @@ public class ProfileMatrix implements Matrix {
                 set(j, i, (1.0 / get(i, i)) * (get(j, i) - sum));
             }
         }
+        return new LUView(this);
     }
 
     /**
@@ -211,14 +238,21 @@ public class ProfileMatrix implements Matrix {
      */
     public Vector multiply(final Vector vector) {
         final double[] result = new double[n];
+        int n = getN();
         for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                result[i] += get(i, j) * vector.get(j);
+            result[i] = di[i] * vector.get(i);
+        }
+
+        for (int i = 1; i < n; ++i) {
+            for (int j = ia[i]; j < ia[i + 1]; ++j) {
+                int k = j - ia[i];
+                int profileStart = i - ia[i + 1] + ia[i];
+                result[i] += al[j - 1] * vector.get(profileStart + k);
+                result[profileStart + k] += au[j - 1] * vector.get(i);
             }
         }
         return Vector.of(result);
     }
-
 
     @Override
     public String toString() {
@@ -230,5 +264,19 @@ public class ProfileMatrix implements Matrix {
                 "ia=" + Arrays.toString(ia) + lineSeparator +
                 "di=" + Arrays.toString(di) + lineSeparator +
                 "r=" + Arrays.toString(r) + lineSeparator;
+    }
+
+    public static void main(String[] args) {
+        ProfileMatrix a = new ProfileMatrix(new double[][]{
+                {1.5, 4.8, 1.3, 7.5},
+                {9.1, 25.1, 0.9, 5.4},
+                {78.4, 1.0, 1.0, 98.1},
+                {-45.0, 14.5, 6.5, 7.8}
+        });
+
+        Vector vector = Vector.of(9.0, 8.0, 7.0, 6.0);
+
+        System.out.println(a.multiply(vector).toString());
+        //Vector{vector=[106.0, 321.4, 1309.1999999999998, -196.7], n=4}
     }
 }

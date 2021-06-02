@@ -26,11 +26,33 @@ public class Main {
 //        System.out.println();
 
 
-        for (int n = 1; n <= 30; n += 2) {
+        for (int n = 1; n <= 100; n += 2) {
                 var sub = Utils.error(n, 1, Utils.Mode.GILBERT, true);
                 var div = Utils.diff(n, 1, Utils.Mode.GILBERT, true);
                 System.out.printf("%d & %.15f & %.15f \\\\ %n \\hline %n", n, sub, div);
         }
+//        int n = 10;
+//        for (int k = 1; k <= 10; k++) {
+//            var sub = Utils.error(n, k, Utils.Mode.DENSE, true);
+//            var div = Utils.diff(n, k, Utils.Mode.DENSE, true);
+////                System.out.printf("%d & %.15f & %.15f \\\\ %n \\hline %n", n, sub, div);
+//            System.out.printf("%d %d %.15f %.15f\n", n, k, sub, div);
+//        }
+//        n = 100;
+//        for (int k = 1; k <= 10; k++) {
+//            var sub = Utils.error(n, k, Utils.Mode.DENSE, true);
+//            var div = Utils.diff(n, k, Utils.Mode.DENSE, true);
+////                System.out.printf("%d & %.15f & %.15f \\\\ %n \\hline %n", n, sub, div);
+//            System.out.printf("%d %d %.15f %.15f\n", n, k, sub, div);
+//        }
+//        n = 1000;
+//        for (int k = 1; k <= 10; k++) {
+//            var sub = Utils.error(n, k, Utils.Mode.DENSE, true);
+//            var div = Utils.diff(n, k, Utils.Mode.DENSE, true);
+////                System.out.printf("%d & %.15f & %.15f \\\\ %n \\hline %n", n, sub, div);
+//            System.out.printf("%d %d %.15f %.15f\n", n, k, sub, div);
+//        }
+
 //        var kek = ProfileMatrixGenerator.generateDenseMatrix(5, 1);
 //        System.out.println(kek);
 //        System.out.println(kek.solve(new Vector(5, 1, 2, 3, 4, 5)));
