@@ -11,6 +11,7 @@ public interface NewtonMethod {
     }
 
     default Vector getDirection(final FullMatrix hesseMatrix, final Vector gradient, final double eps) {
-        return hesseMatrix.gauss(gradient.mul(-1), eps).get();
+        return hesseMatrix.gauss(gradient.mul(-1), eps).
+                orElseThrow(() -> new IllegalArgumentException("No solutions for such matrix"));
     }
 }
