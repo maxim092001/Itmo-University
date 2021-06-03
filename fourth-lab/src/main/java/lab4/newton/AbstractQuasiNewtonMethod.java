@@ -23,13 +23,13 @@ public abstract class AbstractQuasiNewtonMethod extends OneDirectionNewtonMethod
         double ak = getAlpha(startPoint, prevP);
         Vector prevX = startPoint.add(prevP.mul(ak));
         Vector prevDX = prevX.sub(startPoint);
-
         while (prevDX.norm() > eps) {
             Vector nextW = gradient(prevX).mul(-1.0);
             FullMatrix nextG = generateG(prevX, prevW, prevG, prevDX, nextW);
             Vector nextP = nextG.multiply(nextW);
             ak = getAlpha(prevX, nextP);
             Vector nextX = prevX.add(nextP.mul(ak));
+            steps.addIteration(ak, nextX, nextP, function.apply(nextX));
 
             prevG = nextG;
             prevW = nextW;

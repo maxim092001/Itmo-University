@@ -37,7 +37,7 @@ public abstract class AbstractNewtonMethod implements NewtonMethod {
     /**
      * Iteration steps.
      */
-    private final Steps steps;
+    protected final Steps steps;
 
 
     public AbstractNewtonMethod(final Function<Vector, Double> function, final Double eps, final Vector startPoint) {
