@@ -1,6 +1,8 @@
 package lab4.matrix;
 
 import java.util.Arrays;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 /**
@@ -145,5 +147,20 @@ public class Vector {
 
     public String view() {
         return Arrays.toString(vector);
+    }
+
+    public String texView() {
+        final var sb = new StringBuilder();
+        sb.append(String.format("%.7f", vector[0]));
+        Arrays.stream(vector).skip(1).forEach(i -> sb.append(" & ").append(String.format("%.7f", i)));
+        return sb.toString();
+    }
+
+    public String wolframView(final Function<Vector, Double> f) {
+        if (n == 1) {
+            return "{" + Arrays.stream(vector).mapToObj(i -> String.format("%.7f, %.7f", i, f.apply(Vector.of(vector)))).collect(Collectors.joining(",")) + "}";
+        } else {
+            return "{" + Arrays.stream(vector).mapToObj(i -> String.format("%.7f", i)).collect(Collectors.joining(",")) + "}";
+        }
     }
 }

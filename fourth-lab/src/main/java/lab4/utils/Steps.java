@@ -2,7 +2,10 @@ package lab4.utils;
 
 import lab4.matrix.Vector;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class Steps {
     private final List<IterationStep> steps;
@@ -24,11 +27,19 @@ public class Steps {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();
-        sb.append("Start point: ").append(startPoint.view()).append(System.lineSeparator());
-        for (IterationStep step : steps) {
-            String str = String.format("%f %s %s %f%n", step.getAlpha(), step.getX().view(), step.getPk().view(), step.getfX());
+        sb.append("Start point: ").append(startPoint.texView()).append(System.lineSeparator());
+        sb.append(steps.size()).append(System.lineSeparator());
+        for (int i = 0, stepsSize = steps.size(); i < stepsSize; i++) {
+            final IterationStep step = steps.get(i);
+            String str = String.format("%d & %.7f & %s & %s & %.7f\\\\%n\\hline%n", i, step.getAlpha(), step.getX().texView(), step.getPk().texView(), step.getfX());
             sb.append(str);
         }
         return sb.toString();
+    }
+
+    public String toWolfram(final Function<Vector, Double> f) {
+        return "{" +
+                steps.stream().map(i -> i.getX().wolframView(f)).collect(Collectors.joining(",")) +
+                "}";
     }
 }
