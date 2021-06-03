@@ -59,14 +59,14 @@ public class Main {
 //        System.out.println(new PowellMethod(v -> Math.sin(v.get(0)) ,
 //                1e-5, Vector.of(1d)).minimize());
 //
-//        System.out.println(new PowellMethod(
-//                v -> 100 * (v.get(1) - v.get(0) * v.get(0)) *  (v.get(1) - v.get(0) * v.get(0)) + (1 - v.get(0)) * (1 - v.get(0)),
-//                1e-5, Vector.of(0d, 0d)).minimize());
+        System.out.println(new PowellMethod(
+                v -> 100 * (v.get(1) - v.get(0) * v.get(0)) *  (v.get(1) - v.get(0) * v.get(0)) + (1 - v.get(0)) * (1 - v.get(0)),
+                1e-5, Vector.of(0d, 0d)).minimize());
 
         System.out.println("Tables:");
-        generateTables(MethodEnum.CLASSIC_NEWTON, v -> 8 * v.get(0) * v.get(0) + 4 * v.get(0) * v.get(1) + 5 * v.get(1) * v.get(1), Vector.of(0, 0));
-        generateTables(MethodEnum.ONE_DIRECTION_NEWTON, v -> 8 * v.get(0) * v.get(0) + 4 * v.get(0) * v.get(1) + 5 * v.get(1) * v.get(1), Vector.of(0, 0));
-        generateTables(MethodEnum.DESCEND_NEWTON, v -> 8 * v.get(0) * v.get(0) + 4 * v.get(0) * v.get(1) + 5 * v.get(1) * v.get(1), Vector.of(0, 0));
+        generateTables(MethodEnum.CLASSIC_NEWTON, v -> Math.sin(v.get(0)), Vector.of(1));
+        generateTables(MethodEnum.ONE_DIRECTION_NEWTON, v -> Math.sin(v.get(0)), Vector.of(1));
+        generateTables(MethodEnum.DESCEND_NEWTON, v -> Math.sin(v.get(0)), Vector.of(1));
     }
 
     private static void generateTables(final MethodEnum method, final Function<Vector, Double> function, final Vector startPoint) {

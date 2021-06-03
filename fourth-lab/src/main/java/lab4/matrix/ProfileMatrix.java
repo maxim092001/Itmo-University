@@ -201,15 +201,6 @@ public class ProfileMatrix implements Matrix {
         return Vector.of(x);
     }
 
-    /**
-     * Multiplication profile matrix on vector.
-     *
-     * @param vector given vector.
-     * @return multiplied vector.
-     */
-
-
-
     @Override
     public String toString() {
         final String lineSeparator = System.lineSeparator();

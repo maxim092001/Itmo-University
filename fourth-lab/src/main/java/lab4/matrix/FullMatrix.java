@@ -140,6 +140,11 @@ public class FullMatrix implements Matrix {
         return ProfileMatrix.of(matrix);
     }
 
+    /**
+     * Identity matrix of given size.
+     * @param size given size.
+     * @return identity matrix.
+     */
     public static FullMatrix identityMatrix(final int size) {
         double[][] m = new double[size][size];
         for (int i = 0; i < size; i++) {
@@ -148,6 +153,11 @@ public class FullMatrix implements Matrix {
         return new FullMatrix(m);
     }
 
+    /**
+     * Multiply matrix on given vector.
+     * @param vector given vector.
+     * @return multiplication result.
+     */
     public Vector multiply(final Vector vector) {
         final double[] result = new double[n];
         for (int i = 0; i < n; i++) {
@@ -158,6 +168,11 @@ public class FullMatrix implements Matrix {
         return Vector.of(result);
     }
 
+    /**
+     * Scalar division on given value.
+     * @param value given value.
+     * @return divided matrix.
+     */
     public FullMatrix div(final double value) {
         final double[][] result = new double[n][n];
         for (int i = 0; i < n; i++) {
@@ -168,6 +183,11 @@ public class FullMatrix implements Matrix {
         return new FullMatrix(result);
     }
 
+    /**
+     * Subtract two matrices.
+     * @param other given matrix.
+     * @return subtracted matrix.
+     */
     public FullMatrix sub(final FullMatrix other) {
         final double[][] result = new double[n][n];
         for (int i = 0; i < n; i++) {

@@ -9,12 +9,34 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
 
+/**
+ * Abstract Newton method.
+ */
 public abstract class AbstractNewtonMethod implements NewtonMethod {
 
+    /**
+     * Given function.
+     */
     protected final Function<Vector, Double> function;
+
+    /**
+     * Given epsilon.
+     */
     protected final Double eps;
+
+    /**
+     * Start point.
+     */
     protected final Vector startPoint;
+
+    /**
+     * Start point (vector) size.
+     */
     protected final int size;
+
+    /**
+     * Iteration steps.
+     */
     private final Steps steps;
 
 
@@ -26,18 +48,29 @@ public abstract class AbstractNewtonMethod implements NewtonMethod {
         this.steps = new Steps(new ArrayList<>(), startPoint);
     }
 
+    /**
+     * Gradient calculation for given point.
+     *
+     * @param vector given point.
+     * @return gradient.
+     */
     protected Vector gradient(final Vector vector) {
         final double[] result = new double[size];
         final double f0 = function.apply(vector);
         for (int i = 0; i < size; i++) {
             final var curVector = vector.add(i, eps);
-            result[i] = (function.apply(curVector)- f0) / eps;
+            result[i] = (function.apply(curVector) - f0) / eps;
         }
         return Vector.of(result);
     }
 
-    // TODO protected
-    public double[][] hesseMatrixCalculation(final Vector vector) {
+    /**
+     * Hessian calculation for given point
+     *
+     * @param vector given point.
+     * @return Hessian.
+     */
+    protected double[][] hesseMatrixCalculation(final Vector vector) {
         final double[][] result = new double[size][size];
         final double f0 = function.apply(vector);
         for (int i = 0; i < size; i++) {
@@ -52,6 +85,11 @@ public abstract class AbstractNewtonMethod implements NewtonMethod {
     }
 
 
+    /**
+     * Minimization.
+     *
+     * @return minimum.
+     */
     @Override
     public Vector minimize() {
         Vector xPrev = startPoint;
@@ -72,6 +110,11 @@ public abstract class AbstractNewtonMethod implements NewtonMethod {
         return xPrev;
     }
 
+    /**
+     * Iteration steps.
+     *
+     * @return iteration steps.
+     */
     public Steps getSteps() {
         return steps;
     }

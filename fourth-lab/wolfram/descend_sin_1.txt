@@ -1,0 +1,3 @@
+Show[ContourPlot[
+  sin(x) , {x, -20, 20}, {y, -20, 20}],
+ Graphics[Arrow[{{-284.3141357},{-284.3141352}}]]]

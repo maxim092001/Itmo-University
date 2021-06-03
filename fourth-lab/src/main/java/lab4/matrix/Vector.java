@@ -97,6 +97,12 @@ public class Vector {
         return Vector.of(Arrays.copyOf(vector, n));
     }
 
+    /**
+     * Add value to vectors element.
+     * @param ind index.
+     * @param value given value.
+     * @return result vector.
+     */
     public Vector add(final int ind, final double value) {
         double[] values = new double[n];
         values[ind] = value;
@@ -106,6 +112,11 @@ public class Vector {
         return new Vector(values);
     }
 
+    /**
+     * Multiply on scalar value.
+     * @param val given value
+     * @return multiplied vector.
+     */
     public Vector mul(final double val) {
         double[] values = new double[n];
         for (int i = 0; i < n; i++) {
@@ -114,6 +125,11 @@ public class Vector {
         return new Vector(values);
     }
 
+    /**
+     * Add vector to given vector
+     * @param other given vector.
+     * @return result vector.
+     */
     public Vector add(final Vector other) {
         double[] values = new double[n];
         for (int i = 0; i < n; i++) {
@@ -122,11 +138,21 @@ public class Vector {
         return new Vector(values);
     }
 
+    /**
+     * Scalar multiplication.
+     * @param other given vector.
+     * @return multiplied vector.
+     */
     public double scalarMultiply(final Vector other) {
         return IntStream.range(0, n)
                 .mapToDouble(i -> this.get(i) * other.get(i)).sum();
     }
 
+    /**
+     * Multiplied vector on transposed.
+     * @param other given vector.
+     * @return multiplication result.
+     */
     public FullMatrix mulByTransposed(final Vector other) {
         double[][] result = new double[n][n];
         for (int i = 0; i < n; i++) {
