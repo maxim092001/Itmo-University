@@ -17,6 +17,10 @@ public class Steps {
         steps.add(new IterationStep(alpha, x, pk, fX));
     }
 
+    public int size() {
+        return steps.size();
+    }
+
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();

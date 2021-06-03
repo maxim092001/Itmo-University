@@ -207,15 +207,7 @@ public class ProfileMatrix implements Matrix {
      * @param vector given vector.
      * @return multiplied vector.
      */
-    public Vector multiply(final Vector vector) {
-        final double[] result = new double[n];
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                result[i] += get(i, j) * vector.get(j);
-            }
-        }
-        return Vector.of(result);
-    }
+
 
 
     @Override

@@ -31,7 +31,7 @@ public abstract class AbstractNewtonMethod implements NewtonMethod {
         final double f0 = function.apply(vector);
         for (int i = 0; i < size; i++) {
             final var curVector = vector.add(i, eps);
-            result[i] = Math.abs(f0 - function.apply(curVector)) / eps;
+            result[i] = (function.apply(curVector)- f0) / eps;
         }
         return Vector.of(result);
     }
@@ -58,10 +58,11 @@ public abstract class AbstractNewtonMethod implements NewtonMethod {
         while (true) {
             final var gradient = gradient(xPrev);
             final var H = (new FullMatrix(hesseMatrixCalculation(xPrev)));
-            final var pk = getDirection(H, gradient, eps);
+            final var pk = getDirection(H, gradient, eps, gradient.mul(-1.0));
             final double alpha = getAlpha(xPrev, pk);
             final var xK = xPrev.add(pk.mul(alpha));
             steps.addIteration(alpha, xK, pk, function.apply(xK));
+            if (steps.size() > 100000) throw new IllegalArgumentException("Too much iterations");
             if (xK.sub(xPrev).norm() < eps) {
                 xPrev = xK;
                 break;
@@ -70,7 +71,6 @@ public abstract class AbstractNewtonMethod implements NewtonMethod {
         }
         return xPrev;
     }
-
 
     public Steps getSteps() {
         return steps;

@@ -3,6 +3,8 @@ package lab4.newton;
 import lab4.matrix.FullMatrix;
 import lab4.matrix.Vector;
 
+import java.util.function.Function;
+
 public interface NewtonMethod {
 
     Vector minimize();
@@ -10,8 +12,8 @@ public interface NewtonMethod {
         return 1.0;
     }
 
-    default Vector getDirection(final FullMatrix hesseMatrix, final Vector gradient, final double eps) {
+    default Vector getDirection(final FullMatrix hesseMatrix, final Vector gradient, final double eps, final Vector defaultP) {
         return hesseMatrix.gauss(gradient.mul(-1), eps).
-                orElseThrow(() -> new IllegalArgumentException("No solutions for such matrix"));
+                orElse(defaultP);
     }
 }

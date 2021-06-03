@@ -11,10 +11,12 @@ public class DescendMethod extends OneDirectionNewtonMethod {
     }
 
     @Override
-    public Vector getDirection(final FullMatrix hesseMatrix, final Vector gradient, final double eps) {
+    public Vector getDirection(final FullMatrix hesseMatrix, final Vector gradient, final double eps, final Vector defaultP) {
         final var minusGradient = gradient.mul(-1);
-        final var p = super.getDirection(hesseMatrix, gradient, eps);
+        final var p = super.getDirection(hesseMatrix, gradient, eps, defaultP);
         final var scalar = p.scalarMultiply(gradient);
         return scalar > 0 ? minusGradient : p;
     }
+
+
 }
