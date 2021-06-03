@@ -5,6 +5,9 @@ import lab4.matrix.Vector;
 
 import java.util.function.Function;
 
+/**
+ * Abstract quasi-Newton method.
+ */
 public abstract class AbstractQuasiNewtonMethod extends OneDirectionNewtonMethod {
     public AbstractQuasiNewtonMethod(final Function<Vector, Double> function, final Double eps, final Vector startPoint) {
         super(function, eps, startPoint);
