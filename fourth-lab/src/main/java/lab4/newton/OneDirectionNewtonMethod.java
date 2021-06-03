@@ -12,7 +12,7 @@ public class OneDirectionNewtonMethod extends AbstractNewtonMethod {
 
     @Override
     public double getAlpha(final Vector xk, final Vector pk) {
-        var method = new GoldenRatioMethod(-1000d, 1000d, x -> function.apply(xk.add(pk.mul(x))), eps);
+        var method = new GoldenRatioMethod(-10000d, 10000d, x -> function.apply(xk.add(pk.mul(x))), eps);
         method.calculate();
         return method.getMinArgument();
     }
