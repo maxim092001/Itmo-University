@@ -93,6 +93,23 @@ public class Main {
             double x4 = v.get(3);
             return (x1 + 10 * x2) * (x1 + 10 * x2) + 5 * (x3 - x4) * (x3 - x4) + (x2 - 2 * x3) * (x2 - 2 * x3) * (x2 - 2 * x3) * (x2 - 2 * x3) + 10 * (x1 - x4) * (x1 - x4) * (x1 - x4) * (x1 - x4);
         };
+
+        generateTables(MethodEnum.DAVIDON, f2, Vector.of(10, 0));
+        generateTables(MethodEnum.DAVIDON, f2, Vector.of(15, 15));
+        generateTables(MethodEnum.DAVIDON, f3, Vector.of(0, 0));
+        generateTables(MethodEnum.DAVIDON, f3, Vector.of(10, 0));
+        generateTables(MethodEnum.DAVIDON, f3, Vector.of(15, 15));
+
+
+        generateTables(MethodEnum.POWELL, f1, Vector.of(0, 0));
+        generateTables(MethodEnum.POWELL, f1, Vector.of(10, 0));
+        generateTables(MethodEnum.POWELL, f1, Vector.of(15, 15));
+        generateTables(MethodEnum.POWELL, f2, Vector.of(0, 0));
+        generateTables(MethodEnum.POWELL, f2, Vector.of(10, 0));
+        generateTables(MethodEnum.POWELL, f2, Vector.of(15, 15));
+        generateTables(MethodEnum.POWELL, f3, Vector.of(0, 0));
+        generateTables(MethodEnum.POWELL, f3, Vector.of(10, 0));
+        generateTables(MethodEnum.POWELL, f3, Vector.of(15, 15));
     }
 
     private static void generateTables(final MethodEnum method, final Function<Vector, Double> function, final Vector startPoint) {
@@ -106,7 +123,8 @@ public class Main {
         };
         try {
             optimizationMethod.minimize();
-            System.out.println(optimizationMethod.getSteps().toWolfram(function));
+            String points = optimizationMethod.getSteps().toWolfram(function);
+            System.out.printf("Epilog -> {PointSize[Medium], White, Line[%s], Point[%s]}]%n", points, points);
         } catch (final IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }

@@ -186,7 +186,7 @@ public class Vector {
         if (n == 1) {
             return "{" + Arrays.stream(vector).mapToObj(i -> String.format("%.7f, %.7f", i, f.apply(Vector.of(vector)))).collect(Collectors.joining(",")) + "}";
         } else {
-            return "{" + Arrays.stream(vector).mapToObj(i -> String.format("%.7f", i)).collect(Collectors.joining(",")) + "}";
+            return "{" + Arrays.stream(vector).mapToObj(String::valueOf).collect(Collectors.joining(",")) + "}";
         }
     }
 }
