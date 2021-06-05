@@ -94,26 +94,57 @@ public class Main {
             return (x1 + 10 * x2) * (x1 + 10 * x2) + 5 * (x3 - x4) * (x3 - x4) + (x2 - 2 * x3) * (x2 - 2 * x3) * (x2 - 2 * x3) * (x2 - 2 * x3) + 10 * (x1 - x4) * (x1 - x4) * (x1 - x4) * (x1 - x4);
         };
 
-        generateTables(MethodEnum.DAVIDON, f2, Vector.of(10, 0));
-        generateTables(MethodEnum.DAVIDON, f2, Vector.of(15, 15));
-        generateTables(MethodEnum.DAVIDON, f3, Vector.of(0, 0));
-        generateTables(MethodEnum.DAVIDON, f3, Vector.of(10, 0));
-        generateTables(MethodEnum.DAVIDON, f3, Vector.of(15, 15));
+//        generateTables(MethodEnum.DAVIDON, f1, Vector.of(0, 0));
+//        generateTables(MethodEnum.DAVIDON, f1, Vector.of(10, 0));
+//        generateTables(MethodEnum.DAVIDON, f1, Vector.of(15, 15));
+//
+//        generateTables(MethodEnum.DAVIDON, f2, Vector.of(0, 0));
+//        generateTables(MethodEnum.DAVIDON, f2, Vector.of(10, 0));
+//        generateTables(MethodEnum.DAVIDON, f2, Vector.of(15, 15));
+//
+//        generateTables(MethodEnum.DAVIDON, f3, Vector.of(0, 0));
+//        generateTables(MethodEnum.DAVIDON, f3, Vector.of(10, 0));
+//        generateTables(MethodEnum.DAVIDON, f3, Vector.of(15, 15));
+//
+//        generateTables(MethodEnum.DAVIDON, f4, Vector.of(0, 0, 0, 0));
+//        generateTables(MethodEnum.DAVIDON, f4, Vector.of(10, 0, 10, 0));
+//        generateTables(MethodEnum.DAVIDON, f4, Vector.of(15, 15, 15, 15));
+//
+//        generateTables(MethodEnum.POWELL, f1, Vector.of(0, 0));
+//        generateTables(MethodEnum.POWELL, f1, Vector.of(10, 0));
+//        generateTables(MethodEnum.POWELL, f1, Vector.of(15, 15));
+//
+//        generateTables(MethodEnum.POWELL, f2, Vector.of(0, 0));
+//        generateTables(MethodEnum.POWELL, f2, Vector.of(10, 0));
+//        generateTables(MethodEnum.POWELL, f2, Vector.of(15, 15));
+//
+//        generateTables(MethodEnum.POWELL, f3, Vector.of(0, 0));
+//        generateTables(MethodEnum.POWELL, f3, Vector.of(10, 0));
+//        generateTables(MethodEnum.POWELL, f3, Vector.of(15, 15));
 
-
-        generateTables(MethodEnum.POWELL, f1, Vector.of(0, 0));
-        generateTables(MethodEnum.POWELL, f1, Vector.of(10, 0));
-        generateTables(MethodEnum.POWELL, f1, Vector.of(15, 15));
-        generateTables(MethodEnum.POWELL, f2, Vector.of(0, 0));
-        generateTables(MethodEnum.POWELL, f2, Vector.of(10, 0));
-        generateTables(MethodEnum.POWELL, f2, Vector.of(15, 15));
-        generateTables(MethodEnum.POWELL, f3, Vector.of(0, 0));
-        generateTables(MethodEnum.POWELL, f3, Vector.of(10, 0));
-        generateTables(MethodEnum.POWELL, f3, Vector.of(15, 15));
+//        generateTables(MethodEnum.POWELL, f4, Vector.of(0, 0, 0, 0));
+//        generateTables(MethodEnum.POWELL, f4, Vector.of(10, 0, 10, 0));
+//        generateTables(MethodEnum.POWELL, f4, Vector.of(15, 15, 15, 15));
+//
+//        generateTables(MethodEnum.CLASSIC_NEWTON, f1, Vector.of(0, 0));
+//        generateTables(MethodEnum.CLASSIC_NEWTON, f1, Vector.of(10, 0));
+//        generateTables(MethodEnum.CLASSIC_NEWTON, f1, Vector.of(15, 15));
+//
+//        generateTables(MethodEnum.CLASSIC_NEWTON, f2, Vector.of(0, 0));
+//        generateTables(MethodEnum.CLASSIC_NEWTON, f2, Vector.of(10, 0));
+//        generateTables(MethodEnum.CLASSIC_NEWTON, f2, Vector.of(15, 15));
+//
+//        generateTables(MethodEnum.CLASSIC_NEWTON, f3, Vector.of(0, 0));
+        generateTables(MethodEnum.CLASSIC_NEWTON, f3, Vector.of(10, 0));
+        generateTables(MethodEnum.CLASSIC_NEWTON, f3, Vector.of(15, 15));
+//
+//        generateTables(MethodEnum.CLASSIC_NEWTON, f4, Vector.of(0, 0, 0, 0));
+//        generateTables(MethodEnum.CLASSIC_NEWTON, f4, Vector.of(10, 0, 10, 0));
+//        generateTables(MethodEnum.CLASSIC_NEWTON, f4, Vector.of(15, 15, 15, 15));
     }
 
     private static void generateTables(final MethodEnum method, final Function<Vector, Double> function, final Vector startPoint) {
-        System.out.println(method.name);
+//        System.out.println(method.name);
         final AbstractNewtonMethod optimizationMethod = switch (method) {
             case CLASSIC_NEWTON -> new ClassicNewtonMethod(function, 1e-5, startPoint);
             case ONE_DIRECTION_NEWTON -> new OneDirectionNewtonMethod(function, 1e-5, startPoint);
@@ -123,8 +154,9 @@ public class Main {
         };
         try {
             optimizationMethod.minimize();
-            String points = optimizationMethod.getSteps().toWolfram(function);
+            String points = optimizationMethod.getSteps().toWolfram(function, startPoint);
             System.out.printf("Epilog -> {PointSize[Medium], White, Line[%s], Point[%s]}]%n", points, points);
+//            System.out.println(optimizationMethod.getSteps().size());
         } catch (final IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }

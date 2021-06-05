@@ -2,6 +2,7 @@ package lab4.utils;
 
 import lab4.matrix.Vector;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Function;
@@ -37,9 +38,12 @@ public class Steps {
         return sb.toString();
     }
 
-    public String toWolfram(final Function<Vector, Double> f) {
+    public String toWolfram(final Function<Vector, Double> f, Vector startPoint) {
+        List<Vector> list = steps.stream().map(IterationStep::getX).collect(Collectors.toCollection(ArrayList::new));
+        list = list.subList(0, 10000);
+        list.add(0, startPoint);
         return "{" +
-                steps.stream().map(i -> i.getX().wolframView(f)).collect(Collectors.joining(",")) +
+                list.stream().map(i -> i.wolframView(f)).collect(Collectors.joining(",")) +
                 "}";
     }
 }
