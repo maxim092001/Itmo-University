@@ -3,8 +3,7 @@ package lab3;
 import lab3.matrix.FullMatrix;
 import lab3.matrix.ProfileMatrix;
 
-public class Utils {
-
+public class ResearchUtils {
     private static final double INF = 1e9;
 
     public static Vector generateRealX(final int n) {
@@ -24,16 +23,17 @@ public class Utils {
         };
 
         final var profileMatrix = ProfileMatrix.of(matrix);
-        final Vector f = profileMatrix.multiply(realX);
-        if (isGauss) {
-            final var fullMatrix = new FullMatrix(matrix);
-            return fullMatrix.gauss(f, 1e-20).map(v -> v.sub(realX).norm()).orElse(INF);
-        } else {
-            profileMatrix.computeLUDecomposition();
-            final Vector x = profileMatrix.solve(f);
-            x.sub(realX);
-            return x.norm();
-        }
+        final Vector f = profileMatrix.mul(realX);
+//        if (isGauss) {
+//            final var fullMatrix = new FullMatrix(matrix);
+//            return fullMatrix.gauss(f, 1e-20).map(v -> v.sub(realX).norm()).orElse(INF);
+//        } else {
+//            profileMatrix.computeLUDecomposition();
+//            Vector x = profileMatrix.solve(f);
+//            x = x.sub(realX);
+//            return x.norm();
+//        }
+        return 0;
     }
 
 

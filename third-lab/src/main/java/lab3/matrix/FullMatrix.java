@@ -8,7 +8,7 @@ import java.util.Optional;
 /**
  * Full matrix implementation.
  */
-public class FullMatrix implements Matrix {
+public class FullMatrix implements Matrix<FullMatrix> {
 
     /**
      * Matrix.
@@ -41,6 +41,11 @@ public class FullMatrix implements Matrix {
         return n;
     }
 
+    @Override
+    public Vector mul(Vector b) {
+        throw new UnsupportedOperationException();
+    }
+
     /**
      * Sets value to an element in profile matrix.
      *
@@ -60,52 +65,10 @@ public class FullMatrix implements Matrix {
      * @param a second row index.
      * @param b second column index.
      */
-    private void swap(final int i, final int j, final int a, final int b) {
+    public void swap(final int i, final int j, final int a, final int b) {
         double tmp = matrix[i][j];
         matrix[i][j] = matrix[a][b];
         matrix[a][b] = tmp;
-    }
-
-    /**
-     * Finds solution for full matrix with gauss method.
-     *
-     * @param r given vector.
-     * @param eps epsilon.
-     * @return {@link Optional}. Empty if no solution found or solution.
-     */
-    public Optional<Vector> gauss(final Vector r, final double eps) {
-        final FullMatrix m = copy();
-        final Vector v = r.copy();
-
-        final double[] result = new double[n];
-        for (int i = 0; i < n; i++) {
-            final int ind = m.findMainElement(i);
-            if (Math.abs(m.get(ind, i)) < eps) {
-                return Optional.empty();
-            }
-            v.swap(i, ind);
-            for (int j = i; j < n; j++) {
-                m.swap(i, j, ind, j);
-            }
-
-            for (int j = i + 1; j < n; j++) {
-                double mul = m.get(j, i) / m.get(i, i);
-                for (int k = i; k < n; k++) {
-                    m.set(j, k, m.get(j, k) - mul * m.get(i, k));
-                }
-                v.set(j, v.get(j) - mul * v.get(i));
-            }
-        }
-
-        for (int i = n - 1; i >= 0; i--) {
-            result[i] = v.get(i);
-            for (int j = i + 1; j < n; j++) {
-                result[i] -= m.get(i, j) * result[j];
-            }
-            result[i] /= m.get(i, i);
-        }
-
-        return Optional.of(Vector.of(result));
     }
 
     /**
@@ -129,7 +92,7 @@ public class FullMatrix implements Matrix {
      *
      * @return copy of current matrix.
      */
-    private FullMatrix copy() {
+    public FullMatrix copy() {
         double[][] m = new double[n][n];
         for (int i = 0; i < n; i++) {
             m[i] = Arrays.copyOf(matrix[i], n);

@@ -1,11 +1,15 @@
 package lab3;
 
+import lab3.matrix.Copyable;
+
 import java.util.Arrays;
+import java.util.function.DoubleUnaryOperator;
+import java.util.stream.DoubleStream;
 
 /**
  * Util class for one dimension matrix.
  */
-public class Vector {
+public class Vector implements Copyable<Vector> {
 
     /**
      * Vector.
@@ -24,6 +28,18 @@ public class Vector {
 
     public static Vector of(final double... vector) {
         return new Vector(vector);
+    }
+
+    public static Vector zero(int n) {
+        return Vector.of(new double[n]);
+    }
+
+    public static Vector natural(int n) {
+        double[] v = new double[n];
+        for (int i = 0; i < n; i++) {
+            v[i] = i + 1;
+        }
+        return Vector.of(v);
     }
 
     /**
@@ -56,10 +72,11 @@ public class Vector {
     }
 
     public Vector sub(final Vector a) {
+        double[] result = new double[n];
         for (int i = 0; i < n; i++) {
-            vector[i] -= a.get(i);
+            result[i] = vector[i] - a.get(i);
         }
-        return this;
+        return Vector.of(result);
     }
 
     /**
@@ -72,10 +89,8 @@ public class Vector {
         for (int i = 0; i < n; i++) {
             double a = get(i);
             res += a * a;
-//            res += Math.abs(a);
         }
         return Math.sqrt(res);
-//        return res;
     }
 
     /**
@@ -88,6 +103,32 @@ public class Vector {
         double tmp = vector[i];
         vector[i] = vector[j];
         vector[j] = tmp;
+    }
+
+    public Vector mul(double t) {
+        double[] result = new double[n];
+        for (int i = 0; i < n; i++) {
+            result[i] = get(i) * t;
+        }
+        return Vector.of(result);
+    }
+
+    public double scalarMul(Vector b) {
+        assert b.size() == n;
+        double result = 0.0;
+        for (int i = 0; i < n; i++) {
+            result += get(i) * b.get(i);
+        }
+        return result;
+    }
+
+    public Vector add(Vector b) {
+        assert b.size() == n;
+        double[] result = new double[n];
+        for (int i = 0; i < n; i++) {
+            result[i] = get(i) + b.get(i);
+        }
+        return Vector.of(result);
     }
 
     /**

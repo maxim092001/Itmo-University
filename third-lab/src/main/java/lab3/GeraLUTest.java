@@ -9,7 +9,7 @@ public class GeraLUTest {
     private static void singleTest(double[][] a) {
         ProfileMatrix a1 = ProfileMatrix.of(a);
         ProfileMatrix a1s = new ProfileMatrix(a1);
-        LUView luView = a1.computeLUDecomposition();
+        LUView luView = a1.luDecomposition();
         MultiplyMatrixView multiplyMatrixView = new MultiplyMatrixView(luView.getL(), luView.getU());
         if (!MatrixUtils.equals(multiplyMatrixView, a1s)) {
             System.err.println(MatrixUtils.toString(multiplyMatrixView));

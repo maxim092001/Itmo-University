@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Representation of profile matrix.
  */
-public class ProfileMatrix implements Matrix {
+public class ProfileMatrix implements Matrix<ProfileMatrix> {
     private static final double EPS = 1e-7;
 
     /**
@@ -91,14 +91,6 @@ public class ProfileMatrix implements Matrix {
 
     }
 
-    /*
-            final int n,
-            final double[] au,
-            final double[] al,
-            final int[] ia,
-            final double[] di,
-            final double[] r
-     */
     @SuppressWarnings("CopyConstructorMissesField")
     public ProfileMatrix(ProfileMatrix another) {
         this(
@@ -179,64 +171,12 @@ public class ProfileMatrix implements Matrix {
     }
 
     /**
-     * Function to calculate LU decomposition for this profile matrix.
-     */
-    public LUView computeLUDecomposition() {
-        double sum;
-        for (int i = 0; i < n; i++) {
-            for (int j = i; j < n; j++) {
-                sum = 0;
-                for (int k = 0; k < i; k++) {
-                    sum += get(i, k) * get(k, j);
-                }
-                set(i, j, get(i, j) - sum);
-            }
-            // L
-            for (int j = i + 1; j < n; j++) {
-                sum = 0;
-                for (int k = 0; k < i; k++) {
-                    sum += get(j, k) * get(k, i);
-                }
-                set(j, i, (1.0 / get(i, i)) * (get(j, i) - sum));
-            }
-        }
-        return new LUView(this);
-    }
-
-    /**
-     * Solves LU decomposition.
-     * @param r given vector.
-     * @return solution.
-     */
-    public Vector solve(final Vector r) {
-        double[] y = new double[n];
-        double sum;
-        for (int i = 0; i < n; i++) {
-            sum = 0;
-            for (int k = 0; k < i; k++) {
-                sum += get(i, k) * y[k];
-            }
-            y[i] = r.get(i) - sum;
-        }
-
-        double[] x = new double[n];
-        for (int i = n - 1; i >= 0; i--) {
-            sum = 0;
-            for (int k = i + 1; k < n; k++) {
-                sum += get(i, k) * x[k];
-            }
-            x[i] = (y[i] - sum) / (get(i, i));
-        }
-        return Vector.of(x);
-    }
-
-    /**
      * Multiplication profile matrix on vector.
      *
      * @param vector given vector.
      * @return multiplied vector.
      */
-    public Vector multiply(final Vector vector) {
+    public Vector mul(final Vector vector) {
         final double[] result = new double[n];
         int n = getN();
         for (int i = 0; i < n; i++) {
@@ -266,6 +206,11 @@ public class ProfileMatrix implements Matrix {
                 "r=" + Arrays.toString(r) + lineSeparator;
     }
 
+    @Override
+    public ProfileMatrix copy() {
+        return new ProfileMatrix(this);
+    }
+
     public static void main(String[] args) {
         ProfileMatrix a = new ProfileMatrix(new double[][]{
                 {1.5, 4.8, 1.3, 7.5},
@@ -276,7 +221,7 @@ public class ProfileMatrix implements Matrix {
 
         Vector vector = Vector.of(9.0, 8.0, 7.0, 6.0);
 
-        System.out.println(a.multiply(vector).toString());
+        System.out.println(a.mul(vector).toString());
         //Vector{vector=[106.0, 321.4, 1309.1999999999998, -196.7], n=4}
     }
 }

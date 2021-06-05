@@ -27,8 +27,8 @@ public class Main {
 
 
         for (int n = 1; n <= 100; n += 2) {
-                var sub = Utils.error(n, 1, Utils.Mode.GILBERT, true);
-                var div = Utils.diff(n, 1, Utils.Mode.GILBERT, true);
+                var sub = ResearchUtils.error(n, 1, ResearchUtils.Mode.GILBERT, true);
+                var div = ResearchUtils.diff(n, 1, ResearchUtils.Mode.GILBERT, true);
                 System.out.printf("%d & %.15f & %.15f \\\\ %n \\hline %n", n, sub, div);
         }
 //        int n = 10;
