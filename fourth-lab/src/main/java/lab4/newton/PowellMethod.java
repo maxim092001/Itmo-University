@@ -26,7 +26,7 @@ public class PowellMethod extends AbstractQuasiNewtonMethod {
      */
     protected FullMatrix generateG(final Vector prevX, final Vector prevW, final FullMatrix prevG, final Vector prevDX, final Vector nextW) {
         Vector dw = nextW.sub(prevW);
-        Vector v = prevG.multiply(dw);
-        return prevG.sub(prevDX.mulByTransposed(prevDX).div(dw.scalarMultiply(prevDX))).sub(v.mulByTransposed(v).div(v.scalarMultiply(dw)));
+        Vector dWaveX = prevDX.add(prevG.multiply(dw));
+        return prevG.sub(dWaveX.mulByTransposed(dWaveX).div(dw.scalarMultiply(dWaveX)));
     }
 }
