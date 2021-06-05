@@ -100,7 +100,7 @@ public abstract class AbstractNewtonMethod implements NewtonMethod {
             final double alpha = getAlpha(xPrev, pk);
             final var xK = xPrev.add(pk.mul(alpha));
             steps.addIteration(alpha, xK, pk, function.apply(xK));
-            if (steps.size() > 100000) throw new IllegalArgumentException("Too much iterations");
+            if (steps.size() > 200000) throw new IllegalArgumentException("Too much iterations");
             if (xK.sub(xPrev).norm() < eps) {
                 xPrev = xK;
                 break;
