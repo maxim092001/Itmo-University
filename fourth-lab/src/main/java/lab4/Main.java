@@ -98,7 +98,7 @@ public class Main {
 //        generateTables(MethodEnum.DAVIDON, f1, Vector.of(10, 0));
 //        generateTables(MethodEnum.DAVIDON, f1, Vector.of(15, 15));
 //
-//        generateTables(MethodEnum.DAVIDON, f2, Vector.of(0, 0));
+        generateTables(MethodEnum.DAVIDON, f2, Vector.of(0, 0));
 //        generateTables(MethodEnum.DAVIDON, f2, Vector.of(10, 0));
 //        generateTables(MethodEnum.DAVIDON, f2, Vector.of(15, 15));
 //
@@ -135,8 +135,8 @@ public class Main {
 //        generateTables(MethodEnum.CLASSIC_NEWTON, f2, Vector.of(15, 15));
 //
 //        generateTables(MethodEnum.CLASSIC_NEWTON, f3, Vector.of(0, 0));
-        generateTables(MethodEnum.CLASSIC_NEWTON, f3, Vector.of(10, 0));
-        generateTables(MethodEnum.CLASSIC_NEWTON, f3, Vector.of(15, 15));
+//        generateTables(MethodEnum.CLASSIC_NEWTON, f3, Vector.of(10, 0));
+//        generateTables(MethodEnum.CLASSIC_NEWTON, f3, Vector.of(15, 15));
 //
 //        generateTables(MethodEnum.CLASSIC_NEWTON, f4, Vector.of(0, 0, 0, 0));
 //        generateTables(MethodEnum.CLASSIC_NEWTON, f4, Vector.of(10, 0, 10, 0));

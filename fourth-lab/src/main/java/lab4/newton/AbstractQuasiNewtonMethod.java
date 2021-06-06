@@ -20,7 +20,10 @@ public abstract class AbstractQuasiNewtonMethod extends OneDirectionNewtonMethod
      */
     @Override
     public Vector minimize() {
-        FullMatrix prevG = FullMatrix.identityMatrix(size);
+        int iteration = 0;
+        var E = FullMatrix.identityMatrix(size);
+
+        FullMatrix prevG = E;
         Vector prevW = gradient(startPoint).mul(-1.0);
         Vector prevP = prevW;
         double ak = getAlpha(startPoint, prevP);
@@ -28,7 +31,13 @@ public abstract class AbstractQuasiNewtonMethod extends OneDirectionNewtonMethod
         Vector prevDX = prevX.sub(startPoint);
         while (prevDX.norm() > eps) {
             Vector nextW = gradient(prevX).mul(-1.0);
-            FullMatrix nextG = generateG(prevX, prevW, prevG, prevDX, nextW);
+            FullMatrix nextG;
+            if (iteration > size) {
+                nextG = E;
+                iteration = 0;
+            } else {
+                nextG = generateG(prevX, prevW, prevG, prevDX, nextW);
+            }
             Vector nextP = nextG.multiply(nextW);
             ak = getAlpha(prevX, nextP);
             Vector nextX = prevX.add(nextP.mul(ak));
@@ -38,6 +47,7 @@ public abstract class AbstractQuasiNewtonMethod extends OneDirectionNewtonMethod
             prevW = nextW;
             prevDX = nextX.sub(prevX);
             prevX = nextX;
+            iteration++;
         }
         return prevX;
     }

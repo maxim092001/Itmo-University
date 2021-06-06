@@ -40,7 +40,6 @@ public class Steps {
 
     public String toWolfram(final Function<Vector, Double> f, Vector startPoint) {
         List<Vector> list = steps.stream().map(IterationStep::getX).collect(Collectors.toCollection(ArrayList::new));
-        list = list.subList(0, 10000);
         list.add(0, startPoint);
         return "{" +
                 list.stream().map(i -> i.wolframView(f)).collect(Collectors.joining(",")) +
