@@ -8,24 +8,24 @@ Each lab required to implement optimization algorithm, research and report.
 
 First lab. One-dimensional optimization methods
 ----
-![Implementation](https://github.com/maxim092001/optimization-methods/tree/master/first-lab)
+![Implementation](https://github.com/maxim092001/Itmo-University/tree/master/math-optimization/first-lab)
 
-![Report](https://github.com/maxim092001/optimization-methods/blob/master/reports/lab1.pdf)
+![Report](https://github.com/maxim092001/Itmo-University/tree/master/math-optimization/reports/lab1.pdf)
 
 Second lab. Gradient descent methods
 ----
-![Implementation](https://github.com/maxim092001/optimization-methods/tree/master/second-lab)
+![Implementation](https://github.com/maxim092001/Itmo-University/tree/master/math-optimization/second-lab)
 
-![Report](https://github.com/maxim092001/optimization-methods/blob/master/reports/lab2.pdf)
+![Report](https://github.com/maxim092001/Itmo-University/tree/master/math-optimization/reports/lab2.pdf)
 
 Third lab. SLE solution methods
 ----
-![Implementation](https://github.com/maxim092001/optimization-methods/tree/master/third-lab)
+![Implementation](https://github.com/maxim092001/Itmo-University/tree/master/math-optimization/third-lab)
 
-![Report](https://github.com/maxim092001/optimization-methods/blob/master/reports/lab3.pdf)
+![Report](https://github.com/maxim092001/Itmo-University/tree/master/math-optimization/reports/lab3.pdf)
 
 Fourth lab. Newton and quasi-newton methods
 ----
-![Implementation](https://github.com/maxim092001/optimization-methods/tree/master/fourth-lab)
+![Implementation](https://github.com/maxim092001/Itmo-University/tree/master/math-optimization/fourth-lab)
 
-![Report](https://github.com/maxim092001/optimization-methods/blob/master/reports/lab4.pdf)
+![Report](https://github.com/maxim092001/Itmo-University/tree/master/math-optimization/reports/lab4.pdf)
