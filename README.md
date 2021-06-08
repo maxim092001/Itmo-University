@@ -99,6 +99,6 @@
   * Развертывали на [heroku](https://population-model.herokuapp.com/)
 
 
-[Методы оптимизаций](https://github.com/maxim092001/Itmo-University/tree/master/math-optim)
+[Методы оптимизаций](https://github.com/maxim092001/Itmo-University/tree/master/math-optimization)
 ----
-  * [Условия и реализация всех лабораторных работ](https://github.com/maxim092001/Itmo-University/tree/master/math-optim) 
+  * [Условия и реализация всех лабораторных работ](https://github.com/maxim092001/Itmo-University/tree/master/math-optimization) 
