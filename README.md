@@ -20,12 +20,12 @@ Second lab. Gradient descent methods
 
 Third lab. SLE solution methods
 ----
-![Implementation](https://github.com/maxim092001/optimization-methods/tree/master/second-lab)
+![Implementation](https://github.com/maxim092001/optimization-methods/tree/master/third-lab)
 
 ![Report](https://github.com/maxim092001/optimization-methods/blob/master/reports/lab3.pdf)
 
 Fourth lab. Newton and quasi-newton methods
 ----
-![Implementation](https://github.com/maxim092001/optimization-methods/tree/master/second-lab)
+![Implementation](https://github.com/maxim092001/optimization-methods/tree/master/fourth-lab)
 
 ![Report](https://github.com/maxim092001/optimization-methods/blob/master/reports/lab4.pdf)
