@@ -20,7 +20,7 @@
 Домашнее задание 3. Студенты
 ----
 
-#### Реализация: [StudentDB](https://github.com/maxim092001/Itmo-University/tree/master/java-advanced/java-solution/info/kgeorgiy/ja/grankin/student/StudentDB.java)
+#### Реализация: [StudentDB](https://github.com/maxim092001/Itmo-University/tree/master/java-advanced/java-solutions/info/kgeorgiy/ja/grankin/student/StudentDB.java)
 
 Модификация: сложный вариант (`GroupQuery`)
 
