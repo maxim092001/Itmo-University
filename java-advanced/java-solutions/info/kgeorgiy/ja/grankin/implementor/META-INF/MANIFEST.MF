@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: info.kgeorgiy.ja.grankin.implementor.Implementor
+Class-Path: ../../../java-advanced-2021/artifacts/info.kgeorgiy.java.advanced.implementor.jar
+
