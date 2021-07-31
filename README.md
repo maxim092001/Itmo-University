@@ -102,3 +102,7 @@
 [Методы оптимизаций](https://github.com/maxim092001/Itmo-University/tree/master/math-optimization)
 ----
   * [Условия и реализация всех лабораторных работ](https://github.com/maxim092001/Itmo-University/tree/master/math-optimization) 
+
+[Технологии программирования](https://github.com/maxim092001/Itmo-University/tree/master/java-advanced)
+----
+  * [Условия и реализация всех лабораторных работ](https://github.com/maxim092001/Itmo-University/tree/master/java-advanced) 
