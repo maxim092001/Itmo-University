@@ -6,14 +6,14 @@
 Домашнее задание 1. Обход файлов
 ----
 
-#### Реализация: [RecursiveWalk](https://github.com/maxim092001/Itmo-University/tree/master/java-advanced/java-solution/info/kgeorgiy/ja/grankin/walk)
+#### Реализация: [RecursiveWalk](https://github.com/maxim092001/Itmo-University/tree/master/java-advanced/java-solutions/info/kgeorgiy/ja/grankin/walk)
 
 Модификация: сложный вариант (`RecursiveWalk`)
 
 Домашнее задание 2. ArraySortedSet
 ----
 
-#### Реализация: [ArraySet](https://github.com/maxim092001/Itmo-University/tree/master/java-advanced/java-solution/info/kgeorgiy/ja/grankin/arrayset/ArraySet.java)
+#### Реализация: [ArraySet](https://github.com/maxim092001/Itmo-University/tree/master/java-advanced/java-solutions/info/kgeorgiy/ja/grankin/arrayset/ArraySet.java)
 
 Модификация: сложный вариант (`NavigableSet`): 
 
@@ -28,14 +28,14 @@
 Домашнее задание 4. Implementor
 ----
 
-#### Реализация: [Implementor](https://github.com/maxim092001/Itmo-University/tree/master/java-advanced/java-solution/info/kgeorgiy/ja/grankin/implementor/Implementor.java)
+#### Реализация: [Implementor](https://github.com/maxim092001/Itmo-University/tree/master/java-advanced/java-solutions/info/kgeorgiy/ja/grankin/implementor/Implementor.java)
 
 Модификация: сложный вариант (`class`)
 
 Домашнее задание 5. JarImplementor
 ----
 
-#### Реализация: [JarImplementor](https://github.com/maxim092001/Itmo-University/tree/master/java-advanced/java-solution/info/kgeorgiy/ja/grankin/implementor/Implementor.java)
+#### Реализация: [JarImplementor](https://github.com/maxim092001/Itmo-University/tree/master/java-advanced/java-solutions/info/kgeorgiy/ja/grankin/implementor/Implementor.java)
 
 Модификация: сложный вариант (`jar-class`)
 
@@ -43,7 +43,7 @@
 Домашнее задание 7. Итеративный параллелизм
 ----
 
-#### Реализация: [IterativeParallelism](https://github.com/maxim092001/Itmo-University/tree/master/java-advanced/java-solution/info/kgeorgiy/ja/grankin/concurrent/IterativeParallelism.java)
+#### Реализация: [IterativeParallelism](https://github.com/maxim092001/Itmo-University/tree/master/java-advanced/java-solutions/info/kgeorgiy/ja/grankin/concurrent/IterativeParallelism.java)
 
 Модификация: сложный вариант
    ```info.kgeorgiy.java.advanced.concurrent list <полное имя класса>```
@@ -51,7 +51,7 @@
 Домашнее задание 8. Параллельный запуск
 ----
 
-#### Реализация: [ParallelMapperImpl](https://github.com/maxim092001/Itmo-University/tree/master/java-advanced/java-solution/info/kgeorgiy/ja/grankin/concurrent/ParallelMapperImpl.java)
+#### Реализация: [ParallelMapperImpl](https://github.com/maxim092001/Itmo-University/tree/master/java-advanced/java-solutions/info/kgeorgiy/ja/grankin/concurrent/ParallelMapperImpl.java)
 
 Модификация: продвинутый вариант
     ```info.kgeorgiy.java.advanced.mapper advanced <полное имя класса>```
@@ -59,7 +59,7 @@
 Домашнее задание 9. Web Crawler
 ----
 
-#### Реализация: [WebCrawler](https://github.com/maxim092001/Itmo-University/tree/master/java-advanced/java-solution/info/kgeorgiy/ja/grankin/crawler/WebCrawler.java)
+#### Реализация: [WebCrawler](https://github.com/maxim092001/Itmo-University/tree/master/java-advanced/java-solutions/info/kgeorgiy/ja/grankin/crawler/WebCrawler.java)
 
 Модификация: сложный вариант
     ```info.kgeorgiy.java.advanced.crawler hard <полное имя класса>```
@@ -67,7 +67,7 @@
 Домашнее задание 10. Hello UDP
 ----
 
-#### Реализация: [Hello UDP](https://github.com/maxim092001/Itmo-University/tree/master/java-advanced/java-solution/info/kgeorgiy/ja/grankin/hello)
+#### Реализация: [Hello UDP](https://github.com/maxim092001/Itmo-University/tree/master/java-advanced/java-solutions/info/kgeorgiy/ja/grankin/hello)
 
 Модификация: сложный вариант
    * на противоположной стороне находится система, дающая ответы на различных языках
@@ -80,7 +80,7 @@
 Домашнее задание 12. HelloNonblockingUDP
 ----
 
-#### Реализация: [HelloNonblockingUDP](https://github.com/maxim092001/Itmo-University/tree/master/java-advanced/java-solution/info/kgeorgiy/ja/grankin/hello)
+#### Реализация: [HelloNonblockingUDP](https://github.com/maxim092001/Itmo-University/tree/master/java-advanced/java-solutions/info/kgeorgiy/ja/grankin/hello)
 
 
  * простой вариант:
