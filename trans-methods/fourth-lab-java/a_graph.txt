@@ -1,0 +1,22 @@
+digraph {	0 [label = "e"]
+	1 [label = "t"]
+	0 -> 1
+	2 [label = "f"]
+	1 -> 2
+	3 [label = "~"]
+	2 -> 3
+	5 [label = "f"]
+	2 -> 5
+	6 [label = "1"]
+	5 -> 6
+	8 [label = "tp"]
+	1 -> 8
+	10 [label = "ep"]
+	0 -> 10
+	12 [label = "v"]
+	0 -> 12
+	13 [label = "tv"]
+	12 -> 13
+	15 [label = "ev"]
+	12 -> 15
+}

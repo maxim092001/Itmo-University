@@ -1,0 +1,61 @@
+& 'java.util.*' ;
+
+? [] e ['Integer' val, 'Integer' acc]
+: t[] 'val = t.val; acc = t.val;' ep[acc]'val = ep.val; acc = val;' v[acc]'val = v.val;'
+;
+
+? ['Integer' acc] ep ['Integer' val, 'Integer' myAcc]
+: ADD t[] 'myAcc = acc + t.val' ep[myAcc] 'val = ep.val;'
+| SUB t[] 'myAcc = acc - t.val;' ep[myAcc] 'val = ep.val;'
+| EPS 'val = acc;'
+;
+
+? [] t ['Integer' val, 'Integer' myAcc]
+: f[]'myAcc = f.val;' tp[myAcc] 'val = tp.val;'
+;
+
+? ['Integer' acc] tp ['Integer' val, 'Integer' myAcc]
+: MUL f[] 'myAcc = acc * f.val;' tp[myAcc] 'val = tp.val;'
+| DIV f[] 'myAcc = acc / f.val;' tp[myAcc] 'val = tp.val;'
+| EPS 'val = acc;'
+;
+
+? [] f ['Integer' val]
+: LPAR e[] 'val = e.val;' RPAR
+| NOT f[]'val = ~f.val;'
+| NUM 'val = Integer.parseInt(NUM.text);'
+| SUB f[]'val = -f.val;'
+;
+
+? ['Integer' acc] v ['Integer' val, 'Integer' myAcc]
+: tv[acc] 'val = tv.val; myAcc = tv.val;' ev[myAcc]'val = ev.val; acc = val;'
+;
+
+? ['Integer' acc] ev ['Integer' val, 'Integer' myAcc]
+: OR  tvv[] 'myAcc = acc | tvv.val;' ev[myAcc] 'val = ev.val;'
+| XOR tvv[] 'myAcc = acc ^ tvv.val;' ev[myAcc] 'val = ev.val;'
+| EPS 'val = acc;'
+;
+
+? [] tvv ['Integer' val, 'Integer' myAcc]
+: f[]'myAcc = f.val;' tv[myAcc] 'val = tv.val;'
+;
+
+? ['Integer' acc] tv ['Integer' val, 'Integer' myAcc]
+: AND f[] 'myAcc = acc & f.val' tv[myAcc] 'val = tv.val;'
+| EPS 'val = acc;'
+;
+
+! SUB = ['-'];
+! NUM = ['[0-9]+'];
+! ADD = ['\\+'];
+! MUL = ['\\*'];
+! DIV = ['\\\\'];
+! LPAR = ['\\('];
+! RPAR = ['\\)'];
+! SKIP = [' \t\n\r'];
+! SEMI = [';'];
+! NOT = ['~'];
+! AND = ['&'];
+! OR  = ['\\|'];
+! XOR = ['\\^'];

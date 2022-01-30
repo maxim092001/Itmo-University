@@ -1,0 +1,17 @@
+public static final class Kek {
+	public static final int kek(int a, int b) {
+		int x = 1;
+		int y = 2;
+		return x + y;
+	}
+	private static double lol(int a) {
+		int z = 0;
+		if (a + 2 < 3) {
+			int f = 18;
+			return f + 3;
+		} else {
+			int q = 1;
+			return q + z;
+		}
+	}
+}

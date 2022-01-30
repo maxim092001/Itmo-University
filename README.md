@@ -122,3 +122,11 @@
 * *Третья лаба*
 	* [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/fp/homework-3-maxim092001/hw3)
 	* [Условия](https://github.com/maxim092001/Itmo-University/tree/master/fp/homework-3-maxim092001)
+
+[Методы трансляций](https://github.com/maxim092001/Itmo-University/tree/master/trans-methods)
+----
+
+* *Первая лаба (perl scripts)*
+	* [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/trans-methods/first-lab)
+	* [Условия](https://github.com/maxim092001/Itmo-University/tree/master/trans-methods/first-lab)
+* *Вторая лаба*

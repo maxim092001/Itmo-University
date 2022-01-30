@@ -1,0 +1,55 @@
+? [] e []
+: t[] x[]
+;
+
+? [] x []
+: XOR t[] x[]
+| EPS
+;
+
+? [] t []
+: m[] z[]
+;
+
+? [] z []
+: OR m[] z[]
+| EPS
+;
+
+? [] m []
+: g[] y[]
+;
+
+? [] y []
+: AND g[] y[]
+| EPS
+;
+
+? [] g []
+: OPEN e[] CLOSE
+| NOT g[]
+| VAR k[]
+;
+
+? [] k []
+: NOT i[]
+| IN VAR
+| EPS
+;
+
+? [] i []
+: NOT i[]
+| IN VAR
+;
+
+! IN = ['in'];
+! OPEN = ['\\('];
+! CLOSE = ['\\)'];
+! NOT = ['not'];
+! AND = ['and'];
+! OR = ['or'];
+! SKIP = [' \t\n\r'];
+! XOR = ['xor'];
+! VAR = ['[a-zA-Z]+'];
+
+
