@@ -1,135 +1,136 @@
 ### Нулевая лабораторная работа (бонусная)
 
 
-**Task 1**
+#### Task 1
 
-Create a module named HW0.T1 and define the following type in it:
+1. Create a module named HW0.T1 and define the following type in it:
 
-```hs
-data a <-> b = Iso (a -> b) (b -> a)
+	```hs
+	data a <-> b = Iso (a -> b) (b -> a)
 
-flipIso :: (a <-> b) -> (b <-> a)
-flipIso (Iso f g) = Iso g f
+	flipIso :: (a <-> b) -> (b <-> a)
+	flipIso (Iso f g) = Iso g f
 
-runIso :: (a <-> b) -> (a -> b)
-runIso (Iso f _) = f
-```
-Implement the following functions and isomorphisms:
+	runIso :: (a <-> b) -> (a -> b)
+	runIso (Iso f _) = f
+	```
+2. Implement the following functions and isomorphisms:
 
-```hs
-distrib :: Either a (b, c) -> (Either a b, Either a c)
-assocPair :: (a, (b, c)) <-> ((a, b), c)
-assocEither :: Either a (Either b c) <-> Either (Either a b) c
-```
-**Task 2**
+	```hs
+	distrib :: Either a (b, c) -> (Either a b, Either a c)
+	assocPair :: (a, (b, c)) <-> ((a, b), c)
+	assocEither :: Either a (Either b c) <-> Either (Either a b) c
+	```
 
-Create a module named HW0.T2 and define the following type in it:
+#### Task 2
 
-```hs
-type Not a = a -> Void
-```
+1. Create a module named HW0.T2 and define the following type in it:
 
-Implement the following functions and isomorphisms:
+	```hs
+	type Not a = a -> Void
+	```
 
-```hs
-doubleNeg :: a -> Not (Not a)
-reduceTripleNeg :: Not (Not (Not a)) -> Not a
-```
+2. Implement the following functions and isomorphisms:
 
-**Task 3**
+	```hs
+	doubleNeg :: a -> Not (Not a)
+	reduceTripleNeg :: Not (Not (Not a)) -> Not a
+	```
 
-Create a module named HW0.T3 and define the following combinators in it:
+#### Task 3
 
-```hs
-s :: (a -> b -> c) -> (a -> b) -> (a -> c)
-s f g x = f x (g x)
+1. Create a module named HW0.T3 and define the following combinators in it:
 
-k :: a -> b -> a
-k x y = x
-```
+	```hs
+	s :: (a -> b -> c) -> (a -> b) -> (a -> c)
+	s f g x = f x (g x)
 
-Using only those combinators and function application (i.e. no lambdas, pattern matching, and so on) define the following additional combinators:
+	k :: a -> b -> a
+	k x y = x
+	```
 
-```hs
-i :: a -> a
-compose :: (b -> c) -> (a -> b) -> (a -> c)
-contract :: (a -> a -> b) -> (a -> b)
-permute :: (a -> b -> c) -> (b -> a -> c)
-```
+2. Using *only those combinators* and function application (i.e. no lambdas, pattern matching, and so on) define the following additional combinators:
 
-For example:
-```hs
-i x = x         -- No (parameters on the LHS disallowed)
-i = \x -> x     -- No (lambdas disallowed)
-i = Prelude.id  -- No (only use s and k)
-i = s k k       -- OK
-i = (s k) k     -- OK (parentheses for grouping allowed)
-```
+	```hs
+	i :: a -> a
+	compose :: (b -> c) -> (a -> b) -> (a -> c)
+	contract :: (a -> a -> b) -> (a -> b)
+	permute :: (a -> b -> c) -> (b -> a -> c)
+	```
 
-**Task 4**
+	For example:
+	```hs
+	i x = x         -- No (parameters on the LHS disallowed)
+	i = \x -> x     -- No (lambdas disallowed)
+	i = Prelude.id  -- No (only use s and k)
+	i = s k k       -- OK
+	i = (s k) k     -- OK (parentheses for grouping allowed)
+	```
 
-Create a module named HW0.T4.
+#### Task 4
 
-Using the fix combinator from the Data.Function module define the following functions:
+1. Create a module named HW0.T4.
 
-```hs
-repeat' :: a -> [a]             -- behaves like Data.List.repeat
-map' :: (a -> b) -> [a] -> [b]  -- behaves like Data.List.map
-fib :: Natural -> Natural       -- computes the n-th Fibonacci number
-fac :: Natural -> Natural       -- computes the factorial
-```
-Do not use explicit recursion. For example:
+2. Using the fix combinator from the Data.Function module define the following functions:
 
-```hs
-repeat' = Data.List.repeat     -- No (obviously)
-repeat' x = x : repeat' x      -- No (explicit recursion disallowed)
-repeat' x = fix (x:)           -- OK
-```
+	```hs
+	repeat' :: a -> [a]             -- behaves like Data.List.repeat
+	map' :: (a -> b) -> [a] -> [b]  -- behaves like Data.List.map
+	fib :: Natural -> Natural       -- computes the n-th Fibonacci number
+	fac :: Natural -> Natural       -- computes the factorial
+	```
+	Do not use explicit recursion. For example:
 
-**Task 5**
+	```hs
+	repeat' = Data.List.repeat     -- No (obviously)
+	repeat' x = x : repeat' x      -- No (explicit recursion disallowed)
+	repeat' x = fix (x:)           -- OK
+	```
 
-Create a module named HW0.T5 and define the following type in it:
+#### Task 5
 
-```hs
-type Nat a = (a -> a) -> a -> a
-```
+1. Create a module named HW0.T5 and define the following type in it:
 
-Implement the following functions:
+	```hs
+	type Nat a = (a -> a) -> a -> a
+	```
 
-```hs
-nz :: Nat a
-ns :: Nat a -> Nat a
+2. Implement the following functions:
 
-nplus, nmult :: Nat a -> Nat a -> Nat a
+	```hs
+	nz :: Nat a
+	ns :: Nat a -> Nat a
 
-nFromNatural :: Natural -> Nat a
-nToNum :: Num a => Nat a -> a
-```
+	nplus, nmult :: Nat a -> Nat a -> Nat a
 
-The following equations must hold:
-```hs
-nToNum nz       ==  0
-nToNum (ns x)   ==  1 + nToNum x
+	nFromNatural :: Natural -> Nat a
+	nToNum :: Num a => Nat a -> a
+	```
 
-nToNum (nplus a b)   ==   nToNum a + nToNum b
-nToNum (nmult a b)   ==   nToNum a * nToNum b
-```
+3. The following equations must hold:
+	```hs
+	nToNum nz       ==  0
+	nToNum (ns x)   ==  1 + nToNum x
 
-**Task 6**
+	nToNum (nplus a b)   ==   nToNum a + nToNum b
+	nToNum (nmult a b)   ==   nToNum a * nToNum b
+	```
 
-Create a module named HW0.T6 and define the following values in it:
+#### Task 6
 
-```hs
-a = distrib (Left ("AB" ++ "CD" ++ "EF"))     -- distrib from HW0.T1
-b = map isSpace "Hello, World"
-c = if 1 > 0 || error "X" then "Y" else "Z"
-```
+1. Create a module named HW0.T6 and define the following values in it:
 
-Determine the WHNF (weak head normal form) of these values:
+	```hs
+	a = distrib (Left ("AB" ++ "CD" ++ "EF"))     -- distrib from HW0.T1
+	b = map isSpace "Hello, World"
+	c = if 1 > 0 || error "X" then "Y" else "Z"
+	```
 
-```
-a_whnf = ...
-b_whnf = ...
-c_whnf = ...
-```
+2. Determine the WHNF (weak head normal form) of these values:
+
+	```
+	a_whnf = ...
+	b_whnf = ...
+	c_whnf = ...
+	```
 
