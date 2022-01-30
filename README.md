@@ -128,5 +128,15 @@
 
 * *Первая лаба (perl scripts)*
 	* [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/trans-methods/first-lab)
-	* [Условия](https://github.com/maxim092001/Itmo-University/tree/master/trans-methods/first-lab)
-* *Вторая лаба*
+	* [Условия](https://github.com/maxim092001/Itmo-University/tree/master/trans-methods/first-lab/01-perl-re.pdf)
+* *Вторая лаба. (Вариант 4. Логические формулы с множествами в стиле
+Python)*
+	* [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/trans-methods/second-lab)
+	* [Условия](https://github.com/maxim092001/Itmo-University/tree/master/trans-methods/second-lab/02-recursive-parsing.pdf)
+* *Третья лаба. (Вариант 9. Подсветка синтаксиса в HTML)*
+	* [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/trans-methods/third-lab)
+	* [Условия](https://github.com/maxim092001/Itmo-University/tree/master/trans-methods/second-lab/03-bison-antlr.pdf)
+	* [Пример подсветки](https://github.com/maxim092001/Itmo-University/tree/master/trans-methods/second-lab/example.png)
+* *Четвертая лаба.*
+	* [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/trans-methods/fourth-lab)
+	* [Условия](https://github.com/maxim092001/Itmo-University/tree/master/trans-methods/fourth-lab)
