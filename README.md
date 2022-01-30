@@ -111,14 +111,14 @@
 [Функциональное программирование](https://github.com/maxim092001/Itmo-University/tree/master/fp)
 ----
 * *Нулевая лаба (бонусная)*
-	* [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/os/fp/homework-0-maxim092001)
-	* [Условия](https://github.com/maxim092001/Itmo-University/tree/master/os/fp/homework-0-maxim092001)
+	* [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/fp/homework-0-maxim092001)
+	* [Условия](https://github.com/maxim092001/Itmo-University/tree/master/fp/homework-0-maxim092001)
 * *Первая лаба*
-	* [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/os/fp/homework-1-maxim092001)
-	* [Условия](https://github.com/maxim092001/Itmo-University/tree/master/os/fp/homework-1-maxim092001)
+	* [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/fp/homework-1-maxim092001)
+	* [Условия](https://github.com/maxim092001/Itmo-University/tree/master/fp/homework-1-maxim092001)
 * *Вторая лаба*
-	* [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/os/fp/homework-2-maxim092001)
-	* [Условия](https://github.com/maxim092001/Itmo-University/tree/master/os/fp/homework-2-maxim092001)
+	* [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/fp/homework-2-maxim092001)
+	* [Условия](https://github.com/maxim092001/Itmo-University/tree/master/fp/homework-2-maxim092001)
 * *Третья лаба*
-	* [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/os/fp/homework-3-maxim092001)
-	* [Условия](https://github.com/maxim092001/Itmo-University/tree/master/os/fp/homework-3-maxim092001)
+	* [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/fp/homework-3-maxim092001)
+	* [Условия](https://github.com/maxim092001/Itmo-University/tree/master/fp/homework-3-maxim092001)
