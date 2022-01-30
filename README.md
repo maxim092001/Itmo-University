@@ -140,3 +140,9 @@ Python)*
 * *Четвертая лаба.*
 	* [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/trans-methods/fourth-lab)
 	* [Условия](https://github.com/maxim092001/Itmo-University/tree/master/trans-methods/fourth-lab)
+
+[Параллельное программирование](https://github.com/maxim092001/Itmo-University/tree/master/mpp)
+----
+	* [Условия и реализация всех заданий](https://github.com/maxim092001/Itmo-University/tree/master/mpp)
+
+

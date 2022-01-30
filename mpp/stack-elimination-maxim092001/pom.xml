@@ -1,0 +1,139 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>mpp</groupId>
+    <artifactId>stack-elimination</artifactId>
+    <version>2019</version>
+    <packaging>jar</packaging>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <jmh.version>1.21</jmh.version>
+        <atomicfu.version>0.14.4</atomicfu.version>
+        <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
+        <kotlin.version>1.3.50</kotlin.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jetbrains.kotlinx</groupId>
+            <artifactId>lincheck-jvm</artifactId>
+            <version>2.14.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.openjdk.jmh</groupId>
+            <artifactId>jmh-core</artifactId>
+            <version>${jmh.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjdk.jmh</groupId>
+            <artifactId>jmh-generator-annprocess</artifactId>
+            <version>${jmh.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jetbrains.kotlinx</groupId>
+            <artifactId>atomicfu</artifactId>
+            <version>${atomicfu.version}</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <sourceDirectory>${project.basedir}/src/main/java</sourceDirectory>
+        <testSourceDirectory>${project.basedir}/src/test/java</testSourceDirectory>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.5.1</version>
+                <executions>
+                    <!-- Replacing default-compile as it is treated specially by maven -->
+                    <execution>
+                        <id>default-compile</id>
+                        <phase>none</phase>
+                    </execution>
+                    <!-- Replacing default-testCompile as it is treated specially by maven -->
+                    <execution>
+                        <id>default-testCompile</id>
+                        <phase>none</phase>
+                    </execution>
+                    <execution>
+                        <id>java-compile</id>
+                        <phase>compile</phase>
+                        <goals> <goal>compile</goal> </goals>
+                    </execution>
+                    <execution>
+                        <id>java-test-compile</id>
+                        <phase>test-compile</phase>
+                        <goals> <goal>testCompile</goal> </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <source>7</source>
+                    <target>7</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.jetbrains.kotlin</groupId>
+                <artifactId>kotlin-maven-plugin</artifactId>
+                <version>${kotlin.version}</version>
+                <executions>
+                    <execution>
+                        <id>compile</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                        <configuration>
+                            <output>${project.build.directory}/classes-pre-atomicfu</output>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>test-compile</id>
+                        <goals> <goal>test-compile</goal> </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- transform classes with AtomicFU plugin -->
+            <plugin>
+                <groupId>org.jetbrains.kotlinx</groupId>
+                <artifactId>atomicfu-maven-plugin</artifactId>
+                <version>${atomicfu.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>transform</goal>
+                        </goals>
+                        <configuration>
+                            <input>${project.build.directory}/classes-pre-atomicfu</input>
+                            <!-- "VH" to use Java 9 VarHandle, "BOTH" to produce multi-version code -->
+                            <variant>FU</variant>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <repositories>
+        <repository>
+            <id>central</id>
+            <url>https://repo1.maven.org/maven2/</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>central</id>
+            <url>https://repo1.maven.org/maven2/</url>
+        </pluginRepository>
+    </pluginRepositories>
+</project>

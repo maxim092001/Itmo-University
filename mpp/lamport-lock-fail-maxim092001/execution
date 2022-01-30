@@ -1,0 +1,6 @@
+0 3 rd label[1] 0
+1 3 rd label[0] 0
+1 4 wr label[1] 1
+1 7 rd label[0] 0
+0 4 wr label[0] 1
+0 7 rd label[1] 1
