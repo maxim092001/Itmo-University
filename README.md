@@ -143,6 +143,43 @@ Python)*
 
 [Параллельное программирование](https://github.com/maxim092001/Itmo-University/tree/master/mpp)
 ----
-	* [Условия и реализация всех заданий](https://github.com/maxim092001/Itmo-University/tree/master/mpp)
+* [Условия и реализация всех заданий](https://github.com/maxim092001/Itmo-University/tree/master/mpp)
 
+
+[Анализ данных](https://github.com/maxim092001/Itmo-University/tree/master/data-analysis)
+----
+
+* *Бонусная лаба*
+	* [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/data-analysis/bonus/vk_cup.ipynb)
+	* [Условия](https://github.com/maxim092001/Itmo-University/tree/master/data-analysis/bonus)
+
+* *Первая лаба*
+	* [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/data-analysis/lab1/Lab-1.ipynb)
+	* [Условия](https://github.com/maxim092001/Itmo-University/tree/master/data-analysis/lab1)
+
+* *Вторая лаба*
+	* [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/data-analysis/lab2)
+	* [Условия](https://github.com/maxim092001/Itmo-University/tree/master/data-analysis/lab2)
+
+* *Третья лаба*
+	* [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/data-analysis/lab3/Lab3.ipynb)
+	* [Условия](https://github.com/maxim092001/Itmo-University/tree/master/data-analysis/lab3)
+
+* *Четвертая лаба*
+	* [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/data-analysis/lab4/Lab-4.ipynb)
+	* [Условия](https://github.com/maxim092001/Itmo-University/tree/master/data-analysis/lab4)
+
+
+* *Пятая лаба*
+	* [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/data-analysis/lab5/Lab-5.ipynb)
+	* [Условия](https://github.com/maxim092001/Itmo-University/tree/master/data-analysis/lab5)
+
+
+* *Шестая лаба*
+	* [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/data-analysis/lab6/Lab_6.ipynb)
+	* [Условия](https://github.com/maxim092001/Itmo-University/tree/master/data-analysis/lab6)
+
+* *Седьмая лаба*
+	* [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/data-analysis/lab7/Lab7.ipynb)
+	* [Условия](https://github.com/maxim092001/Itmo-University/tree/master/data-analysis/lab7)
 
