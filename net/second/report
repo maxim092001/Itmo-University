@@ -1,0 +1,44 @@
+1. IPV4
+
+ipconfig getpacket tap0
+
+2. 
+
+ipconfig getpacket tap0
+
+yiaddr/subnet_amsk
+
+yiaddr - потому что это "the IP address assigned to the specified network interface on the system from which the command was issued."
+
+3. 
+
+Включил AUTOMATIC-V6
+
+ipconfig set tap0 AUTOMATIC-V6
+
+4.
+
+ping6 fdca:1235:371e:5661:30:3fff:feef:baf6
+
+64 / 16 = 4
+
+Первые 4 группы из inet6 адреса + суффикс из задания
+
+5.
+
+host -6 t0x9kl7twik9qwhleeg1s1lj.localnetwork fdcd:cfa5:215d:7b98::35
+
+Using domain server:
+Name: fdcd:cfa5:215d:7b98::35
+Address: fdcd:cfa5:215d:7b98::35#53
+Aliases: 
+
+t0x9kl7twik9qwhleeg1s1lj.localnetwork has IPv6 address fdca:1235:371e:5661:db:34ff:fee4:c8a1
+
+6. 
+
+http://[fdca:1235:371e:5661:db:34ff:fee4:c8a1]:9229/
+
+CLICK ME!
+
+WELL DONE!

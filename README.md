@@ -47,7 +47,7 @@
   * *Графы*
       * [Условия](https://github.com/maxim092001/Itmo-University/blob/master/discrete-math/graphs/problem.pdf)
       * [Реализация](https://github.com/maxim092001/Itmo-University/blob/master/discrete-math/graphs)   
-       
+
   * *Матроиды*
       * [Условия](https://github.com/maxim092001/Itmo-University/blob/master/discrete-math/matroids/problem.pdf)
       * [Реализация](https://github.com/maxim092001/Itmo-University/blob/master/discrete-math/matroids)
@@ -182,4 +182,23 @@ Python)*
 * *Седьмая лаба*
 	* [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/data-analysis/lab7/Lab7.ipynb)
 	* [Условия](https://github.com/maxim092001/Itmo-University/tree/master/data-analysis/lab7)
+
+
+[Сети](https://github.com/maxim092001/Itmo-University/tree/master/net)
+----
+
+* *Первая лабораторная работа*
+    * [Отчет](https://github.com/maxim092001/Itmo-University/tree/master/net/first/report)
+    * [Условия](https://github.com/maxim092001/Itmo-University/tree/master/net/first)
+
+
+* *Вторая лабораторная работа*
+    * [Отчет](https://github.com/maxim092001/Itmo-University/tree/master/net/second/report)
+    * [Условия](https://github.com/maxim092001/Itmo-University/tree/master/net/second)
+
+
+* *Третья лабораторная работа*
+    * [Отчет](https://github.com/maxim092001/Itmo-University/tree/master/net/third/report)
+    * [Условия](https://github.com/maxim092001/Itmo-University/tree/master/net/third)
+
 

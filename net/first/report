@@ -1,0 +1,50 @@
+Все скачал по инструкции, настроил и подключил
+
+1.
+
+Воевал с ошибкой ifconfig: ioctl (SIOCDIFADDR): permission denied, помогло sudo (что логично)
+
+sudo ifconfig tap0 10.89.5.115 netmask  255.255.255.0
+
+ping 10.89.5.115
+
+2.
+
+Еще раз сделал ping 10.89.5.115
+
+arp -a
+
+
+Увидел
+
+(10.89.5.215) at 2:9:30:cf:ce:1d on tap0 ifscope [ethernet]
+
+3. 
+
+Добавил ipv6 адрес
+sudo ifconfig tap0 inet6 add fd33:83a2:247d:5a37:3597:f487:3ad8:1019/64
+
+Пинганул используя ping6
+ping6 fd33:83a2:247d:5a37:3597:f487:3ad8:ca36
+
+PING6(56=40+8+8 bytes) fd33:83a2:247d:5a37:3597:f487:3ad8:1019 --> fd33:83a2:247d:5a37:3597:f487:3ad8:ca36
+16 bytes from fd33:83a2:247d:5a37:3597:f487:3ad8:ca36, icmp_seq=0 hlim=64 time=101.734 ms
+16 bytes from fd33:83a2:247d:5a37:3597:f487:3ad8:ca36, icmp_seq=1 hlim=64 time=49.174 ms
+16 bytes from fd33:83a2:247d:5a37:3597:f487:3ad8:ca36, icmp_seq=2 hlim=64 time=102.989 ms
+16 bytes from fd33:83a2:247d:5a37:3597:f487:3ad8:ca36, icmp_seq=3 hlim=64 time=49.466 ms
+
+4.
+
+ndp -na
+
+fd33:83a2:247d:5a37:3597:f487:3ad8:ca36 2:a7:3d:5c:d3:cb    tap0 23h37m19s S  R
+
+5. 
+
+ping -f -s <X>   
+
+
+Перебор X чтобы пакеты доходили.
+
+X = 999
+ANS = X + 28

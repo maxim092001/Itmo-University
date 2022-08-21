@@ -1,0 +1,68 @@
+Работа выполнялась на Ubuntu 18.04
+
+1. Установил isc-dhcp-server
+Подключился к vpn
+
+В /etc/dhcp/dhpcd.conf 
+
+default-lease-time 600;
+max-lease-time 7200;
+authoritative;
+
+subnet 10.174.196.0 netmask 255.255.255.0 {
+ authoritative;
+ range 10.174.196.100 10.174.196.200;
+ option subnet-mask 255.255.255.0;
+ option routers 10.174.196.255;
+ option broadcast-address 10.174.196.255;
+ default-lease-time 600;
+ max-lease-time 7200;
+}
+
+sudo ifconfig tap0 10.174.196.0 netmask 255.255.255.0
+sudo systemctl start isc-dhcp-server
+sudo systemctl status isc-dhcp-server
+
+/etc/default/isc-dhcp-server
+
+# Defaults for isc-dhcp-server (sourced by /etc/init.d/isc-dhcp-server)
+
+# Path to dhcpd's config file (default: /etc/dhcp/dhcpd.conf).
+#DHCPDv4_CONF=/etc/dhcp/dhcpd.conf
+#DHCPDv6_CONF=/etc/dhcp/dhcpd6.conf
+
+# Path to dhcpd's PID file (default: /var/run/dhcpd.pid).
+#DHCPDv4_PID=/var/run/dhcpd.pid
+#DHCPDv6_PID=/var/run/dhcpd6.pid
+
+# Additional options to start dhcpd with.
+#       Don't use options -cf or -pf here; use DHCPD_CONF/ DHCPD_PID instead
+#OPTIONS=""
+
+# On what interfaces should the DHCP server (dhcpd) serve DHCP requests?
+#       Separate multiple interfaces with spaces, e.g. "eth0 eth1".
+INTERFACESv4="tap0"
+INTERFACESv6=""
+
+2.
+Используется radvd
+
+Конфигурация: (/etc/radvd.conf)
+
+interface tap0 {
+  AdvSendAdvert on;
+  prefix fdbb:1599:dd7a:97f6::/64 {
+     AdvOnLink on;
+  };
+};
+
+sudo ip -6 addr add fdbb:1599:dd7a:97f6::1  dev tap0
+
+systemctl restart radvd.service для перезапуска
+
+3. 
+
+journalctl -xeu isc-dhcp-server.service
+
+02:8f:cf:03:b3:ce
+
