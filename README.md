@@ -202,4 +202,27 @@ Python)*
     * [Условия](https://github.com/maxim092001/Itmo-University/tree/master/net/third)
 
 
+[Машинное обучение](https://github.com/maxim092001/Itmo-University/tree/master/machine-learning)
 
+* *Первая лабораторная работа*
+    * [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/machine-learning/lab1)
+
+* *Вторая лабораторная работа*
+    * [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/machine-learning/lab2)
+
+
+* *Третья лабораторная работа*
+    * [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/machine-learning/lab3)
+
+* *Четвертая лабораторная работа*
+    * [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/machine-learning/lab4)
+
+* *Пятая лабораторная работа*
+    * [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/machine-learning/lab5)
+
+* *Шестая лабораторная работа*
+    * [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/machine-learning/lab6)
+
+
+* *Седьмая лабораторная работа*
+    * [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/machine-learning/lab7)
