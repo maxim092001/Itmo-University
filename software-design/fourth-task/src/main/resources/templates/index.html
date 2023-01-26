@@ -1,0 +1,62 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<head>
+    <title>Title</title>
+</head>
+
+<body style="font-family: Arial,serif">
+
+<h2>Add TODO list</h2>
+<form method="post" action="/add-todo-list">
+    <input type="text" placeholder="Add TODO list" required="required" name="todolist_name" pattern="[A-Za-z0-9]{1,20}"/>
+    <input type="submit" value="add">
+</form>
+
+<h2 th:if="${!todolists.isEmpty()}">Your TODO lists</h2>
+<div th:each="list: ${todolists}" style="display: inline-block; margin-right: 42px">
+    <h3 th:text="${list.name}"></h3>
+    <div style="display: flex; flex-direction: row">
+        <form th:object="${todos}" method="post" action="/add-todo">
+            <input type="hidden" name="list_id" th:value="${list.id}"/>
+            <input type="text" placeholder="Add TODO" required="required" name="todo_name" pattern="[A-Za-z0-9]{1,20}"/>
+            <input type="submit" value="add">
+        </form>
+
+        <form method="post" action="/remove-todo-list" style="margin-left: 12px;">
+            <input type="hidden" name="list_id" th:value="${list.id}"/>
+            <input type="submit" value="x"/>
+        </form>
+    </div>
+    <table th:if="${!list.todos.isEmpty()}">
+        <thead>
+        <tr>
+            <th style="margin-left: 8px">Done</th>
+            <th style="margin-left: 8px">Name</th>
+            <th style="margin-left: 8px"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="t: ${list.todos}">
+            <td>
+                <form method="post" action="/toggle-todo" style="margin-bottom: 0">
+                    <input type="hidden" name="id" th:value="${t.id}"/>
+                    <input type="hidden" name="list_id" th:value="${list.id}"/>
+                    <input type="checkbox" th:checked="${t.status}" onclick="this.form.submit()"/>
+                </form>
+            </td>
+            <td th:text="${t.name}"></td>
+            <td>
+                <form method="post" action="/remove-todo" style="margin-bottom: 0">
+                    <input type="hidden" th:name="id" th:value="${t.id}"/>
+                    <input type="hidden" name="list_id" th:value="${list.id}"/>
+                    <input type="submit" value="x"/>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>
