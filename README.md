@@ -203,6 +203,7 @@ Python)*
 
 
 [Машинное обучение](https://github.com/maxim092001/Itmo-University/tree/master/machine-learning)
+----
 
 * *Контест*
     * [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/machine-learning/codeforces)
