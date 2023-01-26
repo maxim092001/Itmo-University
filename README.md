@@ -215,7 +215,6 @@ Python)*
 * *Вторая лабораторная работа*
     * [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/machine-learning/lab2)
 
-
 * *Третья лабораторная работа*
     * [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/machine-learning/lab3)
 
@@ -228,6 +227,43 @@ Python)*
 * *Шестая лабораторная работа*
     * [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/machine-learning/lab6)
 
-
 * *Седьмая лабораторная работа*
     * [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/machine-learning/lab7)
+
+[Распределенные системы](https://github.com/maxim092001/Itmo-University/tree/master/pds)
+----
+
+
+* *Consisten hashing*
+    * [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/pds/consistent-hashing-maxim092001)
+    * [Условия](https://github.com/maxim092001/Itmo-University/tree/master/pds/consistent-hashing-maxim092001)
+
+
+* *Consensus error*
+    * [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/pds/distributed-consensus-error-maxim092001)
+    * [Условия](https://github.com/maxim092001/Itmo-University/tree/master/pds/distributed-consensus-error-maxim092001)
+
+	
+* *Dijkstra*
+    * [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/pds/distributed-dijkstra-maxim092001)
+    * [Условия](https://github.com/maxim092001/Itmo-University/tree/master/pds/distributed-dijkstra-maxim092001)
+
+
+* *Fifo*
+    * [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/pds/distributed-fifo-maxim092001)
+    * [Условия](https://github.com/maxim092001/Itmo-University/tree/master/pds/distributed-fifo-maxim092001)
+
+
+* *Merge*
+    * [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/pds/distributed-merge-maxim092001)
+    * [Условия](https://github.com/maxim092001/Itmo-University/tree/master/pds/distributed-merge-maxim092001)
+
+
+* *Mutex*
+    * [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/pds/distributed-mutex-maxim092001)
+    * [Условия](https://github.com/maxim092001/Itmo-University/tree/master/pds/distributed-mutex-maxim092001)
+
+
+* *Raft*
+    * [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/pds/distributed-raft-maxim092001)
+    * [Условия](https://github.com/maxim092001/Itmo-University/tree/master/pds/distributed-raft-maxim092001)
