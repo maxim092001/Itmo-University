@@ -267,3 +267,10 @@ Python)*
 * *Raft*
     * [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/pds/distributed-raft-maxim092001)
     * [Условия](https://github.com/maxim092001/Itmo-University/tree/master/pds/distributed-raft-maxim092001)
+
+[ППО](https://github.com/maxim092001/Itmo-University/tree/master/software-design)
+----
+
+* *Все лабораторные работы*
+    * [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/software-design)
+    * [Условия](https://github.com/maxim092001/Itmo-University/tree/master/software-design/problems.pdf)
