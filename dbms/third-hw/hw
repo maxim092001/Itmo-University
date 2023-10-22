@@ -1,0 +1,106 @@
+StudentId, StudentName, GroupId, GroupName, CourseId, CourseName, LecturerId, LecturerName, Mark
+
+1. ФЗ: 
+
+	StudentId -> StudentName
+	
+	GroupId -> GroupName
+
+	CourseId -> CourseName
+
+	LecturerId -> LecturerName
+
+	(StudentId, CourseId) -> Mark
+
+	CourseId -> LecturerId
+	
+	StudentId -> GroupId
+
+2. Ключи: 
+	(StudentId, CourseId) - key
+
+3. 
+	3.1: GroupId, CourseId
+		X_+_S = GroupId, CourseId 
+		X_+_S = GroupId, CourseId, GroupName 
+		X_+_S = GroupId, CourseId, GroupName, CourseName
+		X_+_S = GroupId, CourseId, GroupName, CourseName, LecturerId
+		X_+_S = GroupId, CourseId, GroupName, CourseName, LecturerId, LecturerName
+
+	3.2: StudentId, CourseId
+		X_+_S = StudentId, CourseId
+		X_+_S = StudentId, CourseId, StudentName
+		X_+_S = StudentId, CourseId, StudentName, CourseName
+		X_+_S = StudentId, CourseId, StudentName, CourseName, Mark
+		X_+_S = StudentId, CourseId, StudentName, CourseName, Mark, LecturerId
+		X_+_S = StudentId, CourseId, StudentName, CourseName, Mark, LecturerId, LecturerName
+		X_+_S = StudentId, CourseId, StudentName, CourseName, Mark, LecturerId, LecturerName, GroupId
+		X_+_S = StudentId, CourseId, StudentName, CourseName, Mark, LecturerId, LecturerName, GroupId, GroupName
+
+	3.3	StudentId, LecturerId
+		X_+_S = StudentId, LecturerId
+		X_+_S = StudentId, LecturerId, StudentName
+		X_+_S = StudentId, LecturerId, StudentName, LecturerName
+		X_+_S = StudentId, LecturerId, StudentName, LecturerName, GroupId
+		X_+_S = StudentId, LecturerId, StudentName, LecturerName, GroupId, GroupName
+
+4.
+	1. Расщепление правых частей.
+		В представленных ФЗ в правых частях только по одному атрибуту.
+
+	2. Удаление атрибута
+		(StudentId, CourseId) -> Mark
+		
+		Попробуем удалить CourseId
+		X = StudentId
+		X = StudentId, StudentName
+		X = StudentId, StudentName, GroupId
+		X = StudentId, StudentName, GroupId, GroupName -- замыкание
+
+		Попробуем удалить StudentId
+
+		X = CourseId
+		X = CourseId, CourseName
+		X = CourseId, CourseName, LecturerId
+		X = CourseId, CourseName, LecturerId, LecturerName
+
+		Из данной ФЗ нельзя удалить атрибут.
+
+	3. Удаление правила
+		StudentId -> StudentName
+		X = StudentId
+		Y = StudentName
+		X_+_(S \ { X -> Y }) = StudentId, GroupId, GroupName
+
+		GroupId -> GroupName
+		X = GroupId
+		Y = GroupName
+		X_+_(S \ { X -> Y }) = GroupId
+
+		CourseId -> CourseName
+		X = CourseId
+		Y = CourseName
+		X_+_(S \ { X -> Y }) = CourseId, LecturerId, LecturerName
+
+		LecturerId -> LecturerName
+		X = LecturerId
+		Y = LecturerName
+		X_+_(S \ { X -> Y }) = LecturerId
+
+		(StudentId, CourseId) -> Mark
+		X = (StudentId, CourseId)
+		Y = Mark
+		X_+_(S \ { X -> Y }) = StudentId, CourseId, StudentName, CourseName, LecturerId, LecturerName, GroupId, GroupName
+
+		CourseId -> LecturerId
+		X = CourseId
+		Y = LecturerId
+		X_+_(S \ { X -> Y }) = CourseId, CourseName
+
+
+		StudentId -> GroupId
+		X = StudentId
+		Y = GroupId
+		X_+_(S \ { X -> Y }) = StudentId, StudentName
+
+

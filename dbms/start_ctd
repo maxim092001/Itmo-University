@@ -1,0 +1,81 @@
+Docker start: 
+
+docker run --name CTD -e POSTGRES_USER=CTD -e POSTGRES_PASSWORD=CTD -p 5432:5432 -v /Users/maximgran/ITMO/dbms/CTD:/var/lib/postgresql/data -d postgres
+
+UTF-8: https://www.shubhamdipt.com/blog/how-to-change-postgresql-database-encoding-to-utf8/
+
+create table Groups (
+                        group_id int,
+                        group_no char(6)
+);
+create table Students (
+                          student_id int,
+                          name varchar(30),
+                          group_id int
+);
+
+insert into Groups
+(group_id, group_no) values
+                         (1, 'M34371'),
+                         (2, 'M34391');
+
+insert into Students
+(student_id, name, group_id) values
+                                 (1, 'Ilona Bozhe', 2),
+                                 (2, 'Alex Slastin', 1),
+                                 (3, 'Ivan Uss', 1);
+
+update Students
+set group_id = 2
+where student_id = 2;
+
+update Students
+set group_id = 2
+where name = 'Alex Slastin';
+
+insert into Groups (group_id, group_no) values
+    (1, 'M34381');
+
+delete from Groups where group_no = 'M34381';
+
+alter table Groups
+    add constraint group_id_unique unique (group_id);
+
+update Students set group_id = 5 where student_id = 1;
+
+update Students set group_id = 1 where student_id = 1;
+
+alter table Students add foreign key (group_id)
+    references Groups (group_id);
+
+select * from Students;
+
+insert into Students
+(student_id, name, group_id) values
+                                (4, 'Михайлов Максим Николаевич', 1),
+                                (5, 'Назаров Георгий Дмитриевич', 1),
+                                (6, 'Самсикова Мария Денисовна', 1),
+                                (7, 'Стрельников Илья Денисович', 1);
+
+
+
+insert into Groups
+(group_id, group_no) values
+                         (1, 'M34341'),
+                         (2, 'M34351'),
+                         (3, 'M34361'),
+                         (4, 'M34371');
+
+
+insert into Students
+(student_id, name, group_id) values
+                                 (1, 'Студент', 1),
+                                 (2, 'Студент', 2),
+                                 (3, 'Студент', 2),
+                                 (4, 'Студент', 3),
+                                 (5, 'Студент', 3),
+                                 (6, 'Студент', 3),
+                                 (7, 'Студент', 4),
+                                 (8, 'Студент', 4),
+                                 (9, 'Студент', 4),
+                                 (10, 'Студент', 4);

@@ -1,0 +1,11 @@
+proj {StudentId, StudentName, GroupId} (
+    (Students  njoin (
+				proj {GroupId} (Plan njoin proj {CourseId} (sigma{CourseName = :CourseName} (Courses)))
+			)
+		)
+		except     
+		(Students njoin (
+				proj {StudentId} (Marks njoin proj {CourseId} (sigma{CourseName = :CourseName} (Courses)))
+    	)
+    )
+)

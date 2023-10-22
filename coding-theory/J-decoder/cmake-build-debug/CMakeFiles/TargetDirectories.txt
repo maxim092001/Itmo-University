@@ -1,0 +1,3 @@
+/Users/maximgran/ITMO/coding-theory/J-decoder/cmake-build-debug/CMakeFiles/J_decoder.dir
+/Users/maximgran/ITMO/coding-theory/J-decoder/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/maximgran/ITMO/coding-theory/J-decoder/cmake-build-debug/CMakeFiles/rebuild_cache.dir

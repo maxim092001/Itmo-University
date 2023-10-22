@@ -1,0 +1,12 @@
+StudentInfoWithMark(StudentId) :-
+	Students(StudentId, _, _),
+	Marks(StudentId, CourseId, _),
+	Courses(CourseId, CourseName),
+	CourseName = :CourseName.
+StudentInfoWithoutMark(StudentId, StudentName, GroupName) :- 
+	Students(StudentId, StudentName, GroupId),
+	Groups(GroupId, GroupName),
+	Plan(GroupId, CourseId, _),
+	Courses(CourseId, CourseName),
+	not StudentInfoWithMark(StudentId),
+	CourseName = :CourseName.

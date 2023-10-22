@@ -1,0 +1,8 @@
+proj{StudentId}(sigma{StudentId = RealStudentId}(
+	(proj{StudentId, CourseId}(Marks)) gdiv 
+		(rename{RealStudentId = StudentId}(
+				proj{CourseId, StudentId}(sigma{LecturerName = :LecturerName}(Students njoin Plan njoin Lecturers))
+			)
+		)
+	)
+)

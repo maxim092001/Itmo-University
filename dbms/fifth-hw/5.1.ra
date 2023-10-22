@@ -1,0 +1,5 @@
+proj {StudentName, CourseName} (
+		(proj {StudentName, GroupId} (Students))
+		njoin
+		(proj {CourseName, GroupId} (Plan njoin Courses))
+)

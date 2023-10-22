@@ -1,0 +1,8 @@
+StudentIdsWithMarksForLecturer(StudentId) :- 
+	Students(StudentId, _, GroupId),
+	Marks(StudentId, CourseId, _),
+	Plan(GroupId, CourseId, LecturerId),
+	Lecturers(LecturerId, :LecturerName).
+StudentIdsWithoutMarksForLecturer(StudentId) :-
+	Students(StudentId, _, _),
+	not StudentIdsWithMarksForLecturer(StudentId).

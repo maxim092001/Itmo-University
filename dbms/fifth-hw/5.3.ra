@@ -1,0 +1,9 @@
+proj {StudentName, CourseName} (
+		(
+			(proj {StudentId, StudentName, GroupId} (Students))
+			njoin
+			(proj {CourseName, GroupId, CourseId} (Plan njoin Courses))
+		)
+		except
+		(proj {StudentId, StudentName, GroupId, CourseId, CourseName} (sigma{Mark = 4 || Mark = 5}(Students njoin Marks njoin Courses)))
+)

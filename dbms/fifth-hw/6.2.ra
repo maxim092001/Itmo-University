@@ -1,0 +1,8 @@
+proj {StudentId}(Students) 
+	except
+	(
+		proj {StudentId} (
+			sigma{LecturerName = :LecturerName}(Students njoin Marks njoin Plan njoin Lecturers)
+		)
+	)
+

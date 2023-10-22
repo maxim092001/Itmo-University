@@ -1,0 +1,4 @@
+Team(TeamId) :-
+    Sessions(SessionId, TeamId, _, _),
+	Runs(_, SessionId, _, _, 1),
+	Teams(TeamId, _).

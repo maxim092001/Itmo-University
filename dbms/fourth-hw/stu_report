@@ -1,0 +1,100 @@
+create table Groups
+(
+    group_id   int         not null,
+    group_name varchar(10) not null UNIQUE,
+    PRIMARY KEY (group_id)
+);
+
+create table Students
+(
+    student_id   int         not null,
+    student_name varchar(30) not null,
+    group_id     int         not null,
+    PRIMARY KEY (student_id),
+    CONSTRAINT fk_group FOREIGN KEY (group_id) REFERENCES Groups (group_id)
+);
+
+create table Lecturers
+(
+    lecturer_id   int         not null,
+    lecturer_name varchar(30) not null,
+    PRIMARY KEY (lecturer_id)
+);
+
+create table Courses
+(
+    course_id   int         not null,
+    course_name varchar(50) not null,
+    PRIMARY KEY (course_id)
+);
+
+create table Marks
+(
+    mark       varchar(2) not null,
+    course_id  int        not null,
+    student_id int        not null,
+    PRIMARY KEY (student_id, course_id),
+    CONSTRAINT fk_student FOREIGN KEY (student_id) REFERENCES Students (student_id),
+    CONSTRAINT fk_course FOREIGN KEY (course_id) REFERENCES Courses (course_id)
+);
+
+create table CoursePlans
+(
+    course_id   int not null,
+    group_id    int not null,
+    lecturer_id int not null,
+    PRIMARY KEY (course_id, group_id),
+    CONSTRAINT fk_course FOREIGN KEY (course_id) REFERENCES Courses (course_id),
+    CONSTRAINT fk_group FOREIGN KEY (group_id) REFERENCES Groups (group_id),
+    CONSTRAINT fk_lecturer FOREIGN KEY (lecturer_id) REFERENCES Lecturers (lecturer_id)
+);
+
+insert into Groups(group_id, group_name)
+values (1, 'M34341'),
+       (2, 'M34351'),
+       (3, 'M34361'),
+       (4, 'M34371'),
+       (5, 'M34381'),
+       (6, 'M34391');
+
+insert into Students(student_id, student_name, group_id)
+values (1, 'Студент1', 1),
+       (2, 'Студент2', 1),
+       (3, 'Студент3', 2),
+       (4, 'Студент4', 2),
+       (5, 'Студент5', 3),
+       (6, 'Студент6', 3),
+       (7, 'Студент7', 4),
+       (8, 'Студент8', 5);
+
+insert into Lecturers(lecturer_id, lecturer_name)
+values (1, 'Станкевич Андрей Сергеевич'),
+       (2, 'Корнеев Георгий Александрович'),
+       (3, 'Кохась Константин Петрович'),
+       (4, 'Скаков Павел Серегеевич');
+
+insert into Courses(course_id, course_name)
+values (1, 'Базы данных'),
+       (2, 'Математический анализ'),
+       (3, 'Введение в программирование'),
+       (4, 'Дискретная математика'),
+       (5, 'Методы трансляций');
+
+insert into CoursePlans(course_id, group_id, lecturer_id)
+values (1, 1, 2),
+       (1, 2, 2),
+       (1, 3, 2),
+       (1, 4, 2),
+       (1, 5, 2),
+       (1, 6, 2),
+       (2, 1, 3),
+       (2, 2, 3),
+       (4, 3, 1),
+       (5, 4, 1);
+
+insert into Marks(mark, course_id, student_id)
+values ('5A', 1, 1),
+       ('4B', 2, 1),
+       ('3E', 2, 2),
+       ('4C', 4, 5);
+

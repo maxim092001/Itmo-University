@@ -1,0 +1,4 @@
+proj {StudentId} (
+	(proj {StudentId, CourseId} (Marks)) div
+	(proj {CourseId} (sigma{LecturerName = :LecturerName}(Lecturers njoin Plan)))
+)

@@ -1,0 +1,8 @@
+proj {StudentId, StudentName, GroupId} (
+	(Students) njoin (
+		proj {StudentId} (
+				(sigma{Mark = :Mark} (Marks)) njoin
+				(sigma{LecturerId = :LecturerId} (Plan))
+		)
+	)
+)
