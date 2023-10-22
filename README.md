@@ -16,37 +16,37 @@
   * *Куб-3 Трассировка*
       * [Условия](https://github.com/maxim092001/Itmo-University/blob/master/linear-algebra/plane/problem.pdf)
       * [Реализация](https://github.com/maxim092001/Itmo-University/blob/master/linear-algebra/plane/main.py)
-    
+
 [Алгоритмы и структуры данных](https://github.com/maxim092001/Itmo-University/tree/master/algorithms)
 ----
-  
+
   * *Дерево отрезков*
       * [Условия](https://github.com/maxim092001/Itmo-University/blob/master/algorithms/segment-tree/problem.pdf)
       * [Реализация](https://github.com/maxim092001/Itmo-University/blob/master/algorithms/segment-tree)
   * *Графы*
       * [Условия](https://github.com/maxim092001/Itmo-University/blob/master/algorithms/graph/problem.pdf)
-      * [Реализация](https://github.com/maxim092001/Itmo-University/blob/master/algorithms/graph)    
+      * [Реализация](https://github.com/maxim092001/Itmo-University/blob/master/algorithms/graph)
 
 [C++](https://github.com/maxim092001/Itmo-University/tree/master/cpp)
 ----
-  * [8-puzzle](https://github.com/maxim092001/Itmo-University/blob/master/cpp/8-puzzle) 
-  
-  * [genome-assembly](https://github.com/maxim092001/Itmo-University/blob/master/cpp/genome-assembly) 
-      
-  * [calc-numeral-systems](https://github.com/maxim092001/Itmo-University/blob/master/cpp/calc-numeral-systems) 
-      
-  * [ouch-enter-order](https://github.com/maxim092001/Itmo-University/blob/master/cpp/ouch-enter-order) 
-      
-  * [sort-n-f](https://github.com/maxim092001/Itmo-University/blob/master/cpp/sort-n-f) 
-  
+  * [8-puzzle](https://github.com/maxim092001/Itmo-University/blob/master/cpp/8-puzzle)
+
+  * [genome-assembly](https://github.com/maxim092001/Itmo-University/blob/master/cpp/genome-assembly)
+
+  * [calc-numeral-systems](https://github.com/maxim092001/Itmo-University/blob/master/cpp/calc-numeral-systems)
+
+  * [ouch-enter-order](https://github.com/maxim092001/Itmo-University/blob/master/cpp/ouch-enter-order)
+
+  * [sort-n-f](https://github.com/maxim092001/Itmo-University/blob/master/cpp/sort-n-f)
+
   * [second-chance-arbitrary](https://github.com/maxim092001/Itmo-University/blob/master/cpp/second-chance-arbitrary)
-      
+
 [Дискретная математика](https://github.com/maxim092001/Itmo-University/tree/master/discrete-math)
 ----
-  
+
   * *Графы*
       * [Условия](https://github.com/maxim092001/Itmo-University/blob/master/discrete-math/graphs/problem.pdf)
-      * [Реализация](https://github.com/maxim092001/Itmo-University/blob/master/discrete-math/graphs)   
+      * [Реализация](https://github.com/maxim092001/Itmo-University/blob/master/discrete-math/graphs)
 
   * *Матроиды*
       * [Условия](https://github.com/maxim092001/Itmo-University/blob/master/discrete-math/matroids/problem.pdf)
@@ -58,7 +58,7 @@
 
 [Парадигмы программирования](https://github.com/maxim092001/Itmo-University/tree/master/paradigms)
 ----
-  * [Условия и реализация всех заданий](https://github.com/maxim092001/Itmo-University/tree/master/paradigms) 
+  * [Условия и реализация всех заданий](https://github.com/maxim092001/Itmo-University/tree/master/paradigms)
 
 [Операционные системы](https://github.com/maxim092001/Itmo-University/tree/master/os)
 ----
@@ -83,7 +83,7 @@
       * [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/os/lab5)
       * [Условия](https://github.com/maxim092001/Itmo-University/tree/master/os/lab5/OS_Lab5.pdf)
       * [Графики](https://github.com/maxim092001/Itmo-University/tree/master/os/lab5/ReportGraphics.pdf)
- 
+
  * *Шестая лаба*
       * [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/os/lab6) Реализация на Powershell.
       * [Условия](https://github.com/maxim092001/Itmo-University/tree/master/os/lab6/OS_Lab6.pdf)
@@ -101,7 +101,7 @@
 
 [Методы оптимизаций](https://github.com/maxim092001/Itmo-University/tree/master/math-optimization)
 ----
-  * [Условия и реализация всех лабораторных работ](https://github.com/maxim092001/Itmo-University/tree/master/math-optimization) 
+  * [Условия и реализация всех лабораторных работ](https://github.com/maxim092001/Itmo-University/tree/master/math-optimization)
 
 [Технологии программирования](https://github.com/maxim092001/Itmo-University/tree/master/java-advanced)
 ----
@@ -243,7 +243,7 @@ Python)*
     * [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/pds/distributed-consensus-error-maxim092001)
     * [Условия](https://github.com/maxim092001/Itmo-University/tree/master/pds/distributed-consensus-error-maxim092001)
 
-	
+
 * *Dijkstra*
     * [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/pds/distributed-dijkstra-maxim092001)
     * [Условия](https://github.com/maxim092001/Itmo-University/tree/master/pds/distributed-dijkstra-maxim092001)
@@ -274,3 +274,11 @@ Python)*
 * *Все лабораторные работы*
     * [Реализация](https://github.com/maxim092001/Itmo-University/tree/master/software-design)
     * [Условия](https://github.com/maxim092001/Itmo-University/tree/master/software-design/problems.pdf)
+
+
+[Базы данных](https://github.com/maxim092001/Itmo-University/tree/master/dbms)
+----
+
+
+[Теория кодирования](https://github.com/maxim092001/Itmo-University/tree/master/coding-theory)
+----
